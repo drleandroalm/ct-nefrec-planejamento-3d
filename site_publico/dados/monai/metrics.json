@@ -1,0 +1,619 @@
+{
+ "kidney_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "totalseg",
+    "b": "vista3d",
+    "dice": 0.9144,
+    "hd95_mm": 10.14
+   },
+   {
+    "a": "totalseg",
+    "b": "rsuper",
+    "dice": 0.3764,
+    "hd95_mm": 112.9
+   },
+   {
+    "a": "totalseg",
+    "b": "kits21_venous",
+    "dice": 0.8128,
+    "hd95_mm": 13.88
+   },
+   {
+    "a": "totalseg",
+    "b": "kits21_arterial",
+    "dice": 0.7484,
+    "hd95_mm": 23.19
+   },
+   {
+    "a": "totalseg",
+    "b": "unest",
+    "dice": 0.7021,
+    "hd95_mm": 29.9
+   },
+   {
+    "a": "vista3d",
+    "b": "rsuper",
+    "dice": 0.4025,
+    "hd95_mm": 101.57
+   },
+   {
+    "a": "vista3d",
+    "b": "kits21_venous",
+    "dice": 0.7884,
+    "hd95_mm": 18.35
+   },
+   {
+    "a": "vista3d",
+    "b": "kits21_arterial",
+    "dice": 0.7078,
+    "hd95_mm": 25.62
+   },
+   {
+    "a": "vista3d",
+    "b": "unest",
+    "dice": 0.6634,
+    "hd95_mm": 35.93
+   },
+   {
+    "a": "rsuper",
+    "b": "kits21_venous",
+    "dice": 0.3285,
+    "hd95_mm": 87.92
+   },
+   {
+    "a": "rsuper",
+    "b": "kits21_arterial",
+    "dice": 0.2872,
+    "hd95_mm": 79.08
+   },
+   {
+    "a": "rsuper",
+    "b": "unest",
+    "dice": 0.2296,
+    "hd95_mm": 139.94
+   },
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.8429,
+    "hd95_mm": 13.17
+   },
+   {
+    "a": "kits21_venous",
+    "b": "unest",
+    "dice": 0.7592,
+    "hd95_mm": 27.27
+   },
+   {
+    "a": "kits21_arterial",
+    "b": "unest",
+    "dice": 0.7547,
+    "hd95_mm": 18.96
+   }
+  ],
+  "volumes_ml": {
+   "totalseg": 184.03,
+   "vista3d": 200.06,
+   "rsuper": 788.38,
+   "kits21_venous": 158.1,
+   "kits21_arterial": 154.54,
+   "unest": 102.54
+  }
+ },
+ "kidney_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "totalseg",
+    "b": "vista3d",
+    "dice": 0.9723,
+    "hd95_mm": 1.5
+   },
+   {
+    "a": "totalseg",
+    "b": "rsuper",
+    "dice": 0.9366,
+    "hd95_mm": 9.71
+   },
+   {
+    "a": "totalseg",
+    "b": "kits21_venous",
+    "dice": 0.9058,
+    "hd95_mm": 5.85
+   },
+   {
+    "a": "totalseg",
+    "b": "kits21_arterial",
+    "dice": 0.7183,
+    "hd95_mm": 13.28
+   },
+   {
+    "a": "totalseg",
+    "b": "unest",
+    "dice": 0.9467,
+    "hd95_mm": 2.95
+   },
+   {
+    "a": "vista3d",
+    "b": "rsuper",
+    "dice": 0.9498,
+    "hd95_mm": 8.98
+   },
+   {
+    "a": "vista3d",
+    "b": "kits21_venous",
+    "dice": 0.9177,
+    "hd95_mm": 5.55
+   },
+   {
+    "a": "vista3d",
+    "b": "kits21_arterial",
+    "dice": 0.7337,
+    "hd95_mm": 13.63
+   },
+   {
+    "a": "vista3d",
+    "b": "unest",
+    "dice": 0.9471,
+    "hd95_mm": 2.09
+   },
+   {
+    "a": "rsuper",
+    "b": "kits21_venous",
+    "dice": 0.941,
+    "hd95_mm": 7.93
+   },
+   {
+    "a": "rsuper",
+    "b": "kits21_arterial",
+    "dice": 0.7639,
+    "hd95_mm": 14.06
+   },
+   {
+    "a": "rsuper",
+    "b": "unest",
+    "dice": 0.9605,
+    "hd95_mm": 8.86
+   },
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.7515,
+    "hd95_mm": 12.22
+   },
+   {
+    "a": "kits21_venous",
+    "b": "unest",
+    "dice": 0.9334,
+    "hd95_mm": 4.76
+   },
+   {
+    "a": "kits21_arterial",
+    "b": "unest",
+    "dice": 0.754,
+    "hd95_mm": 12.22
+   }
+  ],
+  "volumes_ml": {
+   "totalseg": 136.55,
+   "vista3d": 141.55,
+   "rsuper": 151.56,
+   "kits21_venous": 136.99,
+   "kits21_arterial": 144.79,
+   "unest": 141.98
+  }
+ },
+ "inferior_vena_cava": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "totalseg",
+    "b": "vista3d",
+    "dice": 0.9627,
+    "hd95_mm": 1.87
+   },
+   {
+    "a": "totalseg",
+    "b": "rsuper",
+    "dice": 0.9334,
+    "hd95_mm": 2.0
+   },
+   {
+    "a": "vista3d",
+    "b": "rsuper",
+    "dice": 0.924,
+    "hd95_mm": 3.65
+   }
+  ],
+  "volumes_ml": {
+   "totalseg": 95.3,
+   "vista3d": 97.96,
+   "rsuper": 94.18
+  }
+ },
+ "aorta": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "totalseg",
+    "b": "vista3d",
+    "dice": 0.9687,
+    "hd95_mm": 1.5
+   },
+   {
+    "a": "totalseg",
+    "b": "rsuper",
+    "dice": 0.8999,
+    "hd95_mm": 11.99
+   },
+   {
+    "a": "vista3d",
+    "b": "rsuper",
+    "dice": 0.9057,
+    "hd95_mm": 11.15
+   }
+  ],
+  "volumes_ml": {
+   "totalseg": 155.91,
+   "vista3d": 154.4,
+   "rsuper": 137.43
+  }
+ },
+ "tumor_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "rsuper",
+    "b": "kits21_venous",
+    "dice": 0.7188,
+    "hd95_mm": 28.48
+   },
+   {
+    "a": "rsuper",
+    "b": "kits21_arterial",
+    "dice": 0.7142,
+    "hd95_mm": 26.83
+   },
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.9079,
+    "hd95_mm": 18.21
+   }
+  ],
+  "volumes_ml": {
+   "rsuper": 656.63,
+   "kits21_venous": 1003.72,
+   "kits21_arterial": 954.88
+  }
+ },
+ "thrombus": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "hu_filling_defect": 15.42
+  }
+ },
+ "kidney_cyst_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "totalseg",
+    "b": "ts_cysts",
+    "dice": 0.0,
+    "hd95_mm": 47.98
+   },
+   {
+    "a": "totalseg",
+    "b": "vista3d",
+    "dice": 0.0,
+    "hd95_mm": 106.71
+   },
+   {
+    "a": "totalseg",
+    "b": "kits21_venous",
+    "dice": 0.0,
+    "hd95_mm": 118.86
+   },
+   {
+    "a": "totalseg",
+    "b": "kits21_arterial",
+    "dice": 0.0,
+    "hd95_mm": 121.02
+   },
+   {
+    "a": "ts_cysts",
+    "b": "vista3d",
+    "dice": 0.0,
+    "hd95_mm": 79.86
+   },
+   {
+    "a": "ts_cysts",
+    "b": "kits21_venous",
+    "dice": 0.0,
+    "hd95_mm": 129.41
+   },
+   {
+    "a": "ts_cysts",
+    "b": "kits21_arterial",
+    "dice": 0.0,
+    "hd95_mm": 136.53
+   },
+   {
+    "a": "vista3d",
+    "b": "kits21_venous",
+    "dice": 0.0681,
+    "hd95_mm": 140.5
+   },
+   {
+    "a": "vista3d",
+    "b": "kits21_arterial",
+    "dice": 0.001,
+    "hd95_mm": 146.63
+   },
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.079,
+    "hd95_mm": 7.6
+   }
+  ],
+  "volumes_ml": {
+   "totalseg": 0.5,
+   "ts_cysts": 69.48,
+   "vista3d": 7.36,
+   "kits21_venous": 4.32,
+   "kits21_arterial": 0.18
+  }
+ },
+ "adrenal_gland_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 2.88
+  }
+ },
+ "adrenal_gland_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 2.58
+  }
+ },
+ "collecting_system_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "unest": 5.93
+  }
+ },
+ "collecting_system_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "unest": 7.03
+  }
+ },
+ "duodenum": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 38.09
+  }
+ },
+ "gallbladder": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 24.9
+  }
+ },
+ "iliac_artery_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 10.36
+  }
+ },
+ "iliac_artery_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 9.3
+  }
+ },
+ "iliac_vena_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 27.99
+  }
+ },
+ "iliac_vena_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 21.41
+  }
+ },
+ "kidney_and_masses_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.9146,
+    "hd95_mm": 15.06
+   }
+  ],
+  "volumes_ml": {
+   "kits21_venous": 1161.81,
+   "kits21_arterial": 1109.59
+  }
+ },
+ "kidney_and_masses_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.7545,
+    "hd95_mm": 12.43
+   }
+  ],
+  "volumes_ml": {
+   "kits21_venous": 138.09,
+   "kits21_arterial": 146.13
+  }
+ },
+ "kidney_cyst_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "ts_cysts": 0.72
+  }
+ },
+ "liver": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 1826.24
+  }
+ },
+ "pancreas": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 64.32
+  }
+ },
+ "portal_vein_and_splenic_vein": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 25.64
+  }
+ },
+ "renal_arteries": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "cect": 7.4
+  }
+ },
+ "renal_veins": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "cect": 24.19
+  }
+ },
+ "spleen": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 179.15
+  }
+ },
+ "stomach": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 168.09
+  }
+ },
+ "tumor_only_left": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.9099,
+    "hd95_mm": 16.5
+   }
+  ],
+  "volumes_ml": {
+   "kits21_venous": 999.39,
+   "kits21_arterial": 954.88
+  }
+ },
+ "tumor_right": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [
+   {
+    "a": "rsuper",
+    "b": "kits21_venous",
+    "dice": 0.646,
+    "hd95_mm": 3.28
+   },
+   {
+    "a": "rsuper",
+    "b": "kits21_arterial",
+    "dice": 0.0,
+    "hd95_mm": 18.8
+   },
+   {
+    "a": "kits21_venous",
+    "b": "kits21_arterial",
+    "dice": 0.0,
+    "hd95_mm": 18.79
+   }
+  ],
+  "volumes_ml": {
+   "rsuper": 1.89,
+   "kits21_venous": 1.1,
+   "kits21_arterial": 1.34
+  }
+ },
+ "vertebrae_L1": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 36.78
+  }
+ },
+ "vertebrae_L2": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 42.11
+  }
+ },
+ "vertebrae_L3": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 47.24
+  }
+ },
+ "vertebrae_L4": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 48.91
+  }
+ },
+ "vertebrae_L5": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 47.75
+  }
+ },
+ "vertebrae_T11": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 30.89
+  }
+ },
+ "vertebrae_T12": {
+  "metric_type": "inter-model agreement (no ground truth) - NOT accuracy",
+  "pairs": [],
+  "volumes_ml": {
+   "totalseg": 31.66
+  }
+ }
+}

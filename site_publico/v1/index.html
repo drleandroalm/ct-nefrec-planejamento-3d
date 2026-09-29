@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TC Nefrec — planejamento cirúrgico (visualizador local)</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="style.css" />
+  <script src="static-shim.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/three.module.js",
+      "three/addons/": "./vendor/three/addons/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="disclaimer" class="disclaimer" role="alert">
+    ⚠ Segmentação automática por IA — uso educacional/planejamento, não diagnóstico; validar com radiologista. Material educacional: não é laudo.
+  </div>
+  <div id="testBanner" class="test-banner" hidden>
+    MODO TESTE — GEOMETRIA E MÉTRICAS <b>SINTÉTICAS</b> (primitivas geométricas). <b>NÃO SÃO DADOS DO PACIENTE.</b>
+    <a href="./">Sair do modo teste</a>
+  </div>
+  <div id="updateBar" class="update-bar" hidden>
+    Novos arquivos de segmentação detectados no manifesto. <button type="button" id="reloadBtn">Recarregar visualizador</button>
+  </div>
+  <header>
+    <div>
+      <h1><a href="../" style="color:inherit;text-decoration:none" title="Voltar ao início">TC Nefrec — planejamento cirúrgico</a></h1>
+      <p class="sub">Nefrectomia esquerda · modelos 3D derivados da TC · versão pública (sem imagens da TC)</p>
+    </div>
+    <nav id="tabs">
+      <button type="button" data-tab="t3d" class="active">3D (GLB)</button>
+      <button type="button" data-tab="tcmp">Comparação entre modelos</button>
+      <button type="button" data-tab="tsemtc" title="Cortes da TC disponíveis apenas na versão local (dados de imagem da paciente não são publicados)" style="opacity:.7">🔒 Cortes 2D / Volume (só na versão local)</button>
+      <button type="button" data-tab="tfiles">Arquivos e status</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= 3D ================= -->
+    <section id="t3d" class="tab active">
+      <aside class="panel">
+        <div class="box">
+          <h3>Fontes (GLB)</h3>
+          <div id="srcList" class="list"></div>
+        </div>
+        <div class="box">
+          <details id="distBox" open>
+            <summary><h3 style="display:inline">Distâncias do tumor (GT do Leo)</h3></summary>
+            <div id="distList"></div>
+          </details>
+        </div>
+        <div class="box">
+          <h3>Vistas anatômicas</h3>
+          <div class="grid3" id="viewBtns"></div>
+          <div class="row"><button type="button" id="fitBtn">Enquadrar</button><button type="button" id="shotBtn" class="primary">📷 Captura de tela</button></div>
+          <label class="small">Convenção de coordenadas do GLB
+            <select id="convSel"></select>
+          </label>
+        </div>
+        <div class="box">
+          <h3>Planos de corte</h3>
+          <div id="clipRows"></div>
+        </div>
+        <div class="box grow">
+          <h3>Estruturas <span class="muted" id="structCount"></span></h3>
+          <div class="row small"><button type="button" id="allOn">Mostrar todas</button><button type="button" id="allOff">Ocultar todas</button><button type="button" id="resetCol">Cores padrão</button></div>
+          <div id="structList"></div>
+        </div>
+      </aside>
+      <div class="stage">
+        <div id="v3d" class="v3d"></div>
+        <div class="hud" id="hud3d"></div>
+        <div class="hint">Botão esquerdo: girar · direito (ou Shift+esquerdo): mover · roda: zoom. Gizmo: D/E = direita/esquerda do paciente.</div>
+        <div id="wait3d" class="waiting" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= COMPARAÇÃO ================= -->
+    <section id="tcmp" class="tab">
+      <aside class="panel">
+        <div class="box">
+          <h3>Estrutura</h3>
+          <select id="cmpStruct"></select>
+          <div class="row small">
+            <label><input type="radio" name="cmpColor" value="model" checked /> Cores por modelo</label>
+            <label><input type="radio" name="cmpColor" value="anat" /> Cores anatômicas</label>
+          </div>
+          <label class="small"><input type="checkbox" id="cmpContext" /> Contexto: demais estruturas em cinza translúcido</label>
+        </div>
+        <div class="box">
+          <h3>Camadas 3D por modelo</h3>
+          <div id="cmpLayers" class="list"></div>
+          <div class="row"><button type="button" id="cmpFit">Enquadrar</button><button type="button" id="cmpShot">📷 Captura</button></div>
+          <div class="grid3" id="cmpViewBtns"></div>
+        </div>
+        <div class="box"><h3>Máscaras 2D por modelo</h3><p class="small warn-inline">Cortes da TC disponíveis apenas na versão local (dados de imagem da paciente não são publicados).</p></div>
+        <div class="box" hidden>
+          <h3>Máscaras 2D por modelo</h3>
+          <div id="cmpMasks" class="list"></div>
+          <button type="button" id="cmpTo2d" class="primary">Abrir estas camadas nos cortes 2D</button>
+        </div>
+      </aside>
+      <div class="stage split">
+        <div class="stage-top">
+          <div id="vcmp" class="v3d"></div>
+          <div class="hud" id="hudCmp"></div>
+          <div id="waitCmp" class="waiting" hidden></div>
+        </div>
+        <div class="metrics">
+          <h3>Concordância entre modelos (Dice / HD95)</h3>
+          <p class="warn-inline">Isto mede <b>concordância inter-modelos</b> (um modelo contra outro ou contra o consenso). <b>NÃO é acurácia contra padrão-ouro</b>: não há segmentação manual de referência. Alta concordância não garante que a segmentação esteja correta.</p>
+          <label class="small"><input type="checkbox" id="metricsOnlySel" /> Somente a estrutura selecionada</label>
+          <div id="metricsBox"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CORTES 2D / VOLUME: indisponíveis na versão pública ================= -->
+    <section id="tsemtc" class="tab">
+      <div class="waiting" style="position:static;display:flex;align-items:center;justify-content:center;min-height:60vh">
+        <div class="card" role="note" style="max-width:640px">
+          <h2>🔒 Cortes da TC disponíveis apenas na versão local (dados de imagem da paciente não são publicados)</h2>
+          <p>Esta versão pública contém somente dados derivados: malhas 3D (GLB), métricas e relatórios de QA em texto.
+             As abas <b>“Cortes 2D (TC + máscaras)”</b> e <b>“Volume 3D (WebGPU)”</b> dependem das imagens da tomografia
+             e das máscaras volumétricas e por isso ficam restritas à versão local.</p>
+          <p>Continuam disponíveis: <b>3D (GLB)</b>, <b>Comparação entre modelos</b> (malhas e métricas Dice/HD95) e <b>Arquivos e status</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ARQUIVOS ================= -->
+    <section id="tfiles" class="tab">
+      <div class="files">
+        <div class="box">
+          <h3>Status da segmentação</h3>
+          <p class="small muted" id="manInfo"></p>
+          <table class="tbl" id="expectedTbl"></table>
+          <p class="small">Versão pública estática (GitHub Pages): lista congelada no build; somente dados derivados (malhas 3D, métricas, QA em texto). Volumes de TC, máscaras NIfTI e mapas de rótulos não são publicados.</p>
+        </div>
+        <div class="box" id="aiBox">
+          <h3>Descrição textual por IA</h3>
+          <div id="aiText"></div>
+        </div>
+        <div class="box">
+          <h3>Arquivos encontrados</h3>
+          <div id="fileList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

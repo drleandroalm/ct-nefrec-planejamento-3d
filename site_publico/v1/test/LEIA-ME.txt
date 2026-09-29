@@ -1,0 +1,1 @@
+Arquivos SINTÉTICOS de teste do visualizador. NÃO são dados do paciente.

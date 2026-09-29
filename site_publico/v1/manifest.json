@@ -1,0 +1,3245 @@
+{
+ "schema": 1,
+ "project": "ct-nefrec",
+ "out_dir": "dados/",
+ "out_exists": true,
+ "disclaimer": "Segmentação automática por IA — uso educacional/planejamento, não diagnóstico; validar com radiologista.",
+ "base_volumes": [],
+ "glb": [
+  {
+   "id": "leo_gt",
+   "label": "Ground truth do Leo (tumor · rim esq. · sistema coletor)",
+   "model": "GT do Leo",
+   "path": "dados/cir_gt/cir_gt.glb",
+   "url": "../dados/cir_gt/cir_gt.glb",
+   "expected": false,
+   "leo_gt": true,
+   "default_on": true,
+   "convention": "ras_zup",
+   "convention_locked": true,
+   "convention_note": "RAS mm, Z superior, não centrado (igual ao axisfixed); leo_gt_glb.json",
+   "exists": true,
+   "size_mb": 5.58
+  },
+  {
+   "id": "surgical",
+   "label": "Cirúrgico — TotalSegmentator (axisfixed)",
+   "model": "TotalSegmentator",
+   "path": "dados/glb/nefrec_surgical_axisfixed.glb",
+   "url": "../dados/glb/nefrec_surgical_axisfixed.glb",
+   "expected": true,
+   "convention": "ras_zup",
+   "convention_note": "RAS mm, Z superior; no three.js girado −90° em X",
+   "default_on": false,
+   "exists": true,
+   "size_mb": 44.73
+  },
+  {
+   "id": "fused_gt_lite",
+   "label": "Fusão com GT do Leo — viewer_assets_gt (lite)",
+   "model": "Fusão com GT do Leo",
+   "path": "dados/viewer_assets_gt/compressed/surgical_scene_lite.meshopt.glb",
+   "url": "../dados/viewer_assets_gt/compressed/surgical_scene_lite.meshopt.glb",
+   "expected": false,
+   "default_on": true,
+   "unreliable": false,
+   "fused": true,
+   "fused_gt": true,
+   "leo_derived_structures": [
+    "tumor_left",
+    "kidney_left",
+    "collecting_system"
+   ],
+   "convention": "gltf_yup",
+   "convention_locked": true,
+   "centre_offset_gltf_mm": [
+    -22.417094440597396,
+    -653.0798635095184,
+    -108.08947155915854
+   ],
+   "convention_note": "glTF Y-up = (x, z, −y) de RAS mm, centrado; sem rotação; + centre_offset para alinhar (scene_manifest.json)",
+   "exists": true,
+   "size_mb": 0.6,
+   "scene_defaults": {
+    "cirurgiao__tumor_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Tumor renal esquerdo",
+     "volume_ml": 1198.953,
+     "components": 5
+    },
+    "cirurgiao__kidney_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Rim esquerdo",
+     "volume_ml": 64.69,
+     "components": 1
+    },
+    "fusao_maioria__kidney_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Rim direito",
+     "volume_ml": 142.153,
+     "components": 1
+    },
+    "cirurgiao__collecting_system": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Sistema coletor (pielocalicial)",
+     "volume_ml": 19.525,
+     "components": 5
+    },
+    "unest__collecting_system_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Sistema coletor direito (pielocalicial)",
+     "volume_ml": 6.464,
+     "components": 1
+    },
+    "totalseg__kidney_cyst_right": {
+     "default_visible": true,
+     "default_opacity": 0.8,
+     "label_pt": "Cisto renal direito",
+     "volume_ml": 0.718,
+     "components": 1
+    },
+    "fusao_maioria__aorta": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Aorta",
+     "volume_ml": 153.08,
+     "components": 1
+    },
+    "totalseg__iliac_artery_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Artéria ilíaca esquerda",
+     "volume_ml": 10.358,
+     "components": 2
+    },
+    "totalseg__iliac_artery_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Artéria ilíaca direita",
+     "volume_ml": 9.305,
+     "components": 1
+    },
+    "fusao_maioria__inferior_vena_cava": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia cava inferior",
+     "volume_ml": 105.218,
+     "components": 1
+    },
+    "totalseg__iliac_vena_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia ilíaca esquerda",
+     "volume_ml": 27.993,
+     "components": 1
+    },
+    "totalseg__iliac_vena_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia ilíaca direita",
+     "volume_ml": 21.41,
+     "components": 1
+    },
+    "totalseg__portal_vein_and_splenic_vein": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia porta e veia esplênica",
+     "volume_ml": 25.642,
+     "components": 1
+    },
+    "totalseg__adrenal_gland_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Adrenal esquerda",
+     "volume_ml": 2.884,
+     "components": 1
+    },
+    "totalseg__adrenal_gland_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Adrenal direita",
+     "volume_ml": 2.576,
+     "components": 1
+    },
+    "totalseg__liver": {
+     "default_visible": true,
+     "default_opacity": 0.4,
+     "label_pt": "Fígado",
+     "volume_ml": 1826.237,
+     "components": 1
+    },
+    "totalseg__spleen": {
+     "default_visible": true,
+     "default_opacity": 0.8,
+     "label_pt": "Baço",
+     "volume_ml": 178.509,
+     "components": 1
+    },
+    "totalseg__pancreas": {
+     "default_visible": true,
+     "default_opacity": 0.85,
+     "label_pt": "Pâncreas",
+     "volume_ml": 64.323,
+     "components": 1
+    },
+    "totalseg__duodenum": {
+     "default_visible": true,
+     "default_opacity": 0.6,
+     "label_pt": "Duodeno",
+     "volume_ml": 38.087,
+     "components": 1
+    },
+    "totalseg__stomach": {
+     "default_visible": false,
+     "default_opacity": 0.4,
+     "label_pt": "Estômago",
+     "volume_ml": 168.087,
+     "components": 1
+    },
+    "totalseg__gallbladder": {
+     "default_visible": true,
+     "default_opacity": 0.7,
+     "label_pt": "Vesícula biliar",
+     "volume_ml": 24.899,
+     "components": 1
+    },
+    "totalseg__colon": {
+     "default_visible": false,
+     "default_opacity": 0.5,
+     "label_pt": "Cólon",
+     "volume_ml": 676.715,
+     "components": 2
+    },
+    "totalseg__small_bowel": {
+     "default_visible": false,
+     "default_opacity": 0.5,
+     "label_pt": "Intestino delgado",
+     "volume_ml": 549.142,
+     "components": 4
+    },
+    "totalseg__vertebrae_T11": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra T11",
+     "volume_ml": 30.892,
+     "components": 1
+    },
+    "totalseg__vertebrae_T12": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra T12",
+     "volume_ml": 31.659,
+     "components": 1
+    },
+    "totalseg__vertebrae_L1": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L1",
+     "volume_ml": 36.774,
+     "components": 1
+    },
+    "totalseg__vertebrae_L2": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L2",
+     "volume_ml": 42.11,
+     "components": 1
+    },
+    "totalseg__vertebrae_L3": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L3",
+     "volume_ml": 47.243,
+     "components": 1
+    },
+    "totalseg__vertebrae_L4": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L4",
+     "volume_ml": 48.91,
+     "components": 1
+    },
+    "totalseg__vertebrae_L5": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L5",
+     "volume_ml": 47.751,
+     "components": 1
+    },
+    "hu_search__thrombus": {
+     "default_visible": false,
+     "default_opacity": 0.9,
+     "label_pt": "Trombo (candidato)",
+     "volume_ml": 15.483,
+     "components": 9
+    },
+    "cect__renal_arteries": {
+     "default_visible": false,
+     "default_opacity": 1.0,
+     "label_pt": "Artérias renais (não confiável)",
+     "volume_ml": 1.171,
+     "components": 5
+    },
+    "cect__renal_veins_other": {
+     "default_visible": false,
+     "default_opacity": 1.0,
+     "label_pt": "Veias renais/outras (não confiável)",
+     "volume_ml": 4.019,
+     "components": 3
+    },
+    "divergencia_modelos__disagreement_kidney_right": {
+     "default_visible": false,
+     "default_opacity": 0.3,
+     "label_pt": "Divergência entre modelos — rim dir.",
+     "volume_ml": 91.875,
+     "components": 1
+    },
+    "divergencia_modelos__disagreement_inferior_vena_cava": {
+     "default_visible": false,
+     "default_opacity": 0.3,
+     "label_pt": "Divergência entre modelos — VCI",
+     "volume_ml": 14.275,
+     "components": 9
+    },
+    "divergencia_modelos__disagreement_aorta": {
+     "default_visible": false,
+     "default_opacity": 0.3,
+     "label_pt": "Divergência entre modelos — aorta",
+     "volume_ml": 25.509,
+     "components": 15
+    }
+   },
+   "compressed_from": "surgical_scene_lite.glb"
+  },
+  {
+   "id": "fused_gt_optional",
+   "label": "Fusão GT — camadas opcionais/incertas (trombo, vasos renais, divergências)",
+   "model": "Fusão com GT do Leo",
+   "path": "dados/viewer_assets_gt/compressed/optional_layers.meshopt.glb",
+   "url": "../dados/viewer_assets_gt/compressed/optional_layers.meshopt.glb",
+   "expected": false,
+   "default_on": false,
+   "unreliable": true,
+   "fused": true,
+   "fused_gt": true,
+   "leo_derived_structures": [
+    "tumor_left",
+    "kidney_left",
+    "collecting_system"
+   ],
+   "convention": "gltf_yup",
+   "convention_locked": true,
+   "centre_offset_gltf_mm": [
+    -22.417094440597396,
+    -653.0798635095184,
+    -108.08947155915854
+   ],
+   "convention_note": "glTF Y-up = (x, z, −y) de RAS mm, centrado; sem rotação; + centre_offset para alinhar (scene_manifest.json)",
+   "exists": true,
+   "size_mb": 1.0,
+   "scene_defaults": {
+    "cirurgiao__tumor_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Tumor renal esquerdo",
+     "volume_ml": 1198.953,
+     "components": 5
+    },
+    "cirurgiao__kidney_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Rim esquerdo",
+     "volume_ml": 64.69,
+     "components": 1
+    },
+    "fusao_maioria__kidney_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Rim direito",
+     "volume_ml": 142.153,
+     "components": 1
+    },
+    "cirurgiao__collecting_system": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Sistema coletor (pielocalicial)",
+     "volume_ml": 19.525,
+     "components": 5
+    },
+    "unest__collecting_system_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Sistema coletor direito (pielocalicial)",
+     "volume_ml": 6.464,
+     "components": 1
+    },
+    "totalseg__kidney_cyst_right": {
+     "default_visible": true,
+     "default_opacity": 0.8,
+     "label_pt": "Cisto renal direito",
+     "volume_ml": 0.718,
+     "components": 1
+    },
+    "fusao_maioria__aorta": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Aorta",
+     "volume_ml": 153.08,
+     "components": 1
+    },
+    "totalseg__iliac_artery_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Artéria ilíaca esquerda",
+     "volume_ml": 10.358,
+     "components": 2
+    },
+    "totalseg__iliac_artery_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Artéria ilíaca direita",
+     "volume_ml": 9.305,
+     "components": 1
+    },
+    "fusao_maioria__inferior_vena_cava": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia cava inferior",
+     "volume_ml": 105.218,
+     "components": 1
+    },
+    "totalseg__iliac_vena_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia ilíaca esquerda",
+     "volume_ml": 27.993,
+     "components": 1
+    },
+    "totalseg__iliac_vena_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia ilíaca direita",
+     "volume_ml": 21.41,
+     "components": 1
+    },
+    "totalseg__portal_vein_and_splenic_vein": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Veia porta e veia esplênica",
+     "volume_ml": 25.642,
+     "components": 1
+    },
+    "totalseg__adrenal_gland_left": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Adrenal esquerda",
+     "volume_ml": 2.884,
+     "components": 1
+    },
+    "totalseg__adrenal_gland_right": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Adrenal direita",
+     "volume_ml": 2.576,
+     "components": 1
+    },
+    "totalseg__liver": {
+     "default_visible": true,
+     "default_opacity": 0.4,
+     "label_pt": "Fígado",
+     "volume_ml": 1826.237,
+     "components": 1
+    },
+    "totalseg__spleen": {
+     "default_visible": true,
+     "default_opacity": 0.8,
+     "label_pt": "Baço",
+     "volume_ml": 178.509,
+     "components": 1
+    },
+    "totalseg__pancreas": {
+     "default_visible": true,
+     "default_opacity": 0.85,
+     "label_pt": "Pâncreas",
+     "volume_ml": 64.323,
+     "components": 1
+    },
+    "totalseg__duodenum": {
+     "default_visible": true,
+     "default_opacity": 0.6,
+     "label_pt": "Duodeno",
+     "volume_ml": 38.087,
+     "components": 1
+    },
+    "totalseg__stomach": {
+     "default_visible": false,
+     "default_opacity": 0.4,
+     "label_pt": "Estômago",
+     "volume_ml": 168.087,
+     "components": 1
+    },
+    "totalseg__gallbladder": {
+     "default_visible": true,
+     "default_opacity": 0.7,
+     "label_pt": "Vesícula biliar",
+     "volume_ml": 24.899,
+     "components": 1
+    },
+    "totalseg__colon": {
+     "default_visible": false,
+     "default_opacity": 0.5,
+     "label_pt": "Cólon",
+     "volume_ml": 676.715,
+     "components": 2
+    },
+    "totalseg__small_bowel": {
+     "default_visible": false,
+     "default_opacity": 0.5,
+     "label_pt": "Intestino delgado",
+     "volume_ml": 549.142,
+     "components": 4
+    },
+    "totalseg__vertebrae_T11": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra T11",
+     "volume_ml": 30.892,
+     "components": 1
+    },
+    "totalseg__vertebrae_T12": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra T12",
+     "volume_ml": 31.659,
+     "components": 1
+    },
+    "totalseg__vertebrae_L1": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L1",
+     "volume_ml": 36.774,
+     "components": 1
+    },
+    "totalseg__vertebrae_L2": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L2",
+     "volume_ml": 42.11,
+     "components": 1
+    },
+    "totalseg__vertebrae_L3": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L3",
+     "volume_ml": 47.243,
+     "components": 1
+    },
+    "totalseg__vertebrae_L4": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L4",
+     "volume_ml": 48.91,
+     "components": 1
+    },
+    "totalseg__vertebrae_L5": {
+     "default_visible": true,
+     "default_opacity": 1.0,
+     "label_pt": "Vértebra L5",
+     "volume_ml": 47.751,
+     "components": 1
+    },
+    "hu_search__thrombus": {
+     "default_visible": false,
+     "default_opacity": 0.9,
+     "label_pt": "Trombo (candidato)",
+     "volume_ml": 15.483,
+     "components": 9
+    },
+    "cect__renal_arteries": {
+     "default_visible": false,
+     "default_opacity": 1.0,
+     "label_pt": "Artérias renais (não confiável)",
+     "volume_ml": 1.171,
+     "components": 5
+    },
+    "cect__renal_veins_other": {
+     "default_visible": false,
+     "default_opacity": 1.0,
+     "label_pt": "Veias renais/outras (não confiável)",
+     "volume_ml": 4.019,
+     "components": 3
+    },
+    "divergencia_modelos__disagreement_kidney_right": {
+     "default_visible": false,
+     "default_opacity": 0.3,
+     "label_pt": "Divergência entre modelos — rim dir.",
+     "volume_ml": 91.875,
+     "components": 1
+    },
+    "divergencia_modelos__disagreement_inferior_vena_cava": {
+     "default_visible": false,
+     "default_opacity": 0.3,
+     "label_pt": "Divergência entre modelos — VCI",
+     "volume_ml": 14.275,
+     "components": 9
+    },
+    "divergencia_modelos__disagreement_aorta": {
+     "default_visible": false,
+     "default_opacity": 0.3,
+     "label_pt": "Divergência entre modelos — aorta",
+     "volume_ml": 25.509,
+     "components": 15
+    }
+   },
+   "compressed_from": "optional_layers.glb"
+  },
+  {
+   "id": "fused_lite",
+   "label": "Fusão de modelos anterior — viewer_assets (lite; reserva)",
+   "model": "Consenso (STAPLE)",
+   "path": "dados/viewer_assets/compressed/surgical_scene_lite.meshopt.glb",
+   "url": "../dados/viewer_assets/compressed/surgical_scene_lite.meshopt.glb",
+   "expected": false,
+   "default_on": false,
+   "unreliable": false,
+   "fused": true,
+   "convention": "gltf_yup",
+   "convention_locked": true,
+   "centre_offset_gltf_mm": [
+    -22.417094440597396,
+    -653.0798635095184,
+    -108.08947155915854
+   ],
+   "convention_note": "glTF Y-up = (x, z, −y) de RAS mm, centrado; sem rotação; + centre_offset para alinhar (scene_manifest.json)",
+   "exists": true,
+   "size_mb": 0.55,
+   "fallback_for": "fused_gt_lite",
+   "compressed_from": "surgical_scene_lite.glb"
+  },
+  {
+   "id": "ureter_gonadal",
+   "label": "Ureteres e gonadais (semi-automático)",
+   "model": "Ureteres e gonadais (semi-automático)",
+   "path": "dados/ureter_gonadal/ureter_gonadal.glb",
+   "url": "../dados/ureter_gonadal/ureter_gonadal.glb",
+   "expected": false,
+   "default_on": true,
+   "ug": true,
+   "node_info": {
+    "semiauto_tardia__ureter_right": {
+     "structure": "ureter_right",
+     "label": "Ureter direito (fase tardia, caminho mínimo + seção transversal)",
+     "color": "#f2b705",
+     "confiavel": true,
+     "grupo": "rins_vias_coletoras",
+     "volume_ml": 4.795,
+     "default_visible": true,
+     "badge": null,
+     "style": null,
+     "info": [
+      "volume 4,79 mL (manifesto)",
+      "fonte: semiauto_tardia",
+      "confiável: sim"
+     ]
+    },
+    "estimado_caminho_minimo__ureter_left_trajetoria_estimada": {
+     "structure": "ureter_left_trajetoria_estimada",
+     "label": "Ureter esquerdo — trajetória estimada — incerto",
+     "color": "#f2b705",
+     "confiavel": false,
+     "grupo": "opcional_incerto",
+     "volume_ml": 2.224,
+     "default_visible": false,
+     "badge": "trajetória estimada — incerto",
+     "style": {
+      "opacity": 0.35,
+      "translucent": true
+     },
+     "info": [
+      "volume 2,22 mL (manifesto)",
+      "fonte: estimado_caminho_minimo",
+      "confiável: NÃO",
+      "não é segmentação: tubo de 1,5 mm ao redor de caminho mínimo estimado (Ureter esquerdo — TRAJETÓRIA ESTIMADA (não opacificado; sem evidência tecidual))"
+     ]
+    },
+    "semiauto_venosa__gonadal_vein_left": {
+     "structure": "gonadal_vein_left",
+     "label": "Veia gonadal esquerda — luz patente",
+     "color": "#3f6fd8",
+     "confiavel": true,
+     "grupo": "veias",
+     "volume_ml": 14.82,
+     "default_visible": true,
+     "badge": null,
+     "style": null,
+     "info": [
+      "volume 14,82 mL (manifesto)",
+      "fonte: semiauto_venosa",
+      "confiável: sim",
+      "calibre (diâmetro equivalente, mediana) — comprimido k124–146: 4,3 mm; ingurgitado k108–122: 13,6 mm; proximal não comprimido k150–195: 9,3 mm (metrics_ureter_gonadal.json)"
+     ]
+    },
+    "semiauto_venosa__gonadal_vein_left_thrombus": {
+     "structure": "gonadal_vein_left_thrombus",
+     "label": "Trombo na veia gonadal esquerda",
+     "color": "#5b2a86",
+     "confiavel": false,
+     "grupo": "veias",
+     "volume_ml": 0.936,
+     "default_visible": true,
+     "badge": "incerto — 0,94 mL; a densidade não distingue trombo tumoral de coágulo simples",
+     "style": null,
+     "info": [
+      "volume 0,94 mL (manifesto)",
+      "fonte: semiauto_venosa",
+      "confiável: NÃO",
+      "cortes k190–206 (metrics_ureter_gonadal.json)"
+     ]
+    }
+   },
+   "not_built": {
+    "gonadal_artery_left": "não identificada de forma confiável na fase arterial (ver metrics_ureter_gonadal.json)",
+    "ureter_left (segmentação)": "não opacificado; apenas trajetória estimada (opcional_incerto, confiavel=false)"
+   },
+   "manifest_url": "../dados/ureter_gonadal/ureter_gonadal_manifest.json",
+   "convention": "gltf_yup",
+   "convention_locked": true,
+   "centre_offset_gltf_mm": [
+    -22.417094440597396,
+    -653.0798635095184,
+    -108.08947155915854
+   ],
+   "convention_note": "glTF Y-up = (x, z, −y) de RAS mm, centrado; sem rotação; + centre_offset para alinhar (ureter_gonadal_manifest.json)",
+   "exists": true,
+   "size_mb": 1.63
+  },
+  {
+   "id": "kidney_left_corrected",
+   "label": "Rim esquerdo corrigido + semente de tumor + incerto (Leo)",
+   "model": "Correção de Leo",
+   "path": "dados/corrected/kidney_left_corrected.glb",
+   "url": "../dados/corrected/kidney_left_corrected.glb",
+   "expected": false,
+   "convention": "ras_zup",
+   "deprecated": false,
+   "corrected": true,
+   "default_on": false,
+   "exists": true,
+   "size_mb": 1.4
+  }
+ ],
+ "masks": [],
+ "skipped_nifti": [],
+ "duplicate_masks_skipped": [],
+ "corrections": {
+  "found": true,
+  "path": "dados/corrected/corrections.json",
+  "url": "../dados/corrected/corrections.json",
+  "volumes_ml": {
+   "kidney_left_original": 203.48,
+   "kidney_left_corrected": 184.03,
+   "tumor_from_kidney_left": 16.16,
+   "uncertain_k184": 3.28,
+   "check_sum": 203.48
+  },
+  "fragments": [
+   {
+    "id": "F1",
+    "name": "Fragmento anteromedial isolado (componente 3D nº2 do kidney_left)",
+    "classification": "tumor",
+    "volume_ml": 3.12,
+    "k_min": 164,
+    "k_max": 181
+   },
+   {
+    "id": "F2",
+    "name": "Porção inferior do componente principal invadindo a massa (polo inferior)",
+    "classification": "tumor",
+    "volume_ml": 13.04,
+    "k_min": 185,
+    "k_max": 193
+   },
+   {
+    "id": "F3",
+    "name": "Ponta inferior posterolateral (região amarela k=184)",
+    "classification": "incerto",
+    "volume_ml": 3.28,
+    "k_min": 180,
+    "k_max": 186
+   },
+   {
+    "id": "F4",
+    "name": "Parênquima renal verdadeiro (restante)",
+    "classification": "rim",
+    "volume_ml": 184.03,
+    "k_min": 191,
+    "k_max": 242
+   }
+  ],
+  "flagged_outside_kidney_left": [
+   {
+    "source_mask": "spleen",
+    "volume_ml": 0.005,
+    "k_min": 159,
+    "k_max": 159,
+    "centroid_ras_mm": [
+     -37.5,
+     186.8,
+     -726.5
+    ],
+    "venous_hu_median": 95,
+    "delayed_hu_median": 71
+   },
+   {
+    "source_mask": "spleen",
+    "volume_ml": 0.158,
+    "k_min": 152,
+    "k_max": 157,
+    "centroid_ras_mm": [
+     -45.9,
+     193.4,
+     -734.8
+    ],
+    "venous_hu_median": 89,
+    "delayed_hu_median": 70
+   },
+   {
+    "source_mask": "spleen",
+    "volume_ml": 0.001,
+    "k_min": 155,
+    "k_max": 155,
+    "centroid_ras_mm": [
+     -49.6,
+     191.9,
+     -732.5
+    ],
+    "venous_hu_median": 125,
+    "delayed_hu_median": 91
+   },
+   {
+    "source_mask": "spleen",
+    "volume_ml": 0.001,
+    "k_min": 157,
+    "k_max": 157,
+    "centroid_ras_mm": [
+     -49.6,
+     191.9,
+     -729.5
+    ],
+    "venous_hu_median": 80,
+    "delayed_hu_median": 77
+   },
+   {
+    "source_mask": "iliac_artery_left",
+    "volume_ml": 1.843,
+    "k_min": 105,
+    "k_max": 120,
+    "centroid_ras_mm": [
+     -49.6,
+     167.0,
+     -797.0
+    ],
+    "venous_hu_median": 130,
+    "delayed_hu_median": 73
+   }
+  ],
+  "open_decisions": [
+   "F3 (k≈180–186, região amarela de k=184): incerto — favorece tumor (sem excreção, lavagem igual à de F2, centro não líquido), mas não exclui polo inferior não funcionante. Fora das duas máscaras; =0 na grade ROI.",
+   "Em k≈187–190 há um pequeno foco posterior com HU tardia um pouco maior, contínuo com a crista posterior de parênquima acima; mantido como tumor porque Leo marcou o contorno inteiro de k=190 — revisar.",
+   "Fronteira rim/tumor em k191–193 é uma transição gradual (sem plano nítido); ver sensibilidade.",
+   "Parte anterior do contorno em k196–205 encosta na massa com realce baixo; mantida como rim conforme instrução (k≥196 = rim) — revisar se houver invasão.",
+   "Fragmentos verdes nº2 (spleen) e nº3 (iliac_artery_left) não pertencem ao kidney_left; não alterados — decidir na fusão/revisão manual."
+  ],
+  "qa_files": [
+   {
+    "path": "dados/corrected/qa/3d_before_after.png",
+    "url": "../dados/corrected/qa/3d_before_after.png"
+   },
+   {
+    "path": "dados/corrected/qa/cir3d_match_fragments.png",
+    "url": "../dados/corrected/qa/cir3d_match_fragments.png"
+   }
+  ],
+  "exists": true,
+  "size_mb": 0.02
+ },
+ "tumor_distances": {
+  "found": true,
+  "path": "dados/qa/fused_gt/qa_fused_gt.json",
+  "url": "../dados/qa/fused_gt/qa_fused_gt.json",
+  "md_path": "dados/qa/fused_gt/qa_fused_gt.md",
+  "md_url": "../dados/qa/fused_gt/qa_fused_gt.md",
+  "method": "min Euclidean distance (mm, world RAS) between boundary-voxel centres of the final tumour and of each structure; 0 = masks overlap; adjacent voxels give 0.93-1.5 mm (~1 voxel). Masks from different sources: overlaps with Leo were REMOVED in the fusion, so ~1 mm here = abutting / previously overlapping masks, NOT invasion.",
+  "rows": [
+   {
+    "key": "pancreas",
+    "label": "Pâncreas",
+    "target_en": "pancreas",
+    "mm": 2.0,
+    "k": 224,
+    "source": "modelo",
+    "kind": "close",
+    "note": "próximo (< 5 mm, 2–4 voxels); as máscaras nunca se sobrepuseram",
+    "unreliable": false,
+    "scene_manifest_mm": 2.0,
+    "primary": true
+   },
+   {
+    "key": "spleen",
+    "label": "Baço",
+    "target_en": "spleen",
+    "mm": 2.09,
+    "k": 222,
+    "source": "modelo",
+    "kind": "close",
+    "note": "próximo (< 5 mm, 2–4 voxels); as máscaras nunca se sobrepuseram",
+    "unreliable": false,
+    "scene_manifest_mm": 2.09,
+    "primary": true
+   },
+   {
+    "key": "aorta",
+    "label": "Aorta",
+    "target_en": "aorta",
+    "mm": 2.64,
+    "k": 147,
+    "source": "modelo",
+    "kind": "close",
+    "note": "próximo (< 5 mm, 2–4 voxels); as máscaras nunca se sobrepuseram",
+    "unreliable": false,
+    "scene_manifest_mm": 2.64,
+    "primary": true
+   },
+   {
+    "key": "inferior_vena_cava",
+    "label": "Veia cava inferior (VCI)",
+    "target_en": "inferior_vena_cava",
+    "mm": 17.1,
+    "k": 137,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": 17.1,
+    "primary": true
+   },
+   {
+    "key": "left_renal_hilum",
+    "label": "Hilo renal esquerdo (ponto aproximado)",
+    "target_en": "left renal hilum (approx. point: centroid of the most medial 10% of Leo collecting-system voxels)",
+    "mm": 20.88,
+    "k": null,
+    "source": "cirurgiao (derived landmark)",
+    "kind": "landmark",
+    "note": "ponto de referência aproximado (centroide dos 10% mais mediais do sistema coletor/pelve desenhado pelo Leo); fora do tumor — fonte no scene_manifest: out/fused_gt/collecting_system.nii.gz (GT do Leo)",
+    "unreliable": false,
+    "scene_manifest_mm": 20.88,
+    "primary": true
+   },
+   {
+    "key": "colon",
+    "label": "Cólon",
+    "target_en": "colon",
+    "mm": 0.93,
+    "k": 122,
+    "source": "modelo",
+    "kind": "contact",
+    "note": "contato entre segmentações (sobreposição removida), não indica invasão — 6,03 mL de sobreposição removida na fusão",
+    "unreliable": false,
+    "scene_manifest_mm": 0.93,
+    "primary": true
+   },
+   {
+    "key": "small_bowel",
+    "label": "Intestino delgado",
+    "target_en": "small_bowel",
+    "mm": 0.93,
+    "k": 127,
+    "source": "modelo",
+    "kind": "contact",
+    "note": "contato entre segmentações (sobreposição removida), não indica invasão — 435,86 mL de sobreposição removida na fusão",
+    "unreliable": false,
+    "scene_manifest_mm": 0.93,
+    "primary": true
+   },
+   {
+    "key": "iliac_artery_left",
+    "label": "Artéria ilíaca esquerda",
+    "target_en": "iliac_artery_left",
+    "mm": 0.93,
+    "k": 135,
+    "source": "modelo",
+    "kind": "contact",
+    "note": "contato entre segmentações (sobreposição removida), não indica invasão — 0,01 mL de sobreposição removida na fusão",
+    "unreliable": false,
+    "scene_manifest_mm": null,
+    "primary": true
+   },
+   {
+    "key": "iliopsoas_left",
+    "label": "Músculo iliopsoas esquerdo (TotalSegmentator; sobreposição com o tumor do Leo subtraída)",
+    "target_en": "iliopsoas_left (TotalSegmentator, Leo overlap subtracted)",
+    "mm": 0.93,
+    "k": 136,
+    "source": "modelo",
+    "kind": "contact",
+    "note": "contato entre segmentações (sobreposição removida), não indica invasão — 1,61 mL de sobreposição removida na fusão",
+    "unreliable": false,
+    "scene_manifest_mm": null,
+    "primary": true
+   },
+   {
+    "key": "kidney_left",
+    "label": "Rim esquerdo (GT do Leo)",
+    "target_en": "kidney_left (Leo)",
+    "mm": 0.93,
+    "k": 219,
+    "source": "cirurgiao",
+    "kind": "same_source",
+    "note": "mesma fonte (Leo): contíguo por construção",
+    "unreliable": false,
+    "scene_manifest_mm": 0.93,
+    "primary": false
+   },
+   {
+    "key": "collecting_system",
+    "label": "Sistema coletor / pelve renal (GT do Leo)",
+    "target_en": "collecting_system (Leo, renal pelvis)",
+    "mm": 0.93,
+    "k": 206,
+    "source": "cirurgiao",
+    "kind": "same_source",
+    "note": "mesma fonte (Leo): contíguo por construção",
+    "unreliable": false,
+    "scene_manifest_mm": 0.93,
+    "primary": false
+   },
+   {
+    "key": "renal_arteries",
+    "label": "Artérias renais (não confiável)",
+    "target_en": "renal_arteries (unreliable)",
+    "mm": 11.36,
+    "k": 135,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": true,
+    "scene_manifest_mm": 11.36,
+    "primary": false
+   },
+   {
+    "key": "renal_veins_other",
+    "label": "Veias renais/outras (não confiável; só lado direito)",
+    "target_en": "renal_veins_other (unreliable, right-sided)",
+    "mm": 49.67,
+    "k": 201,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": true,
+    "scene_manifest_mm": 49.67,
+    "primary": false
+   },
+   {
+    "key": "duodenum",
+    "label": "Duodeno",
+    "target_en": "duodenum",
+    "mm": 5.3,
+    "k": 176,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": 5.3,
+    "primary": false
+   },
+   {
+    "key": "adrenal_gland_left",
+    "label": "Adrenal esquerda",
+    "target_en": "adrenal_gland_left",
+    "mm": 15.78,
+    "k": 223,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": 15.78,
+    "primary": false
+   },
+   {
+    "key": "iliac_vena_left",
+    "label": "Veia ilíaca esquerda",
+    "target_en": "iliac_vena_left",
+    "mm": 6.69,
+    "k": 120,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": null,
+    "primary": false
+   },
+   {
+    "key": "portal_vein_and_splenic_vein",
+    "label": "Veias porta e esplênica",
+    "target_en": "portal_vein_and_splenic_vein",
+    "mm": 8.06,
+    "k": 228,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": 8.06,
+    "primary": false
+   },
+   {
+    "key": "stomach",
+    "label": "Estômago",
+    "target_en": "stomach",
+    "mm": 10.14,
+    "k": 208,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": 10.14,
+    "primary": false
+   },
+   {
+    "key": "liver",
+    "label": "Fígado",
+    "target_en": "liver",
+    "mm": 28.28,
+    "k": 205,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": 28.28,
+    "primary": false
+   },
+   {
+    "key": "kidney_right",
+    "label": "Rim direito",
+    "target_en": "kidney_right",
+    "mm": 62.55,
+    "k": 211,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": false,
+    "scene_manifest_mm": 62.55,
+    "primary": false
+   },
+   {
+    "key": "thrombus",
+    "label": "Trombo (candidato, baixa confiança)",
+    "target_en": "thrombus (candidate)",
+    "mm": 15.38,
+    "k": 137,
+    "source": "modelo",
+    "kind": "separated",
+    "note": "separado",
+    "unreliable": true,
+    "scene_manifest_mm": 15.38,
+    "primary": false
+   },
+   {
+    "key": "left_renal_vessels",
+    "label": "Veia / artéria renal esquerda",
+    "target_en": "left renal vein / left renal artery",
+    "mm": null,
+    "k": null,
+    "source": null,
+    "kind": "na",
+    "note": "sem máscara confiável (modelo de vasos CECT reprovado no QA; TotalSegmentator não tem vasos renais) — avaliar na TC",
+    "unreliable": false,
+    "scene_manifest_mm": null,
+    "primary": false
+   }
+  ],
+  "crosscheck_scene_manifest": "out/viewer_assets_gt/scene_manifest.json",
+  "crosscheck_mismatches": [],
+  "reference": "tumor_left (GT do Leo, out/leo_gt/interp)",
+  "exists": true,
+  "size_mb": 0.04
+ },
+ "material_spec": {
+  "found": true,
+  "path": "out/cinematic/v2_matte/viewer_material_spec.json",
+  "data": {
+   "schema": "nefrec-viewer-material-spec/1",
+   "disclaimer": "AI output — not diagnostic · educational/planning use",
+   "target": "three.js r169 WebGLRenderer + MeshPhysicalMaterial (vendored in the viewer); values also valid for r18x MeshPhysicalNodeMaterial",
+   "intent": "MATTE fresh-tissue look (anatomy photography, no wet/plastic highlights). Colours are the perceived sRGB colours used in the Blender Cycles matte stills (out/cinematic/v2_matte/blender/).",
+   "color_management": {
+    "renderer.outputColorSpace": "SRGBColorSpace",
+    "THREE.ColorManagement.enabled": true,
+    "note": "pass hex strings to material.color.set(...) so three converts sRGB->linear"
+   },
+   "tone_mapping_op": "AgX",
+   "exposure": 1.0,
+   "environment_intensity": 0.45,
+   "compat_note": "Top-level 'structures' is keyed by viewer case.json structure keys (ct-nefrec-viewer-v2 reads SPEC.structures[def.key], SPEC.defaults, SPEC.by_kind, SPEC.exposure, SPEC.environment_intensity). 'exposure' 1.0 is for Neutral; use 0.9 with AgX.",
+   "defaults": {
+    "color": "#9a8a80",
+    "roughness": 0.85,
+    "metalness": 0.0,
+    "specularIntensity": 0.15,
+    "clearcoat": 0.0,
+    "sheen": 0.0
+   },
+   "by_kind": {
+    "tumor": {
+     "roughness": 0.9,
+     "specularIntensity": 0.08
+    },
+    "organ": {
+     "roughness": 0.88,
+     "specularIntensity": 0.08
+    },
+    "artery": {
+     "roughness": 0.85,
+     "specularIntensity": 0.1
+    },
+    "vein": {
+     "roughness": 0.85,
+     "specularIntensity": 0.1
+    },
+    "duct": {
+     "roughness": 0.88,
+     "specularIntensity": 0.08
+    },
+    "muscle": {
+     "roughness": 0.95,
+     "specularIntensity": 0.05
+    },
+    "bone": {
+     "roughness": 0.92,
+     "specularIntensity": 0.08
+    },
+    "thrombus": {
+     "roughness": 0.92,
+     "specularIntensity": 0.06
+    },
+    "estimated": {
+     "roughness": 0.95,
+     "specularIntensity": 0.04
+    },
+    "ghost": {
+     "roughness": 0.95,
+     "specularIntensity": 0.04
+    }
+   },
+   "structures": {
+    "kidney_left": {
+     "group": "kidney",
+     "color": "#5c2a22",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "kidney_right": {
+     "group": "kidney",
+     "color": "#5c2a22",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "kidney_left_corrected": {
+     "group": "kidney",
+     "color": "#5c2a22",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "inferior_vena_cava": {
+     "group": "veins",
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "aorta": {
+     "group": "arteries",
+     "color": "#5a2826",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "portal_vein_and_splenic_vein": {
+     "group": "veins",
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "iliac_artery_left": {
+     "group": "arteries",
+     "color": "#5a2826",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "iliac_artery_right": {
+     "group": "arteries",
+     "color": "#5a2826",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "iliac_vena_left": {
+     "group": "veins",
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "iliac_vena_right": {
+     "group": "veins",
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "adrenal_gland_left": {
+     "group": "adrenal",
+     "color": "#a07a38",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "adrenal_gland_right": {
+     "group": "adrenal",
+     "color": "#a07a38",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "liver": {
+     "group": "liver",
+     "color": "#5e2e25",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.22
+    },
+    "spleen": {
+     "group": "spleen",
+     "color": "#4e2538",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.35
+    },
+    "pancreas": {
+     "group": "pancreas",
+     "color": "#a88a6a",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.55
+    },
+    "duodenum": {
+     "group": "duodenum",
+     "color": "#9c7a6c",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.3
+    },
+    "gallbladder": {
+     "group": "gallbladder",
+     "color": "#435830",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.45
+    },
+    "kidney_cyst_right": {
+     "group": "kidney_cyst",
+     "color": "#cfc393",
+     "roughness": 0.75,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.55
+    },
+    "tumor_left": {
+     "group": "tumor_corpo",
+     "color": "#6c4646",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "tumor": {
+     "group": "tumor_corpo",
+     "color": "#6c4646",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "tumor_corpo": {
+     "group": "tumor_corpo",
+     "color": "#6c4646",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "tumor_projecoes_espiculadas": {
+     "group": "tumor_projecoes_espiculadas",
+     "color": "#744c4a",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "thrombus": {
+     "group": "thrombus",
+     "color": "#4e1a1f",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.1,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "gonadal_vein_left_thrombus": {
+     "group": "thrombus",
+     "color": "#4e1a1f",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.1,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "renal_arteries": {
+     "group": "arteries",
+     "color": "#5a2826",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "renal_veins_other": {
+     "group": "veins",
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "collecting_system": {
+     "group": "collecting_system",
+     "color": "#b8a283",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "collecting_system_right": {
+     "group": "collecting_system",
+     "color": "#b8a283",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "spine": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "sacrum": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "ureter_right": {
+     "group": "ureter",
+     "color": "#b09280",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "ureter_left_trajetoria_estimada": {
+     "group": "ureter",
+     "color": "#b09280",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.6,
+     "note": "estimated path; keep dashed"
+    },
+    "gonadal_vein_left": {
+     "group": "veins",
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "stomach": {
+     "group": "other",
+     "color": "#8e6a62",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.08,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.2
+    },
+    "colon": {
+     "group": "other",
+     "color": "#8c7258",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.08,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.2
+    },
+    "small_bowel": {
+     "group": "other",
+     "color": "#98766a",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.08,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.2
+    },
+    "iliopsoas_left": {
+     "group": "other",
+     "color": "#6e3029",
+     "roughness": 0.95,
+     "metalness": 0.0,
+     "specularIntensity": 0.08,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "iliopsoas_right": {
+     "group": "other",
+     "color": "#6e3029",
+     "roughness": 0.95,
+     "metalness": 0.0,
+     "specularIntensity": 0.08,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "arterial_tree": {
+     "group": "arteries",
+     "color": "#5a2826",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "venous_tree": {
+     "group": "veins",
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "vertebrae_T11": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "vertebrae_T12": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "vertebrae_L1": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "vertebrae_L2": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "vertebrae_L3": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "vertebrae_L4": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    },
+    "vertebrae_L5": {
+     "group": "bone",
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "clearcoat": 0.0,
+     "sheen": 0.0,
+     "transmission": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0
+    }
+   },
+   "materials": {
+    "tumor_corpo": {
+     "match_node_name_contains": [
+      "tumor_corpo",
+      "tumor_left"
+     ],
+     "color": "#6c4646",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "muted rose-brown flesh; clearly separable from red-brown kidney without magenta 'plastic' look"
+    },
+    "tumor_projecoes_espiculadas": {
+     "match_node_name_contains": [
+      "tumor_projecoes_espiculadas"
+     ],
+     "color": "#744c4a",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "slightly lighter than tumour body so projections read as tumour"
+    },
+    "kidney": {
+     "match_node_name_contains": [
+      "kidney_left",
+      "kidney_right"
+     ],
+     "color": "#5c2a22",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "dark red-brown parenchyma"
+    },
+    "collecting_system": {
+     "match_node_name_contains": [
+      "collecting_system"
+     ],
+     "color": "#b8a283",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "pale tan urothelium"
+    },
+    "kidney_cyst": {
+     "match_node_name_contains": [
+      "kidney_cyst"
+     ],
+     "color": "#cfc393",
+     "roughness": 0.75,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.55,
+     "transparent": true,
+     "depthWrite": false,
+     "flatShading": false,
+     "note": "pale straw, semi-transparent (transparent=true, depthWrite=false)",
+     "ghost_rim": {
+      "enabled": true,
+      "alpha_facing": 0.55,
+      "alpha_grazing": 0.85,
+      "power": 3.0,
+      "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+     }
+    },
+    "arteries": {
+     "match_node_name_contains": [
+      "arterial_tree",
+      "aorta",
+      "iliac_artery",
+      "renal_arter"
+     ],
+     "color": "#5a2826",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "muted arterial red"
+    },
+    "veins": {
+     "match_node_name_contains": [
+      "venous_tree",
+      "vena_cava",
+      "iliac_vena",
+      "renal_vein",
+      "portal_vein",
+      "gonadal_vein_left"
+     ],
+     "color": "#34324a",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "deep blue-purple, matte"
+    },
+    "thrombus": {
+     "match_node_name_contains": [
+      "thrombus"
+     ],
+     "color": "#4e1a1f",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.1,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "dark clot maroon; LOW-CONFIDENCE candidate layers only"
+    },
+    "adrenal": {
+     "match_node_name_contains": [
+      "adrenal"
+     ],
+     "color": "#a07a38",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "ochre-yellow"
+    },
+    "ureter": {
+     "match_node_name_contains": [
+      "ureter"
+     ],
+     "color": "#b09280",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "pale pink-cream"
+    },
+    "liver": {
+     "match_node_name_contains": [
+      "liver"
+     ],
+     "color": "#5e2e25",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.22,
+     "transparent": true,
+     "depthWrite": false,
+     "flatShading": false,
+     "note": "red-brown; ghost (fresnel rim) in overview",
+     "ghost_rim": {
+      "enabled": true,
+      "alpha_facing": 0.22,
+      "alpha_grazing": 0.6799999999999999,
+      "power": 3.0,
+      "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+     }
+    },
+    "spleen": {
+     "match_node_name_contains": [
+      "spleen"
+     ],
+     "color": "#4e2538",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.35,
+     "transparent": true,
+     "depthWrite": false,
+     "flatShading": false,
+     "note": "purple-red; ghost",
+     "ghost_rim": {
+      "enabled": true,
+      "alpha_facing": 0.35,
+      "alpha_grazing": 0.85,
+      "power": 3.0,
+      "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+     }
+    },
+    "pancreas": {
+     "match_node_name_contains": [
+      "pancreas"
+     ],
+     "color": "#a88a6a",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.12,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.55,
+     "transparent": true,
+     "depthWrite": false,
+     "flatShading": false,
+     "note": "pale tan, lobulated",
+     "ghost_rim": {
+      "enabled": true,
+      "alpha_facing": 0.55,
+      "alpha_grazing": 0.85,
+      "power": 3.0,
+      "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+     }
+    },
+    "duodenum": {
+     "match_node_name_contains": [
+      "duodenum"
+     ],
+     "color": "#9c7a6c",
+     "roughness": 0.85,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.3,
+     "transparent": true,
+     "depthWrite": false,
+     "flatShading": false,
+     "note": "pinkish tan; ghost",
+     "ghost_rim": {
+      "enabled": true,
+      "alpha_facing": 0.3,
+      "alpha_grazing": 0.7999999999999999,
+      "power": 3.0,
+      "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+     }
+    },
+    "gallbladder": {
+     "match_node_name_contains": [
+      "gallbladder"
+     ],
+     "color": "#435830",
+     "roughness": 0.8,
+     "metalness": 0.0,
+     "specularIntensity": 0.15,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 0.45,
+     "transparent": true,
+     "depthWrite": false,
+     "flatShading": false,
+     "note": "dark olive green; ghost",
+     "ghost_rim": {
+      "enabled": true,
+      "alpha_facing": 0.45,
+      "alpha_grazing": 0.85,
+      "power": 3.0,
+      "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+     }
+    },
+    "bone": {
+     "match_node_name_contains": [
+      "vertebrae",
+      "rib",
+      "bone"
+     ],
+     "color": "#cbbfa3",
+     "roughness": 0.9,
+     "metalness": 0.0,
+     "specularIntensity": 0.2,
+     "specularColor": "#ffffff",
+     "ior": 1.4,
+     "clearcoat": 0.0,
+     "clearcoatRoughness": 0.0,
+     "sheen": 0.0,
+     "iridescence": 0.0,
+     "transmission": 0.0,
+     "thickness": 0.0,
+     "envMapIntensity": 0.45,
+     "opacity": 1.0,
+     "transparent": false,
+     "depthWrite": true,
+     "flatShading": false,
+     "note": "ivory, matte"
+    }
+   },
+   "micro_detail": {
+    "enabled": true,
+    "type": "tiling tangent-space noise normal map (or triplanar in shader)",
+    "normalScale": [
+     0.08,
+     0.08
+    ],
+    "feature_size_mm": 2.5,
+    "note": "very low; only to break CG smoothness. Omit on iPad if GPU-bound."
+   },
+   "fake_sss_optional": {
+    "method": "wrap lighting + thickness-based back-light (onBeforeCompile) or r18x MeshSSSNodeMaterial",
+    "wrap": 0.25,
+    "scatterColor": "#a0372a",
+    "thicknessPower": 2.0,
+    "thicknessScale": 4.0,
+    "thicknessAmbient": 0.0,
+    "note": "keep subtle; this is what gives tissue its soft light bleed at edges without any specular"
+   },
+   "lighting": {
+    "environment": {
+     "hdri": "Poly Haven photo_studio_loft_hall_1k.hdr (CC0) — low-contrast studio",
+     "loader": "RGBELoader (r169)",
+     "pmrem": "PMREMGenerator.fromEquirectangular",
+     "scene.environment": true,
+     "scene.background": "dark vertical gradient (#07080b -> #17191e), NOT the HDRI",
+     "environmentIntensity_or_envMapIntensity": 0.45,
+     "environmentRotationY_deg": 30
+    },
+    "key": {
+     "type": "DirectionalLight",
+     "intensity": 1.6,
+     "color": "#fff7ee",
+     "position": "camera-relative: up-left (~45° elevation)",
+     "castShadow": true,
+     "shadow": {
+      "type": "PCFSoftShadowMap",
+      "mapSize": 2048,
+      "radius": 6,
+      "bias": -0.0005,
+      "normalBias": 0.6
+     }
+    },
+    "fill": {
+     "type": "HemisphereLight",
+     "skyColor": "#f2f3f7",
+     "groundColor": "#3a3635",
+     "intensity": 0.6
+    },
+    "rim": {
+     "type": "DirectionalLight",
+     "intensity": 0.5,
+     "color": "#f5f7ff",
+     "position": "behind-above",
+     "castShadow": false
+    },
+    "avoid": "PointLight/SpotLight close to the meshes and any RoomEnvironment with bright small emitters (they create hot specular spots)"
+   },
+   "tone_mapping": {
+    "toneMapping": "AgXToneMapping",
+    "toneMappingExposure": 0.9,
+    "alternative": "NeutralToneMapping (Khronos PBR Neutral) when legend colours must match exactly; both are in r169",
+    "avoid": "ACESFilmicToneMapping (shifts saturated reds to orange and adds contrast)"
+   },
+   "ambient_occlusion": {
+    "preferred": "N8AO 2.0.1 (N8AOPass for three EffectComposer)",
+    "aoRadius_mm": 10,
+    "distanceFalloff": 1.0,
+    "intensity": 2.5,
+    "halfRes_on_iPad": true,
+    "fallback": "GTAOPass (vendored) radius 10 mm, render transparent ghosts after AO"
+   },
+   "post": {
+    "bloom": "off (or threshold >= 0.95, strength <= 0.05)",
+    "SMAA": true,
+    "DOF": "presentation only (BokehPass, focus on tumour centroid)"
+   },
+   "references": {
+    "offline_matte_stills": "out/cinematic/v2_matte/blender/*.png",
+    "volume_matte_stills": "out/cinematic/v2_matte/volume/*.png"
+   }
+  },
+  "url": "../dados/cinematic/v2_matte/viewer_material_spec.json",
+  "exists": true,
+  "size_mb": 0.03
+ },
+ "metrics": {
+  "expected_path": "out/monai/metrics.json",
+  "found": true,
+  "files": [
+   {
+    "path": "dados/monai/metrics.json",
+    "url": "../dados/monai/metrics.json",
+    "format": "json",
+    "exists": true,
+    "size_mb": 0.01,
+    "raw": "{\n \"kidney_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"vista3d\",\n    \"dice\": 0.9144,\n    \"hd95_mm\": 10.14\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.3764,\n    \"hd95_mm\": 112.9\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.8128,\n    \"hd95_mm\": 13.88\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7484,\n    \"hd95_mm\": 23.19\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"unest\",\n    \"dice\": 0.7021,\n    \"hd95_mm\": 29.9\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.4025,\n    \"hd95_mm\": 101.57\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.7884,\n    \"hd95_mm\": 18.35\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7078,\n    \"hd95_mm\": 25.62\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"unest\",\n    \"dice\": 0.6634,\n    \"hd95_mm\": 35.93\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.3285,\n    \"hd95_mm\": 87.92\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.2872,\n    \"hd95_mm\": 79.08\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"unest\",\n    \"dice\": 0.2296,\n    \"hd95_mm\": 139.94\n   },\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.8429,\n    \"hd95_mm\": 13.17\n   },\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"unest\",\n    \"dice\": 0.7592,\n    \"hd95_mm\": 27.27\n   },\n   {\n    \"a\": \"kits21_arterial\",\n    \"b\": \"unest\",\n    \"dice\": 0.7547,\n    \"hd95_mm\": 18.96\n   }\n  ],\n  \"volumes_ml\": {\n   \"totalseg\": 184.03,\n   \"vista3d\": 200.06,\n   \"rsuper\": 788.38,\n   \"kits21_venous\": 158.1,\n   \"kits21_arterial\": 154.54,\n   \"unest\": 102.54\n  }\n },\n \"kidney_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"vista3d\",\n    \"dice\": 0.9723,\n    \"hd95_mm\": 1.5\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.9366,\n    \"hd95_mm\": 9.71\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.9058,\n    \"hd95_mm\": 5.85\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7183,\n    \"hd95_mm\": 13.28\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"unest\",\n    \"dice\": 0.9467,\n    \"hd95_mm\": 2.95\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.9498,\n    \"hd95_mm\": 8.98\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.9177,\n    \"hd95_mm\": 5.55\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7337,\n    \"hd95_mm\": 13.63\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"unest\",\n    \"dice\": 0.9471,\n    \"hd95_mm\": 2.09\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.941,\n    \"hd95_mm\": 7.93\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7639,\n    \"hd95_mm\": 14.06\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"unest\",\n    \"dice\": 0.9605,\n    \"hd95_mm\": 8.86\n   },\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7515,\n    \"hd95_mm\": 12.22\n   },\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"unest\",\n    \"dice\": 0.9334,\n    \"hd95_mm\": 4.76\n   },\n   {\n    \"a\": \"kits21_arterial\",\n    \"b\": \"unest\",\n    \"dice\": 0.754,\n    \"hd95_mm\": 12.22\n   }\n  ],\n  \"volumes_ml\": {\n   \"totalseg\": 136.55,\n   \"vista3d\": 141.55,\n   \"rsuper\": 151.56,\n   \"kits21_venous\": 136.99,\n   \"kits21_arterial\": 144.79,\n   \"unest\": 141.98\n  }\n },\n \"inferior_vena_cava\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"vista3d\",\n    \"dice\": 0.9627,\n    \"hd95_mm\": 1.87\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.9334,\n    \"hd95_mm\": 2.0\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.924,\n    \"hd95_mm\": 3.65\n   }\n  ],\n  \"volumes_ml\": {\n   \"totalseg\": 95.3,\n   \"vista3d\": 97.96,\n   \"rsuper\": 94.18\n  }\n },\n \"aorta\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"vista3d\",\n    \"dice\": 0.9687,\n    \"hd95_mm\": 1.5\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.8999,\n    \"hd95_mm\": 11.99\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"rsuper\",\n    \"dice\": 0.9057,\n    \"hd95_mm\": 11.15\n   }\n  ],\n  \"volumes_ml\": {\n   \"totalseg\": 155.91,\n   \"vista3d\": 154.4,\n   \"rsuper\": 137.43\n  }\n },\n \"tumor_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.7188,\n    \"hd95_mm\": 28.48\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7142,\n    \"hd95_mm\": 26.83\n   },\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.9079,\n    \"hd95_mm\": 18.21\n   }\n  ],\n  \"volumes_ml\": {\n   \"rsuper\": 656.63,\n   \"kits21_venous\": 1003.72,\n   \"kits21_arterial\": 954.88\n  }\n },\n \"thrombus\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"hu_filling_defect\": 15.42\n  }\n },\n \"kidney_cyst_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"ts_cysts\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 47.98\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"vista3d\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 106.71\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 118.86\n   },\n   {\n    \"a\": \"totalseg\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 121.02\n   },\n   {\n    \"a\": \"ts_cysts\",\n    \"b\": \"vista3d\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 79.86\n   },\n   {\n    \"a\": \"ts_cysts\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 129.41\n   },\n   {\n    \"a\": \"ts_cysts\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 136.53\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.0681,\n    \"hd95_mm\": 140.5\n   },\n   {\n    \"a\": \"vista3d\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.001,\n    \"hd95_mm\": 146.63\n   },\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.079,\n    \"hd95_mm\": 7.6\n   }\n  ],\n  \"volumes_ml\": {\n   \"totalseg\": 0.5,\n   \"ts_cysts\": 69.48,\n   \"vista3d\": 7.36,\n   \"kits21_venous\": 4.32,\n   \"kits21_arterial\": 0.18\n  }\n },\n \"adrenal_gland_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 2.88\n  }\n },\n \"adrenal_gland_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 2.58\n  }\n },\n \"collecting_system_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"unest\": 5.93\n  }\n },\n \"collecting_system_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"unest\": 7.03\n  }\n },\n \"duodenum\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 38.09\n  }\n },\n \"gallbladder\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 24.9\n  }\n },\n \"iliac_artery_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 10.36\n  }\n },\n \"iliac_artery_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 9.3\n  }\n },\n \"iliac_vena_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 27.99\n  }\n },\n \"iliac_vena_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 21.41\n  }\n },\n \"kidney_and_masses_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.9146,\n    \"hd95_mm\": 15.06\n   }\n  ],\n  \"volumes_ml\": {\n   \"kits21_venous\": 1161.81,\n   \"kits21_arterial\": 1109.59\n  }\n },\n \"kidney_and_masses_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.7545,\n    \"hd95_mm\": 12.43\n   }\n  ],\n  \"volumes_ml\": {\n   \"kits21_venous\": 138.09,\n   \"kits21_arterial\": 146.13\n  }\n },\n \"kidney_cyst_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"ts_cysts\": 0.72\n  }\n },\n \"liver\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 1826.24\n  }\n },\n \"pancreas\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 64.32\n  }\n },\n \"portal_vein_and_splenic_vein\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 25.64\n  }\n },\n \"renal_arteries\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"cect\": 7.4\n  }\n },\n \"renal_veins\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"cect\": 24.19\n  }\n },\n \"spleen\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 179.15\n  }\n },\n \"stomach\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 168.09\n  }\n },\n \"tumor_only_left\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.9099,\n    \"hd95_mm\": 16.5\n   }\n  ],\n  \"volumes_ml\": {\n   \"kits21_venous\": 999.39,\n   \"kits21_arterial\": 954.88\n  }\n },\n \"tumor_right\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_venous\",\n    \"dice\": 0.646,\n    \"hd95_mm\": 3.28\n   },\n   {\n    \"a\": \"rsuper\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 18.8\n   },\n   {\n    \"a\": \"kits21_venous\",\n    \"b\": \"kits21_arterial\",\n    \"dice\": 0.0,\n    \"hd95_mm\": 18.79\n   }\n  ],\n  \"volumes_ml\": {\n   \"rsuper\": 1.89,\n   \"kits21_venous\": 1.1,\n   \"kits21_arterial\": 1.34\n  }\n },\n \"vertebrae_L1\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 36.78\n  }\n },\n \"vertebrae_L2\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 42.11\n  }\n },\n \"vertebrae_L3\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 47.24\n  }\n },\n \"vertebrae_L4\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 48.91\n  }\n },\n \"vertebrae_L5\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 47.75\n  }\n },\n \"vertebrae_T11\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 30.89\n  }\n },\n \"vertebrae_T12\": {\n  \"metric_type\": \"inter-model agreement (no ground truth) - NOT accuracy\",\n  \"pairs\": [],\n  \"volumes_ml\": {\n   \"totalseg\": 31.66\n  }\n }\n}",
+    "raw_truncated": false,
+    "n_rows": 55
+   },
+   {
+    "path": "dados/ureter_gonadal/colab/metrics.json",
+    "url": "../dados/ureter_gonadal/colab/metrics.json",
+    "format": "json",
+    "exists": true,
+    "size_mb": 0.0,
+    "raw": "{\n \"aviso\": \"Concordância entre métodos, NÃO acurácia (sem ground truth). Uso educacional.\",\n \"ureter_right\": {\n  \"local\": {\n   \"structure\": \"ureter_right\",\n   \"method\": \"local\",\n   \"volume_ml\": 4.793,\n   \"dice_vs_local\": 1.0,\n   \"n_components\": 1,\n   \"coverage_2mm\": 1.0,\n   \"skel_to_cl_mean_mm\": 1.37,\n   \"skel_to_cl_p95_mm\": 2.94\n  },\n  \"nninteractive\": {\n   \"structure\": \"ureter_right\",\n   \"method\": \"nninteractive\",\n   \"volume_ml\": 4.649,\n   \"dice_vs_local\": 0.758,\n   \"n_components\": 1,\n   \"coverage_2mm\": 1.0,\n   \"skel_to_cl_mean_mm\": 1.37,\n   \"skel_to_cl_p95_mm\": 2.71\n  },\n  \"pairwise_dice\": {\n   \"local|nninteractive\": 0.758\n  },\n  \"consensus\": {\n   \"voters\": [\n    \"local\",\n    \"nninteractive\"\n   ],\n   \"votes_needed\": 2,\n   \"volume_ml\": 3.577,\n   \"dice_vs_local\": 0.855,\n   \"coverage_2mm\": 1.0,\n   \"skel_to_cl_mean_mm\": 1.31,\n   \"skel_to_cl_p95_mm\": 2.7\n  }\n },\n \"ureter_left\": {\n  \"local\": {\n   \"structure\": \"ureter_left\",\n   \"method\": \"local\",\n   \"volume_ml\": 2.243,\n   \"dice_vs_local\": 1.0,\n   \"n_components\": 4,\n   \"coverage_2mm\": 0.961,\n   \"skel_to_cl_mean_mm\": 0.56,\n   \"skel_to_cl_p95_mm\": 0.94\n  },\n  \"nninteractive\": {\n   \"structure\": \"ureter_left\",\n   \"method\": \"nninteractive\",\n   \"volume_ml\": 255.923,\n   \"dice_vs_local\": 0.003,\n   \"n_components\": 4,\n   \"coverage_2mm\": 0.477,\n   \"skel_to_cl_mean_mm\": 18.94,\n   \"skel_to_cl_p95_mm\": 39.53\n  },\n  \"nninteractive_venous\": {\n   \"structure\": \"ureter_left\",\n   \"method\": \"nninteractive_venous\",\n   \"volume_ml\": 205.119,\n   \"dice_vs_local\": 0.007,\n   \"n_components\": 20,\n   \"coverage_2mm\": 0.441,\n   \"skel_to_cl_mean_mm\": 16.77,\n   \"skel_to_cl_p95_mm\": 30.17\n  },\n  \"pairwise_dice\": {\n   \"local|nninteractive\": 0.003,\n   \"local|nninteractive_venous\": 0.007,\n   \"nninteractive|nninteractive_venous\": 0.18\n  },\n  \"consensus\": {\n   \"note\": \"only 1 voter(s) -> no consensus\"\n  }\n },\n \"gonadal_vein_left\": {\n  \"local\": {\n   \"structure\": \"gonadal_vein_left\",\n   \"method\": \"local\",\n   \"volume_ml\": 15.761,\n   \"dice_vs_local\": 1.0,\n   \"n_components\": 2,\n   \"coverage_2mm\": 1.0,\n   \"skel_to_cl_mean_mm\": 1.91,\n   \"skel_to_cl_p95_mm\": 4.38\n  },\n  \"nninteractive\": {\n   \"structure\": \"gonadal_vein_left\",\n   \"method\": \"nninteractive\",\n   \"volume_ml\": 22.832,\n   \"dice_vs_local\": 0.651,\n   \"n_components\": 1,\n   \"coverage_2mm\": 0.956,\n   \"skel_to_cl_mean_mm\": 3.88,\n   \"skel_to_cl_p95_mm\": 9.53\n  },\n  \"pairwise_dice\": {\n   \"local|nninteractive\": 0.651\n  },\n  \"consensus\": {\n   \"voters\": [\n    \"local\",\n    \"nninteractive\"\n   ],\n   \"votes_needed\": 2,\n   \"volume_ml\": 12.275,\n   \"dice_vs_local\": 0.876,\n   \"coverage_2mm\": 0.956,\n   \"skel_to_cl_mean_mm\": 1.8,\n   \"skel_to_cl_p95_mm\": 3.34\n  }\n },\n \"gonadal_vein_left_thrombus\": {\n  \"local\": {\n   \"structure\": \"gonadal_vein_left_thrombus\",\n   \"method\": \"local\",\n   \"volume_ml\": 0.936,\n   \"dice_vs_local\": 1.0,\n   \"n_components\": 1\n  },\n  \"nninteractive\": {\n   \"structure\": \"gonadal_vein_left_thrombus\",\n   \"method\": \"nninteractive\",\n   \"volume_ml\": 40.812,\n   \"dice_vs_local\": 0.038,\n   \"n_components\": 2\n  },\n  \"pairwise_dice\": {\n   \"local|nninteractive\": 0.038\n  },\n  \"consensus\": {\n   \"voters\": [\n    \"local\",\n    \"nninteractive\"\n   ],\n   \"votes_needed\": 2,\n   \"volume_ml\": 0.046,\n   \"dice_vs_local\": 0.093\n  }\n }\n}",
+    "raw_truncated": false,
+    "n_rows": 0
+   },
+   {
+    "path": "dados/ureter_gonadal/metrics_ureter_gonadal.json",
+    "url": "../dados/ureter_gonadal/metrics_ureter_gonadal.json",
+    "format": "json",
+    "exists": true,
+    "size_mb": 0.01,
+    "raw": "{\n \"aviso\": \"Uso educacional/planejamento. NAO diagnostico. Medidas derivadas de segmentacao semi-automatica; conferir na TC.\",\n \"geometria\": {\n  \"grade\": \"venous.nii.gz 512x512x404, 0.934x0.934x1.5 mm, LAS; k = indice axial\",\n  \"affine\": [\n   [\n    -0.9336,\n    -0.0,\n    0.0,\n    229.5332\n   ],\n   [\n    0.0,\n    0.9336,\n    0.0,\n    -82.5332\n   ],\n   [\n    0.0,\n    0.0,\n    1.5,\n    -965.0\n   ],\n   [\n    0.0,\n    0.0,\n    0.0,\n    1.0\n   ]\n  ]\n },\n \"ureter_right\": {\n  \"comprimento_mm\": 241.6,\n  \"volume_ml\": 4.793,\n  \"fase\": \"tardia (excretora) registrada na venosa\",\n  \"confianca_contagem_pontos\": {\n   \"baixa\": 45,\n   \"media\": 2,\n   \"alta\": 207\n  },\n  \"segmentos\": [\n   {\n    \"conf\": \"baixa\",\n    \"k_from\": 198.0,\n    \"k_to\": 198.0,\n    \"length_mm\": 0.0\n   },\n   {\n    \"conf\": \"media\",\n    \"k_from\": 197.5,\n    \"k_to\": 196.9,\n    \"length_mm\": 1.1\n   },\n   {\n    \"conf\": \"alta\",\n    \"k_from\": 196.3,\n    \"k_to\": 175.1,\n    \"length_mm\": 36.2\n   },\n   {\n    \"conf\": \"baixa\",\n    \"k_from\": 174.5,\n    \"k_to\": 171.5,\n    \"length_mm\": 4.7\n   },\n   {\n    \"conf\": \"alta\",\n    \"k_from\": 170.9,\n    \"k_to\": 136.9,\n    \"length_mm\": 54.8\n   },\n   {\n    \"conf\": \"baixa\",\n    \"k_from\": 136.3,\n    \"k_to\": 133.6,\n    \"length_mm\": 4.8\n   },\n   {\n    \"conf\": \"alta\",\n    \"k_from\": 133.0,\n    \"k_to\": 114.8,\n    \"length_mm\": 28.2\n   },\n   {\n    \"conf\": \"baixa\",\n    \"k_from\": 114.3,\n    \"k_to\": 103.7,\n    \"length_mm\": 19.0\n   },\n   {\n    \"conf\": \"alta\",\n    \"k_from\": 103.2,\n    \"k_to\": 102.1,\n    \"length_mm\": 1.9\n   },\n   {\n    \"conf\": \"baixa\",\n    \"k_from\": 101.6,\n    \"k_to\": 99.5,\n    \"length_mm\": 3.8\n   },\n   {\n    \"conf\": \"alta\",\n    \"k_from\": 99.0,\n    \"k_to\": 70.5,\n    \"length_mm\": 53.9\n   },\n   {\n    \"conf\": \"baixa\",\n    \"k_from\": 69.9,\n    \"k_to\": 68.1,\n    \"length_mm\": 2.9\n   },\n   {\n    \"conf\": \"alta\",\n    \"k_from\": 67.5,\n    \"k_to\": 57.8,\n    \"length_mm\": 17.8\n   },\n   {\n    \"conf\": \"baixa\",\n    \"k_from\": 57.4,\n    \"k_to\": 57.4,\n    \"length_mm\": 0.0\n   }\n  ],\n  \"juncao_ureterovesical_vox\": [\n   243,\n   220,\n   58\n  ],\n  \"jup_vox\": [\n   223,\n   215,\n   198\n  ],\n  \"raio_medio_mm_mediana\": 1.8\n },\n \"ureter_left\": {\n  \"status\": \"NAO segmentado com confianca\",\n  \"motivo\": \"rim esquerdo hidronefrotico; ureter esquerdo nao opacificado abaixo da pelve na fase tardia; trajeto ao longo da interface tumor-psoas sem contraste suficiente\",\n  \"trajetoria_estimada_comprimento_mm\": 254.3,\n  \"inicio_vox\": [\n   314,\n   230,\n   205\n  ],\n  \"fim_vox_estimado\": [\n   254,\n   223,\n   58\n  ],\n  \"mascara\": \"ureter_left_trajetoria_estimada.nii.gz = tubo de 1.5 mm ao redor da trajetoria estimada (NAO e medida)\"\n },\n \"gonadal_vein_left\": {\n  \"comprimento_centerline_mm\": 210.4,\n  \"k_range\": [\n   80.2,\n   203.6\n  ],\n  \"volume_lumen_patente_ml\": 14.825,\n  \"volume_total_ml\": 15.761,\n  \"HU\": {\n   \"lumen_patente_interior_venoso\": {\n    \"n_vox\": 7662,\n    \"median\": 130.0,\n    \"mean\": 127.9,\n    \"sd\": 24.5,\n    \"p10\": 97.0,\n    \"p90\": 156.0\n   },\n   \"trombo_venoso\": {\n    \"n_vox\": 716,\n    \"median\": 70.0,\n    \"mean\": 69.2,\n    \"sd\": 18.7,\n    \"p10\": 46.0,\n    \"p90\": 91.0\n   },\n   \"tumor_Leo_venoso_mediana\": 69.0,\n   \"lumen_patente_interior_tardio_registrado\": {\n    \"n_vox\": 7662,\n    \"median\": 79.0,\n    \"mean\": 74.3,\n    \"sd\": 23.9,\n    \"p10\": 47.0,\n    \"p90\": 97.0\n   },\n   \"trombo_tardio_registrado\": {\n    \"n_vox\": 716,\n    \"median\": 61.0,\n    \"mean\": 58.1,\n    \"sd\": 19.2,\n    \"p10\": 42.0,\n    \"p90\": 75.0\n   },\n   \"limiar_trombo_HU\": 90.0,\n   \"ref_patente_mediana\": 128.8,\n   \"ref_patente_sd_robusto\": 13.3\n  },\n  \"realce_fase_arterial\": \"mediana ~100 HU na veia gonadal vs ~50 HU na VCI/veia iliaca na mesma fase (retorno venoso precoce? achado a confirmar)\",\n  \"compressao\": {\n   \"dist_min_parede_tumor_mm\": 0.0,\n   \"dist_min_centro_tumor_mm\": 0.0,\n   \"contato_total_mm\": 148.4,\n   \"segmentos_contato\": [\n    {\n     \"k\": [\n      175.4,\n      199.4\n     ],\n     \"comprimento_mm\": 39.9\n    },\n    {\n     \"k\": [\n      112.2,\n      171.1\n     ],\n     \"comprimento_mm\": 106.5\n    }\n   ],\n   \"diametro_equivalente\": {\n    \"normal_k150_195\": {\n     \"k\": [\n      150,\n      195\n     ],\n     \"deq_mediana_mm\": 9.3,\n     \"deq_min_mm\": 7.3,\n     \"deq_max_mm\": 10.8,\n     \"n_pts\": 76\n    },\n    \"comprimido_k124_146\": {\n     \"k\": [\n      124,\n      146\n     ],\n     \"deq_mediana_mm\": 4.3,\n     \"deq_min_mm\": 2.0,\n     \"deq_max_mm\": 6.8,\n     \"n_pts\": 42\n    },\n    \"ingurgitado_k108_122\": {\n     \"k\": [\n      108,\n      122\n     ],\n     \"deq_mediana_mm\": 13.6,\n     \"deq_min_mm\": 6.6,\n     \"deq_max_mm\": 15.5,\n     \"n_pts\": 37\n    },\n    \"distal_k80_106\": {\n     \"k\": [\n      80,\n      106\n     ],\n     \"deq_mediana_mm\": 9.7,\n     \"deq_min_mm\": 6.1,\n     \"deq_max_mm\": 11.7,\n     \"n_pts\": 42\n    },\n    \"juncao_hipodensa_k196_205\": {\n     \"k\": [\n      196,\n      205\n     ],\n     \"deq_mediana_mm\": 8.2,\n     \"deq_min_mm\": 5.6,\n     \"deq_max_mm\": 11.9,\n     \"n_pts\": 15\n    }\n   },\n   \"razao_estreitamento_vs_normal\": 0.46,\n   \"razao_ingurgitamento_vs_normal\": 1.46\n  }\n },\n \"gonadal_vein_left_thrombus\": {\n  \"volume_ml\": 0.936,\n  \"k_range\": [\n   190,\n   206\n  ],\n  \"clusters_mantidos\": [\n   {\n    \"id\": 9,\n    \"vol_ml\": 0.936,\n    \"k_range\": [\n     190,\n     206\n    ],\n    \"n_slices\": 17,\n    \"kept\": true,\n    \"vol_deep_ml\": 0.187,\n    \"frac_deep\": 0.2,\n    \"V_median\": 70.0,\n    \"V_p10_p90\": [\n     46.0,\n     91.0\n    ]\n   }\n  ],\n  \"clusters_rejeitados_volume_parcial\": 21,\n  \"interpretacao\": \"defeito de enchimento hipodenso no segmento proximal da veia gonadal junto a confluencia com a veia renal esquerda; atenuacao (~70 HU) semelhante ao tumor (mediana 69 HU): trombo tumoral vs trombo brando vs tecido contiguo nao distinguiveis nesta TC. A veia renal esquerda pre-aortica tambem parece hipoatenuante (~40-80 HU) - nao segmentada aqui.\"\n },\n \"gonadal_artery_left\": {\n  \"status\": \"nao identificada de forma confiavel\",\n  \"motivo\": \"fase arterial com realce modesto (aorta ~190-200 HU), cobertura so a partir de k~110; busca de componentes >150 HU a <15 mm da veia encontrou apenas AMI e ramos, arteria renal, e ramos lombares - sem cadeia continua compativel com arteria gonadal\"\n }\n}",
+    "raw_truncated": false,
+    "n_rows": 0
+   },
+   {
+    "path": "dados/ureter_gonadal/work/gonadal_vein_left_thrombus_metrics.json",
+    "url": "../dados/ureter_gonadal/work/gonadal_vein_left_thrombus_metrics.json",
+    "format": "json",
+    "exists": true,
+    "size_mb": 0.01,
+    "raw": "{\n \"thrombus_clusters\": [\n  {\n   \"id\": 1,\n   \"vol_ml\": 0.033,\n   \"k_range\": [\n    171,\n    173\n   ],\n   \"n_slices\": 3,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 60.0,\n   \"V_p10_p90\": [\n    26.0,\n    88.0\n   ]\n  },\n  {\n   \"id\": 2,\n   \"vol_ml\": 0.037,\n   \"k_range\": [\n    119,\n    123\n   ],\n   \"n_slices\": 5,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 73.5,\n   \"V_p10_p90\": [\n    44.4,\n    96.8\n   ]\n  },\n  {\n   \"id\": 3,\n   \"vol_ml\": 0.005,\n   \"k_range\": [\n    122,\n    123\n   ],\n   \"n_slices\": 2,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 53.0,\n   \"V_p10_p90\": [\n    50.9,\n    71.2\n   ]\n  },\n  {\n   \"id\": 4,\n   \"vol_ml\": 0.027,\n   \"k_range\": [\n    182,\n    185\n   ],\n   \"n_slices\": 4,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 61.0,\n   \"V_p10_p90\": [\n    24.0,\n    98.0\n   ]\n  },\n  {\n   \"id\": 5,\n   \"vol_ml\": 0.099,\n   \"k_range\": [\n    114,\n    124\n   ],\n   \"n_slices\": 11,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.008,\n   \"frac_deep\": 0.08,\n   \"V_median\": 65.0,\n   \"V_p10_p90\": [\n    20.0,\n    98.5\n   ]\n  },\n  {\n   \"id\": 6,\n   \"vol_ml\": 0.027,\n   \"k_range\": [\n    190,\n    193\n   ],\n   \"n_slices\": 4,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 53.0,\n   \"V_p10_p90\": [\n    17.0,\n    108.0\n   ]\n  },\n  {\n   \"id\": 7,\n   \"vol_ml\": 0.018,\n   \"k_range\": [\n    122,\n    123\n   ],\n   \"n_slices\": 2,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.001,\n   \"frac_deep\": 0.07,\n   \"V_median\": 63.5,\n   \"V_p10_p90\": [\n    52.2,\n    83.5\n   ]\n  },\n  {\n   \"id\": 8,\n   \"vol_ml\": 0.001,\n   \"k_range\": [\n    118,\n    118\n   ],\n   \"n_slices\": 1,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 64.0,\n   \"V_p10_p90\": [\n    64.0,\n    64.0\n   ]\n  },\n  {\n   \"id\": 9,\n   \"vol_ml\": 0.936,\n   \"k_range\": [\n    190,\n    206\n   ],\n   \"n_slices\": 17,\n   \"kept\": true,\n   \"vol_deep_ml\": 0.187,\n   \"frac_deep\": 0.2,\n   \"V_median\": 70.0,\n   \"V_p10_p90\": [\n    46.0,\n    91.0\n   ]\n  },\n  {\n   \"id\": 10,\n   \"vol_ml\": 0.029,\n   \"k_range\": [\n    170,\n    175\n   ],\n   \"n_slices\": 6,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 60.0,\n   \"V_p10_p90\": [\n    37.0,\n    80.6\n   ]\n  },\n  {\n   \"id\": 11,\n   \"vol_ml\": 0.064,\n   \"k_range\": [\n    121,\n    123\n   ],\n   \"n_slices\": 3,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.007,\n   \"frac_deep\": 0.1,\n   \"V_median\": 78.0,\n   \"V_p10_p90\": [\n    60.8,\n    94.0\n   ]\n  },\n  {\n   \"id\": 12,\n   \"vol_ml\": 0.003,\n   \"k_range\": [\n    117,\n    117\n   ],\n   \"n_slices\": 1,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.003,\n   \"frac_deep\": 1.0,\n   \"V_median\": 43.5,\n   \"V_p10_p90\": [\n    38.3,\n    48.7\n   ]\n  },\n  {\n   \"id\": 13,\n   \"vol_ml\": 0.094,\n   \"k_range\": [\n    120,\n    123\n   ],\n   \"n_slices\": 4,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.001,\n   \"frac_deep\": 0.01,\n   \"V_median\": 67.5,\n   \"V_p10_p90\": [\n    41.2,\n    85.9\n   ]\n  },\n  {\n   \"id\": 14,\n   \"vol_ml\": 0.081,\n   \"k_range\": [\n    111,\n    117\n   ],\n   \"n_slices\": 7,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 61.5,\n   \"V_p10_p90\": [\n    34.2,\n    92.9\n   ]\n  },\n  {\n   \"id\": 15,\n   \"vol_ml\": 0.026,\n   \"k_range\": [\n    106,\n    110\n   ],\n   \"n_slices\": 5,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 76.0,\n   \"V_p10_p90\": [\n    52.7,\n    104.8\n   ]\n  },\n  {\n   \"id\": 16,\n   \"vol_ml\": 0.038,\n   \"k_range\": [\n    106,\n    110\n   ],\n   \"n_slices\": 5,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.001,\n   \"frac_deep\": 0.03,\n   \"V_median\": 65.0,\n   \"V_p10_p90\": [\n    33.6,\n    103.2\n   ]\n  },\n  {\n   \"id\": 17,\n   \"vol_ml\": 0.02,\n   \"k_range\": [\n    88,\n    92\n   ],\n   \"n_slices\": 5,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.001,\n   \"frac_deep\": 0.07,\n   \"V_median\": 88.0,\n   \"V_p10_p90\": [\n    36.4,\n    116.0\n   ]\n  },\n  {\n   \"id\": 18,\n   \"vol_ml\": 0.068,\n   \"k_range\": [\n    87,\n    98\n   ],\n   \"n_slices\": 12,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.007,\n   \"frac_deep\": 0.1,\n   \"V_median\": 67.0,\n   \"V_p10_p90\": [\n    37.2,\n    88.8\n   ]\n  },\n  {\n   \"id\": 19,\n   \"vol_ml\": 0.016,\n   \"k_range\": [\n    82,\n    84\n   ],\n   \"n_slices\": 3,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.001,\n   \"frac_deep\": 0.08,\n   \"V_median\": 65.5,\n   \"V_p10_p90\": [\n    54.2,\n    83.3\n   ]\n  },\n  {\n   \"id\": 20,\n   \"vol_ml\": 0.001,\n   \"k_range\": [\n    94,\n    94\n   ],\n   \"n_slices\": 1,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.001,\n   \"frac_deep\": 1.0,\n   \"V_median\": 70.0,\n   \"V_p10_p90\": [\n    70.0,\n    70.0\n   ]\n  },\n  {\n   \"id\": 21,\n   \"vol_ml\": 0.029,\n   \"k_range\": [\n    89,\n    94\n   ],\n   \"n_slices\": 6,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.0,\n   \"frac_deep\": 0.0,\n   \"V_median\": 68.5,\n   \"V_p10_p90\": [\n    48.3,\n    98.1\n   ]\n  },\n  {\n   \"id\": 22,\n   \"vol_ml\": 0.046,\n   \"k_range\": [\n    95,\n    100\n   ],\n   \"n_slices\": 6,\n   \"kept\": false,\n   \"vol_deep_ml\": 0.008,\n   \"frac_deep\": 0.17,\n   \"V_median\": 74.0,\n   \"V_p10_p90\": [\n    36.8,\n    97.4\n   ]\n  }\n ],\n \"thrombus_volume_ml\": 0.936,\n \"thrombus_k_range\": [\n  190,\n  206\n ],\n \"patent_volume_ml\": 14.825,\n \"vein_total_volume_ml\": 15.761,\n \"HU\": {\n  \"lumen_patente_interior_venoso\": {\n   \"n_vox\": 7662,\n   \"median\": 130.0,\n   \"mean\": 127.9,\n   \"sd\": 24.5,\n   \"p10\": 97.0,\n   \"p90\": 156.0\n  },\n  \"trombo_venoso\": {\n   \"n_vox\": 716,\n   \"median\": 70.0,\n   \"mean\": 69.2,\n   \"sd\": 18.7,\n   \"p10\": 46.0,\n   \"p90\": 91.0\n  },\n  \"tumor_Leo_venoso_mediana\": 69.0,\n  \"lumen_patente_interior_tardio_registrado\": {\n   \"n_vox\": 7662,\n   \"median\": 79.0,\n   \"mean\": 74.3,\n   \"sd\": 23.9,\n   \"p10\": 47.0,\n   \"p90\": 97.0\n  },\n  \"trombo_tardio_registrado\": {\n   \"n_vox\": 716,\n   \"median\": 61.0,\n   \"mean\": 58.1,\n   \"sd\": 19.2,\n   \"p10\": 42.0,\n   \"p90\": 75.0\n  },\n  \"limiar_trombo_HU\": 90.0,\n  \"ref_patente_mediana\": 128.8,\n  \"ref_patente_sd_robusto\": 13.3\n },\n \"compressao\": {\n  \"dist_min_parede_tumor_mm\": 0.0,\n  \"dist_min_centro_tumor_mm\": 0.0,\n  \"contato_total_mm\": 148.4,\n  \"segmentos_contato\": [\n   {\n    \"k\": [\n     175.4,\n     199.4\n    ],\n    \"comprimento_mm\": 39.9\n   },\n   {\n    \"k\": [\n     112.2,\n     171.1\n    ],\n    \"comprimento_mm\": 106.5\n   }\n  ],\n  \"diametro_equivalente\": {\n   \"normal_k150_195\": {\n    \"k\": [\n     150,\n     195\n    ],\n    \"deq_mediana_mm\": 9.3,\n    \"deq_min_mm\": 7.3,\n    \"deq_max_mm\": 10.8,\n    \"n_pts\": 76\n   },\n   \"comprimido_k124_146\": {\n    \"k\": [\n     124,\n     146\n    ],\n    \"deq_mediana_mm\": 4.3,\n    \"deq_min_mm\": 2.0,\n    \"deq_max_mm\": 6.8,\n    \"n_pts\": 42\n   },\n   \"ingurgitado_k108_122\": {\n    \"k\": [\n     108,\n     122\n    ],\n    \"deq_mediana_mm\": 13.6,\n    \"deq_min_mm\": 6.6,\n    \"deq_max_mm\": 15.5,\n    \"n_pts\": 37\n   },\n   \"distal_k80_106\": {\n    \"k\": [\n     80,\n     106\n    ],\n    \"deq_mediana_mm\": 9.7,\n    \"deq_min_mm\": 6.1,\n    \"deq_max_mm\": 11.7,\n    \"n_pts\": 42\n   },\n   \"juncao_hipodensa_k196_205\": {\n    \"k\": [\n     196,\n     205\n    ],\n    \"deq_mediana_mm\": 8.2,\n    \"deq_min_mm\": 5.6,\n    \"deq_max_mm\": 11.9,\n    \"n_pts\": 15\n   }\n  },\n  \"razao_estreitamento_vs_normal\": 0.46,\n  \"razao_ingurgitamento_vs_normal\": 1.46\n },\n \"profile_k_deq_dist\": [\n  [\n   203.6,\n   11.92,\n   5.95\n  ],\n  [\n   202.1,\n   7.57,\n   5.79\n  ],\n  [\n   200.5,\n   5.95,\n   5.01\n  ],\n  [\n   198.9,\n   8.22,\n   5.37\n  ],\n  [\n   197.3,\n   9.8,\n   3.56\n  ],\n  [\n   195.7,\n   7.85,\n   2.04\n  ],\n  [\n   194.1,\n   8.52,\n   2.74\n  ],\n  [\n   192.5,\n   9.6,\n   2.26\n  ],\n  [\n   190.9,\n   9.48,\n   0.13\n  ],\n  [\n   189.2,\n   9.65,\n   2.24\n  ],\n  [\n   187.6,\n   9.51,\n   1.62\n  ],\n  [\n   185.9,\n   8.96,\n   2.26\n  ],\n  [\n   184.2,\n   8.6,\n   2.93\n  ],\n  [\n   182.5,\n   7.77,\n   4.48\n  ],\n  [\n   180.7,\n   7.65,\n   4.81\n  ],\n  [\n   179.0,\n   7.81,\n   4.12\n  ],\n  [\n   177.2,\n   7.86,\n   4.31\n  ],\n  [\n   175.4,\n   7.44,\n   5.08\n  ],\n  [\n   173.6,\n   7.66,\n   6.68\n  ],\n  [\n   171.8,\n   8.49,\n   6.12\n  ],\n  [\n   169.9,\n   9.52,\n   5.59\n  ],\n  [\n   168.0,\n   10.77,\n   4.4\n  ],\n  [\n   166.1,\n   9.53,\n   3.68\n  ],\n  [\n   164.2,\n   8.57,\n   4.8\n  ],\n  [\n   162.3,\n   8.62,\n   4.88\n  ],\n  [\n   160.4,\n   9.41,\n   3.84\n  ],\n  [\n   158.6,\n   10.56,\n   3.95\n  ],\n  [\n   156.7,\n   10.47,\n   3.18\n  ],\n  [\n   154.9,\n   10.45,\n   3.8\n  ],\n  [\n   153.1,\n   10.26,\n   3.32\n  ],\n  [\n   151.4,\n   9.86,\n   1.87\n  ],\n  [\n   149.7,\n   9.93,\n   1.34\n  ],\n  [\n   148.0,\n   10.0,\n   0.02\n  ],\n  [\n   146.4,\n   5.98,\n   0.0\n  ],\n  [\n   144.9,\n   2.0,\n   0.0\n  ],\n  [\n   143.3,\n   2.0,\n   0.0\n  ],\n  [\n   141.8,\n   4.7,\n   0.0\n  ],\n  [\n   140.4,\n   6.57,\n   0.63\n  ],\n  [\n   139.0,\n   6.83,\n   0.12\n  ],\n  [\n   137.6,\n   5.31,\n   0.0\n  ],\n  [\n   136.2,\n   3.73,\n   0.0\n  ],\n  [\n   134.8,\n   2.54,\n   0.0\n  ],\n  [\n   133.4,\n   2.93,\n   0.0\n  ],\n  [\n   131.8,\n   4.91,\n   0.2\n  ],\n  [\n   130.2,\n   4.38,\n   0.0\n  ],\n  [\n   128.3,\n   3.8,\n   0.03\n  ],\n  [\n   126.3,\n   3.78,\n   0.0\n  ],\n  [\n   124.3,\n   5.05,\n   0.8\n  ],\n  [\n   122.6,\n   5.75,\n   0.0\n  ],\n  [\n   121.2,\n   7.67,\n   1.12\n  ],\n  [\n   120.5,\n   10.44,\n   2.31\n  ],\n  [\n   120.2,\n   11.77,\n   2.67\n  ],\n  [\n   120.1,\n   12.8,\n   2.78\n  ],\n  [\n   119.8,\n   14.7,\n   2.09\n  ],\n  [\n   118.9,\n   15.28,\n   3.12\n  ],\n  [\n   117.7,\n   14.59,\n   4.56\n  ],\n  [\n   116.2,\n   14.85,\n   5.21\n  ],\n  [\n   114.5,\n   14.34,\n   6.14\n  ],\n  [\n   112.8,\n   13.67,\n   7.91\n  ],\n  [\n   111.0,\n   13.05,\n   9.71\n  ],\n  [\n   109.2,\n   12.39,\n   11.5\n  ],\n  [\n   107.4,\n   10.69,\n   13.7\n  ],\n  [\n   105.5,\n   7.59,\n   16.19\n  ],\n  [\n   103.7,\n   7.21,\n   18.83\n  ],\n  [\n   101.8,\n   8.72,\n   21.34\n  ],\n  [\n   99.8,\n   10.13,\n   21.79\n  ],\n  [\n   97.9,\n   10.48,\n   22.33\n  ],\n  [\n   96.0,\n   11.66,\n   23.31\n  ],\n  [\n   94.1,\n   11.07,\n   24.69\n  ],\n  [\n   92.2,\n   7.66,\n   26.41\n  ],\n  [\n   90.3,\n   6.07,\n   28.36\n  ],\n  [\n   88.4,\n   6.85,\n   30.54\n  ],\n  [\n   86.6,\n   8.73,\n   32.85\n  ],\n  [\n   84.8,\n   10.14,\n   35.3\n  ],\n  [\n   83.0,\n   10.55,\n   37.8\n  ],\n  [\n   81.3,\n   10.38,\n   40.39\n  ]\n ]\n}",
+    "raw_truncated": false,
+    "n_rows": 0
+   },
+   {
+    "path": "dados/viewer_assets_v2/qa/qa_metrics_v1_vs_v2.json",
+    "url": "../dados/viewer_assets_v2/qa/qa_metrics_v1_vs_v2.json",
+    "format": "json",
+    "exists": true,
+    "size_mb": 0.0,
+    "raw": "{\n \"tumor_left\": {\n  \"v1\": {\n   \"mean_mm\": 0.517,\n   \"hd95_mm\": 1.623,\n   \"dice\": 0.983,\n   \"triangles\": 150000,\n   \"bodies\": 4\n  },\n  \"v2\": {\n   \"mean_mm\": 0.603,\n   \"hd95_mm\": 1.812,\n   \"dice\": 0.9787,\n   \"triangles\": 285084,\n   \"bodies\": 257\n  }\n },\n \"tumor_corpo\": {\n  \"v2\": {\n   \"mean_mm\": 0.657,\n   \"hd95_mm\": 1.956,\n   \"dice\": 0.9795,\n   \"triangles\": 245084,\n   \"bodies\": 1\n  }\n },\n \"tumor_projecoes_espiculadas\": {\n  \"v2\": {\n   \"mean_mm\": 0.27,\n   \"hd95_mm\": 0.68,\n   \"dice\": 0.9243,\n   \"triangles\": 40000,\n   \"bodies\": 256\n  }\n },\n \"kidney_left\": {\n  \"v1\": {\n   \"mean_mm\": 0.566,\n   \"hd95_mm\": 1.992,\n   \"dice\": 0.9459,\n   \"triangles\": 57128,\n   \"bodies\": 1\n  },\n  \"v2\": {\n   \"mean_mm\": 0.256,\n   \"hd95_mm\": 0.596,\n   \"dice\": 0.9745,\n   \"triangles\": 119690,\n   \"bodies\": 1\n  }\n },\n \"kidney_right\": {\n  \"v1\": {\n   \"mean_mm\": 0.29,\n   \"hd95_mm\": 0.706,\n   \"dice\": 0.9842,\n   \"triangles\": 60000,\n   \"bodies\": 5\n  },\n  \"v2\": {\n   \"mean_mm\": 0.307,\n   \"hd95_mm\": 0.931,\n   \"dice\": 0.9861,\n   \"triangles\": 117896,\n   \"bodies\": 2\n  }\n },\n \"liver\": {\n  \"v1\": {\n   \"mean_mm\": 0.313,\n   \"hd95_mm\": 0.743,\n   \"dice\": 0.9909,\n   \"triangles\": 150000,\n   \"bodies\": 1\n  },\n  \"v2\": {\n   \"mean_mm\": 0.289,\n   \"hd95_mm\": 0.699,\n   \"dice\": 0.9915,\n   \"triangles\": 245890,\n   \"bodies\": 1\n  }\n },\n \"spleen\": {\n  \"v1\": {\n   \"mean_mm\": 0.327,\n   \"hd95_mm\": 0.755,\n   \"dice\": 0.9823,\n   \"triangles\": 50000,\n   \"bodies\": 1\n  },\n  \"v2\": {\n   \"mean_mm\": 0.284,\n   \"hd95_mm\": 0.673,\n   \"dice\": 0.9843,\n   \"triangles\": 98124,\n   \"bodies\": 1\n  }\n },\n \"arterial_tree\": {\n  \"v1\": {\n   \"mean_mm\": 0.238,\n   \"hd95_mm\": 0.655,\n   \"dice\": 0.975,\n   \"triangles\": 90000,\n   \"bodies\": 4\n  },\n  \"v2\": {\n   \"mean_mm\": 0.402,\n   \"hd95_mm\": 0.716,\n   \"dice\": 0.9637,\n   \"triangles\": 213808,\n   \"bodies\": 1\n  }\n },\n \"venous_tree\": {\n  \"v1\": {\n   \"mean_mm\": 0.272,\n   \"hd95_mm\": 0.762,\n   \"dice\": 0.9706,\n   \"triangles\": 90000,\n   \"bodies\": 3\n  },\n  \"v2\": {\n   \"mean_mm\": 0.415,\n   \"hd95_mm\": 1.148,\n   \"dice\": 0.9515,\n   \"triangles\": 217504,\n   \"bodies\": 1\n  }\n },\n \"collecting_system\": {\n  \"v1\": {\n   \"mean_mm\": 0.628,\n   \"hd95_mm\": 2.574,\n   \"dice\": 0.9092,\n   \"triangles\": 25000,\n   \"bodies\": 5\n  },\n  \"v2\": {\n   \"mean_mm\": 0.192,\n   \"hd95_mm\": 0.497,\n   \"dice\": 0.9705,\n   \"triangles\": 59846,\n   \"bodies\": 4\n  }\n },\n \"collecting_system_right\": {\n  \"v1\": {\n   \"mean_mm\": 0.301,\n   \"hd95_mm\": 0.783,\n   \"dice\": 0.9101,\n   \"triangles\": 14660,\n   \"bodies\": 1\n  },\n  \"v2\": {\n   \"mean_mm\": 0.199,\n   \"hd95_mm\": 0.5,\n   \"dice\": 0.9493,\n   \"triangles\": 38084,\n   \"bodies\": 1\n  }\n },\n \"portal_vein_and_splenic_vein\": {\n  \"v1\": {\n   \"mean_mm\": 0.279,\n   \"hd95_mm\": 0.67,\n   \"dice\": 0.9578,\n   \"triangles\": 25000,\n   \"bodies\": 1\n  },\n  \"v2\": {\n   \"mean_mm\": 0.224,\n   \"hd95_mm\": 0.537,\n   \"dice\": 0.967,\n   \"triangles\": 58504,\n   \"bodies\": 1\n  }\n },\n \"_note\": \"v1 = BEFORE meshes (out/viewer_assets_gt). Same reference for v1 and v2: unsmoothed MC surface (level 0.5, native grid) of the mask after the v2 component cleanup + hole filling; trees: union of the ORIGINAL raw part masks (incl. the disconnected fragment v2 drops, and without bridges, so v2 junction repair counts as deviation). v1 trees = the 3 separate v1 part meshes concatenated.\",\n \"slice_jitter\": {\n  \"arterial_tree:aorta k150-320\": {\n   \"excluded_branch_event_triplets\": 2,\n   \"mask\": {\n    \"centroid_2nd_diff_rms_mm\": 0.309,\n    \"radius_2nd_diff_rms_mm\": 0.165,\n    \"n_slices\": 170\n   },\n   \"v1\": {\n    \"centroid_2nd_diff_rms_mm\": 0.135,\n    \"radius_2nd_diff_rms_mm\": 0.069,\n    \"n_slices\": 170\n   },\n   \"v2\": {\n    \"centroid_2nd_diff_rms_mm\": 0.096,\n    \"radius_2nd_diff_rms_mm\": 0.043,\n    \"n_slices\": 170\n   }\n  },\n  \"venous_tree:inferior_vena_cava k145-260\": {\n   \"excluded_branch_event_triplets\": 0,\n   \"mask\": {\n    \"centroid_2nd_diff_rms_mm\": 0.422,\n    \"radius_2nd_diff_rms_mm\": 0.231,\n    \"n_slices\": 115\n   },\n   \"v1\": {\n    \"centroid_2nd_diff_rms_mm\": 0.208,\n    \"radius_2nd_diff_rms_mm\": 0.107,\n    \"n_slices\": 115\n   },\n   \"v2\": {\n    \"centroid_2nd_diff_rms_mm\": 0.111,\n    \"radius_2nd_diff_rms_mm\": 0.061,\n    \"n_slices\": 115\n   }\n  }\n },\n \"slice_jitter_note\": \"RMS of the second difference (slice k-1, k, k+1; 1.5 mm spacing) of the axial cross-section centroid and equivalent radius along the aorta / IVC: mask (largest 2-D component per slice) vs v1 part mesh vs v2 tree mesh. Lower = less slice-to-slice jitter.\",\n \"tree_overlap\": {\n  \"v2_arterial_x_venous_mesh_overlap_ml\": 0.099,\n  \"original_masks_overlap_ml\": 0.088,\n  \"note\": \"voxels (native grid) inside both LOD0 tree meshes; interpenetration of the two trees\"\n }\n}",
+    "raw_truncated": false,
+    "n_rows": 22
+   }
+  ],
+  "rows": [
+   {
+    "structure": "kidney_left",
+    "comparison": "totalseg × vista3d",
+    "dice": 0.9144,
+    "hd95": 10.14,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "totalseg × rsuper",
+    "dice": 0.3764,
+    "hd95": 112.9,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "totalseg × kits21_venous",
+    "dice": 0.8128,
+    "hd95": 13.88,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "totalseg × kits21_arterial",
+    "dice": 0.7484,
+    "hd95": 23.19,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "totalseg × unest",
+    "dice": 0.7021,
+    "hd95": 29.9,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "vista3d × rsuper",
+    "dice": 0.4025,
+    "hd95": 101.57,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "vista3d × kits21_venous",
+    "dice": 0.7884,
+    "hd95": 18.35,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "vista3d × kits21_arterial",
+    "dice": 0.7078,
+    "hd95": 25.62,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "vista3d × unest",
+    "dice": 0.6634,
+    "hd95": 35.93,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "rsuper × kits21_venous",
+    "dice": 0.3285,
+    "hd95": 87.92,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "rsuper × kits21_arterial",
+    "dice": 0.2872,
+    "hd95": 79.08,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "rsuper × unest",
+    "dice": 0.2296,
+    "hd95": 139.94,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.8429,
+    "hd95": 13.17,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "kits21_venous × unest",
+    "dice": 0.7592,
+    "hd95": 27.27,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "kits21_arterial × unest",
+    "dice": 0.7547,
+    "hd95": 18.96,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "totalseg × vista3d",
+    "dice": 0.9723,
+    "hd95": 1.5,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "totalseg × rsuper",
+    "dice": 0.9366,
+    "hd95": 9.71,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "totalseg × kits21_venous",
+    "dice": 0.9058,
+    "hd95": 5.85,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "totalseg × kits21_arterial",
+    "dice": 0.7183,
+    "hd95": 13.28,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "totalseg × unest",
+    "dice": 0.9467,
+    "hd95": 2.95,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "vista3d × rsuper",
+    "dice": 0.9498,
+    "hd95": 8.98,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "vista3d × kits21_venous",
+    "dice": 0.9177,
+    "hd95": 5.55,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "vista3d × kits21_arterial",
+    "dice": 0.7337,
+    "hd95": 13.63,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "vista3d × unest",
+    "dice": 0.9471,
+    "hd95": 2.09,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "rsuper × kits21_venous",
+    "dice": 0.941,
+    "hd95": 7.93,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "rsuper × kits21_arterial",
+    "dice": 0.7639,
+    "hd95": 14.06,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "rsuper × unest",
+    "dice": 0.9605,
+    "hd95": 8.86,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.7515,
+    "hd95": 12.22,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "kits21_venous × unest",
+    "dice": 0.9334,
+    "hd95": 4.76,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "kits21_arterial × unest",
+    "dice": 0.754,
+    "hd95": 12.22,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "inferior_vena_cava",
+    "comparison": "totalseg × vista3d",
+    "dice": 0.9627,
+    "hd95": 1.87,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "inferior_vena_cava",
+    "comparison": "totalseg × rsuper",
+    "dice": 0.9334,
+    "hd95": 2.0,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "inferior_vena_cava",
+    "comparison": "vista3d × rsuper",
+    "dice": 0.924,
+    "hd95": 3.65,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "aorta",
+    "comparison": "totalseg × vista3d",
+    "dice": 0.9687,
+    "hd95": 1.5,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "aorta",
+    "comparison": "totalseg × rsuper",
+    "dice": 0.8999,
+    "hd95": 11.99,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "aorta",
+    "comparison": "vista3d × rsuper",
+    "dice": 0.9057,
+    "hd95": 11.15,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_left",
+    "comparison": "rsuper × kits21_venous",
+    "dice": 0.7188,
+    "hd95": 28.48,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_left",
+    "comparison": "rsuper × kits21_arterial",
+    "dice": 0.7142,
+    "hd95": 26.83,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_left",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.9079,
+    "hd95": 18.21,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "totalseg × ts_cysts",
+    "dice": 0.0,
+    "hd95": 47.98,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "totalseg × vista3d",
+    "dice": 0.0,
+    "hd95": 106.71,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "totalseg × kits21_venous",
+    "dice": 0.0,
+    "hd95": 118.86,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "totalseg × kits21_arterial",
+    "dice": 0.0,
+    "hd95": 121.02,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "ts_cysts × vista3d",
+    "dice": 0.0,
+    "hd95": 79.86,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "ts_cysts × kits21_venous",
+    "dice": 0.0,
+    "hd95": 129.41,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "ts_cysts × kits21_arterial",
+    "dice": 0.0,
+    "hd95": 136.53,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "vista3d × kits21_venous",
+    "dice": 0.0681,
+    "hd95": 140.5,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "vista3d × kits21_arterial",
+    "dice": 0.001,
+    "hd95": 146.63,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_cyst_left",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.079,
+    "hd95": 7.6,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_and_masses_left",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.9146,
+    "hd95": 15.06,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "kidney_and_masses_right",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.7545,
+    "hd95": 12.43,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_only_left",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.9099,
+    "hd95": 16.5,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_right",
+    "comparison": "rsuper × kits21_venous",
+    "dice": 0.646,
+    "hd95": 3.28,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_right",
+    "comparison": "rsuper × kits21_arterial",
+    "dice": 0.0,
+    "hd95": 18.8,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_right",
+    "comparison": "kits21_venous × kits21_arterial",
+    "dice": 0.0,
+    "hd95": 18.79,
+    "extra": {},
+    "source": "metrics.json"
+   },
+   {
+    "structure": "tumor_left",
+    "comparison": "v1",
+    "dice": 0.983,
+    "hd95": 1.623,
+    "extra": {
+     "mean_mm": 0.517,
+     "triangles": 150000,
+     "bodies": 4
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "tumor_left",
+    "comparison": "v2",
+    "dice": 0.9787,
+    "hd95": 1.812,
+    "extra": {
+     "mean_mm": 0.603,
+     "triangles": 285084,
+     "bodies": 257
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "tumor_corpo",
+    "comparison": "v2",
+    "dice": 0.9795,
+    "hd95": 1.956,
+    "extra": {
+     "mean_mm": 0.657,
+     "triangles": 245084,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "tumor_projecoes_espiculadas",
+    "comparison": "v2",
+    "dice": 0.9243,
+    "hd95": 0.68,
+    "extra": {
+     "mean_mm": 0.27,
+     "triangles": 40000,
+     "bodies": 256
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "v1",
+    "dice": 0.9459,
+    "hd95": 1.992,
+    "extra": {
+     "mean_mm": 0.566,
+     "triangles": 57128,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "kidney_left",
+    "comparison": "v2",
+    "dice": 0.9745,
+    "hd95": 0.596,
+    "extra": {
+     "mean_mm": 0.256,
+     "triangles": 119690,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "v1",
+    "dice": 0.9842,
+    "hd95": 0.706,
+    "extra": {
+     "mean_mm": 0.29,
+     "triangles": 60000,
+     "bodies": 5
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "kidney_right",
+    "comparison": "v2",
+    "dice": 0.9861,
+    "hd95": 0.931,
+    "extra": {
+     "mean_mm": 0.307,
+     "triangles": 117896,
+     "bodies": 2
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "liver",
+    "comparison": "v1",
+    "dice": 0.9909,
+    "hd95": 0.743,
+    "extra": {
+     "mean_mm": 0.313,
+     "triangles": 150000,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "liver",
+    "comparison": "v2",
+    "dice": 0.9915,
+    "hd95": 0.699,
+    "extra": {
+     "mean_mm": 0.289,
+     "triangles": 245890,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "spleen",
+    "comparison": "v1",
+    "dice": 0.9823,
+    "hd95": 0.755,
+    "extra": {
+     "mean_mm": 0.327,
+     "triangles": 50000,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "spleen",
+    "comparison": "v2",
+    "dice": 0.9843,
+    "hd95": 0.673,
+    "extra": {
+     "mean_mm": 0.284,
+     "triangles": 98124,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "arterial_tree",
+    "comparison": "v1",
+    "dice": 0.975,
+    "hd95": 0.655,
+    "extra": {
+     "mean_mm": 0.238,
+     "triangles": 90000,
+     "bodies": 4
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "arterial_tree",
+    "comparison": "v2",
+    "dice": 0.9637,
+    "hd95": 0.716,
+    "extra": {
+     "mean_mm": 0.402,
+     "triangles": 213808,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "venous_tree",
+    "comparison": "v1",
+    "dice": 0.9706,
+    "hd95": 0.762,
+    "extra": {
+     "mean_mm": 0.272,
+     "triangles": 90000,
+     "bodies": 3
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "venous_tree",
+    "comparison": "v2",
+    "dice": 0.9515,
+    "hd95": 1.148,
+    "extra": {
+     "mean_mm": 0.415,
+     "triangles": 217504,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "collecting_system",
+    "comparison": "v1",
+    "dice": 0.9092,
+    "hd95": 2.574,
+    "extra": {
+     "mean_mm": 0.628,
+     "triangles": 25000,
+     "bodies": 5
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "collecting_system",
+    "comparison": "v2",
+    "dice": 0.9705,
+    "hd95": 0.497,
+    "extra": {
+     "mean_mm": 0.192,
+     "triangles": 59846,
+     "bodies": 4
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "collecting_system_right",
+    "comparison": "v1",
+    "dice": 0.9101,
+    "hd95": 0.783,
+    "extra": {
+     "mean_mm": 0.301,
+     "triangles": 14660,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "collecting_system_right",
+    "comparison": "v2",
+    "dice": 0.9493,
+    "hd95": 0.5,
+    "extra": {
+     "mean_mm": 0.199,
+     "triangles": 38084,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "portal_vein_and_splenic_vein",
+    "comparison": "v1",
+    "dice": 0.9578,
+    "hd95": 0.67,
+    "extra": {
+     "mean_mm": 0.279,
+     "triangles": 25000,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   },
+   {
+    "structure": "portal_vein_and_splenic_vein",
+    "comparison": "v2",
+    "dice": 0.967,
+    "hd95": 0.537,
+    "extra": {
+     "mean_mm": 0.224,
+     "triangles": 58504,
+     "bodies": 1
+    },
+    "source": "qa_metrics_v1_vs_v2.json"
+   }
+  ]
+ },
+ "pipeline_notes": [
+  "tumor (20) and thrombus (21) are EMPTY: pending fusion with MONAI models (and/or manual refinement).",
+  "renal_artery (22) and renal_vein (23) reserved/empty; ureter (12) is not produced by the TotalSegmentator v2 default task, so it is empty.",
+  "kidney_left mask from TotalSegmentator does NOT include most of the left renal mass (QA finding)."
+ ],
+ "qa_files": [
+  {
+   "path": "dados/qa/glb_info.json",
+   "url": "../dados/qa/glb_info.json"
+  },
+  {
+   "path": "dados/qa/glb_render_anterior_AS_IS.png",
+   "url": "../dados/qa/glb_render_anterior_AS_IS.png"
+  },
+  {
+   "path": "dados/qa/glb_render_anterior_axisfixed.png",
+   "url": "../dados/qa/glb_render_anterior_axisfixed.png"
+  },
+  {
+   "path": "dados/qa/qa2_stdout.txt",
+   "url": "../dados/qa/qa2_stdout.txt"
+  },
+  {
+   "path": "dados/qa/qa_report.json",
+   "url": "../dados/qa/qa_report.json"
+  },
+  {
+   "path": "dados/qa/qa_report_extra.json",
+   "url": "../dados/qa/qa_report_extra.json"
+  },
+  {
+   "path": "dados/qa/qa_stdout.txt",
+   "url": "../dados/qa/qa_stdout.txt"
+  }
+ ],
+ "ai_text": [],
+ "expected": [
+  {
+   "label": "Pasta de saída",
+   "path": "out",
+   "exists": true
+  },
+  {
+   "label": "GLB cirúrgico",
+   "path": "out/leo_gt/leo_gt.glb",
+   "exists": true
+  },
+  {
+   "label": "GLB consenso (fused)",
+   "path": "out/glb/nefrec_surgical_fused.glb",
+   "exists": true
+  },
+  {
+   "label": "Métricas inter-modelos (Dice/HD95)",
+   "path": "out/monai/metrics.json",
+   "exists": true
+  },
+  {
+   "label": "Correção de kidney_left (Leo)",
+   "path": "out/corrected/corrections.json",
+   "exists": true
+  },
+  {
+   "label": "Fusão com GT do Leo — GLB (viewer_assets_gt)",
+   "path": "out/viewer_assets_gt/surgical_scene_lite.glb",
+   "exists": true
+  },
+  {
+   "label": "QA da fusão com GT (distâncias)",
+   "path": "out/qa/fused_gt/qa_fused_gt.md",
+   "exists": true
+  },
+  {
+   "label": "Descrição por IA (VILA-M3)",
+   "path": "out/**/*vila*",
+   "exists": false
+  }
+ ],
+ "test": {
+  "warning": "DADOS SINTÉTICOS DE TESTE — NÃO SÃO DO PACIENTE",
+  "glb": [
+   {
+    "id": "test_synthetic_surgical",
+    "label": "TESTE SINTÉTICO: synthetic_surgical",
+    "model": "TotalSegmentator",
+    "url": "test/synthetic_surgical.glb",
+    "path": "v1/test/synthetic_surgical.glb",
+    "exists": true,
+    "synthetic": true,
+    "convention": "ras_zup"
+   },
+   {
+    "id": "test_synthetic_surgical_fused",
+    "label": "TESTE SINTÉTICO: synthetic_surgical_fused",
+    "model": "Consenso (STAPLE)",
+    "url": "test/synthetic_surgical_fused.glb",
+    "path": "v1/test/synthetic_surgical_fused.glb",
+    "exists": true,
+    "synthetic": true,
+    "convention": "ras_zup"
+   }
+  ],
+  "metrics": {
+   "path": "v1/test/synthetic_metrics.json",
+   "rows": [
+    {
+     "structure": "tumor",
+     "comparison": "TESTE_A vs TESTE_B",
+     "dice": 0.123,
+     "hd95": 12.3,
+     "extra": {},
+     "source": "synthetic_metrics.json"
+    },
+    {
+     "structure": "tumor",
+     "comparison": "TESTE_A vs TESTE_C",
+     "dice": 0.456,
+     "hd95": 4.56,
+     "extra": {},
+     "source": "synthetic_metrics.json"
+    },
+    {
+     "structure": "thrombus",
+     "comparison": "TESTE_A vs TESTE_B",
+     "dice": 0.111,
+     "hd95": 11.1,
+     "extra": {},
+     "source": "synthetic_metrics.json"
+    },
+    {
+     "structure": "inferior_vena_cava",
+     "comparison": "TESTE_A vs TESTE_B",
+     "dice": 0.789,
+     "hd95": 7.89,
+     "extra": {},
+     "source": "synthetic_metrics.json"
+    }
+   ]
+  },
+  "base_volumes": [],
+  "masks": [],
+  "ai_text": [
+   {
+    "path": "v1/test/synthetic_vila_m3.txt",
+    "url": "test/synthetic_vila_m3.txt",
+    "format": "txt",
+    "model": "VILA-M3 (SIMULADO)",
+    "content": "[TEXTO SIMULADO PARA TESTE DA INTERFACE — NÃO É SAÍDA DE MODELO E NÃO SE REFERE A NENHUM PACIENTE]\nLorem ipsum: estrutura A adjacente à estrutura B (exemplo fictício).\n",
+    "synthetic": true
+   }
+  ]
+ },
+ "static_build": {
+  "note": "Versão pública (GitHub Pages): somente dados derivados — malhas 3D (GLB), métricas e QA em texto, renders das malhas. Sem imagens da TC (NIfTI, volumes, cortes) e sem máscaras NIfTI; abas de cortes 2D e volume WebGPU desativadas.",
+  "omitted": [
+   "base_volumes: 5 item(ns) removido(s)",
+   "masks: 188 item(ns) removido(s)",
+   "skipped_nifti: 1 item(ns) removido(s)",
+   "duplicate_masks_skipped: 9 item(ns) removido(s)",
+   "volume (rótulos ROI/volume WebGPU) removido",
+   "test.base_volumes: 1 removido(s)",
+   "test.masks: 5 removido(s)",
+   "corrections.qa_files: 9 imagem(ns) de cortes de TC removida(s)",
+   "qa_files: 5 arquivo(s) (cortes/volume de TC) removido(s)",
+   "expected: 6 linha(s) sobre máscaras/volumes removida(s)"
+  ]
+ }
+}

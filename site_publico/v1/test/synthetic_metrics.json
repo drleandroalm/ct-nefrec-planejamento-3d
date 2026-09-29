@@ -1,0 +1,25 @@
+{
+ "_aviso": "DADOS SINTÉTICOS DE TESTE — valores fictícios, não são do paciente",
+ "tumor": {
+  "TESTE_A vs TESTE_B": {
+   "dice": 0.123,
+   "hd95": 12.3
+  },
+  "TESTE_A vs TESTE_C": {
+   "dice": 0.456,
+   "hd95": 4.56
+  }
+ },
+ "thrombus": {
+  "TESTE_A vs TESTE_B": {
+   "dice": 0.111,
+   "hd95": 11.1
+  }
+ },
+ "inferior_vena_cava": {
+  "TESTE_A vs TESTE_B": {
+   "dice": 0.789,
+   "hd95": 7.89
+  }
+ }
+}

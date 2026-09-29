@@ -1,0 +1,2699 @@
+{
+ "venous": {
+  "shape": [
+   512,
+   512,
+   404
+  ],
+  "zooms": [
+   0.93359375,
+   0.93359375,
+   1.5
+  ],
+  "axcodes": "LAS",
+  "hu_min": -1024.0,
+  "hu_max": 3071.0
+ },
+ "geometry": [
+  {
+   "file": "masks/adrenal_gland_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 2206,
+   "ml": 2.88
+  },
+  {
+   "file": "masks/adrenal_gland_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 1970,
+   "ml": 2.58
+  },
+  {
+   "file": "masks/aorta.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 119256,
+   "ml": 155.91
+  },
+  {
+   "file": "masks/atrial_appendage_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 4046,
+   "ml": 5.29
+  },
+  {
+   "file": "masks/colon.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 522226,
+   "ml": 682.76
+  },
+  {
+   "file": "masks/duodenum.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 29132,
+   "ml": 38.09
+  },
+  {
+   "file": "masks/gallbladder.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 19045,
+   "ml": 24.9
+  },
+  {
+   "file": "masks/heart.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 441691,
+   "ml": 577.47
+  },
+  {
+   "file": "masks/iliac_artery_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 7927,
+   "ml": 10.36
+  },
+  {
+   "file": "masks/iliac_artery_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 7117,
+   "ml": 9.3
+  },
+  {
+   "file": "masks/iliac_vena_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 21411,
+   "ml": 27.99
+  },
+  {
+   "file": "masks/iliac_vena_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 16376,
+   "ml": 21.41
+  },
+  {
+   "file": "masks/iliopsoas_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 148426,
+   "ml": 194.05
+  },
+  {
+   "file": "masks/iliopsoas_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 151471,
+   "ml": 198.03
+  },
+  {
+   "file": "masks/inferior_vena_cava.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 72890,
+   "ml": 95.3
+  },
+  {
+   "file": "masks/kidney_cyst_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 380,
+   "ml": 0.5
+  },
+  {
+   "file": "masks/kidney_cyst_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0
+   ],
+   "voxels": 0,
+   "ml": 0.0
+  },
+  {
+   "file": "masks/kidney_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 155634,
+   "ml": 203.48
+  },
+  {
+   "file": "masks/kidney_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 104442,
+   "ml": 136.55
+  },
+  {
+   "file": "masks/liver.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 1396851,
+   "ml": 1826.24
+  },
+  {
+   "file": "masks/pancreas.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 49199,
+   "ml": 64.32
+  },
+  {
+   "file": "masks/portal_vein_and_splenic_vein.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 19613,
+   "ml": 25.64
+  },
+  {
+   "file": "masks/sacrum.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 103059,
+   "ml": 134.74
+  },
+  {
+   "file": "masks/small_bowel.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 759547,
+   "ml": 993.03
+  },
+  {
+   "file": "masks/spleen.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 137027,
+   "ml": 179.15
+  },
+  {
+   "file": "masks/stomach.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 128566,
+   "ml": 168.09
+  },
+  {
+   "file": "masks/superior_vena_cava.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 16513,
+   "ml": 21.59
+  },
+  {
+   "file": "masks/urinary_bladder.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 163155,
+   "ml": 213.31
+  },
+  {
+   "file": "masks/vertebrae_L1.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 28131,
+   "ml": 36.78
+  },
+  {
+   "file": "masks/vertebrae_L2.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 32209,
+   "ml": 42.11
+  },
+  {
+   "file": "masks/vertebrae_L3.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 36135,
+   "ml": 47.24
+  },
+  {
+   "file": "masks/vertebrae_L4.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 37410,
+   "ml": 48.91
+  },
+  {
+   "file": "masks/vertebrae_L5.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 36524,
+   "ml": 47.75
+  },
+  {
+   "file": "masks/vertebrae_S1.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 29283,
+   "ml": 38.28
+  },
+  {
+   "file": "masks/vertebrae_T10.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 20946,
+   "ml": 27.38
+  },
+  {
+   "file": "masks/vertebrae_T11.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 23629,
+   "ml": 30.89
+  },
+  {
+   "file": "masks/vertebrae_T12.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 24215,
+   "ml": 31.66
+  },
+  {
+   "file": "masks/vertebrae_T9.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 18710,
+   "ml": 24.46
+  },
+  {
+   "file": "viewer_masks/aorta.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 119256,
+   "ml": 155.91
+  },
+  {
+   "file": "viewer_masks/iliac_artery_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 7927,
+   "ml": 10.36
+  },
+  {
+   "file": "viewer_masks/iliac_artery_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 7117,
+   "ml": 9.3
+  },
+  {
+   "file": "viewer_masks/iliac_vena_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 21411,
+   "ml": 27.99
+  },
+  {
+   "file": "viewer_masks/iliac_vena_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 16376,
+   "ml": 21.41
+  },
+  {
+   "file": "viewer_masks/inferior_vena_cava.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 72890,
+   "ml": 95.3
+  },
+  {
+   "file": "viewer_masks/kidney_left.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 155634,
+   "ml": 203.48
+  },
+  {
+   "file": "viewer_masks/kidney_right.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 104442,
+   "ml": 136.55
+  },
+  {
+   "file": "viewer_masks/portal_vein_and_splenic_vein.nii.gz",
+   "shape_ok": true,
+   "affine_ok": true,
+   "values": [
+    0,
+    1
+   ],
+   "voxels": 19613,
+   "ml": 25.64
+  }
+ ],
+ "all_geometry_ok": true,
+ "vertebra_z": {
+  "vertebrae_T9": {
+   "k": [
+    261,
+    296
+   ],
+   "z_mm": [
+    -573.5,
+    -521.0
+   ]
+  },
+  "vertebrae_T10": {
+   "k": [
+    248,
+    279
+   ],
+   "z_mm": [
+    -593.0,
+    -546.5
+   ]
+  },
+  "vertebrae_T11": {
+   "k": [
+    232,
+    262
+   ],
+   "z_mm": [
+    -617.0,
+    -572.0
+   ]
+  },
+  "vertebrae_T12": {
+   "k": [
+    216,
+    245
+   ],
+   "z_mm": [
+    -641.0,
+    -597.5
+   ]
+  },
+  "vertebrae_L1": {
+   "k": [
+    192,
+    228
+   ],
+   "z_mm": [
+    -677.0,
+    -623.0
+   ]
+  },
+  "vertebrae_L2": {
+   "k": [
+    172,
+    208
+   ],
+   "z_mm": [
+    -707.0,
+    -653.0
+   ]
+  },
+  "vertebrae_L3": {
+   "k": [
+    150,
+    186
+   ],
+   "z_mm": [
+    -740.0,
+    -686.0
+   ]
+  },
+  "vertebrae_L4": {
+   "k": [
+    133,
+    164
+   ],
+   "z_mm": [
+    -765.5,
+    -719.0
+   ]
+  },
+  "vertebrae_L5": {
+   "k": [
+    116,
+    145
+   ],
+   "z_mm": [
+    -791.0,
+    -747.5
+   ]
+  },
+  "vertebrae_S1": {
+   "k": [
+    100,
+    129
+   ],
+   "z_mm": [
+    -815.0,
+    -771.5
+   ]
+  },
+  "sacrum": {
+   "k": [
+    49,
+    126
+   ],
+   "z_mm": [
+    -891.5,
+    -776.0
+   ]
+  }
+ },
+ "extents": {
+  "adrenal_gland_left": {
+   "k": [
+    221,
+    242
+   ],
+   "z_mm": [
+    -633.5,
+    -602.0
+   ],
+   "levels": [
+    "L1",
+    "T12"
+   ]
+  },
+  "adrenal_gland_right": {
+   "k": [
+    216,
+    239
+   ],
+   "z_mm": [
+    -641.0,
+    -606.5
+   ],
+   "levels": [
+    "L1",
+    "T12"
+   ]
+  },
+  "aorta": {
+   "k": [
+    137,
+    346
+   ],
+   "z_mm": [
+    -759.5,
+    -446.0
+   ],
+   "levels": [
+    "L5",
+    "none(<T9 or >sacrum)"
+   ]
+  },
+  "atrial_appendage_left": {
+   "k": [
+    306,
+    318
+   ],
+   "z_mm": [
+    -506.0,
+    -488.0
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "none(<T9 or >sacrum)"
+   ]
+  },
+  "colon": {
+   "k": [
+    35,
+    219
+   ],
+   "z_mm": [
+    -912.5,
+    -636.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L1"
+   ]
+  },
+  "duodenum": {
+   "k": [
+    163,
+    210
+   ],
+   "z_mm": [
+    -720.5,
+    -650.0
+   ],
+   "levels": [
+    "L3",
+    "L1"
+   ]
+  },
+  "gallbladder": {
+   "k": [
+    180,
+    211
+   ],
+   "z_mm": [
+    -695.0,
+    -648.5
+   ],
+   "levels": [
+    "L3",
+    "L1"
+   ]
+  },
+  "heart": {
+   "k": [
+    257,
+    331
+   ],
+   "z_mm": [
+    -579.5,
+    -468.5
+   ],
+   "levels": [
+    "T11",
+    "none(<T9 or >sacrum)"
+   ]
+  },
+  "iliac_artery_left": {
+   "k": [
+    27,
+    139
+   ],
+   "z_mm": [
+    -924.5,
+    -756.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L5"
+   ]
+  },
+  "iliac_artery_right": {
+   "k": [
+    32,
+    138
+   ],
+   "z_mm": [
+    -917.0,
+    -758.0
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L5"
+   ]
+  },
+  "iliac_vena_left": {
+   "k": [
+    24,
+    133
+   ],
+   "z_mm": [
+    -929.0,
+    -765.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L5"
+   ]
+  },
+  "iliac_vena_right": {
+   "k": [
+    32,
+    133
+   ],
+   "z_mm": [
+    -917.0,
+    -765.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L5"
+   ]
+  },
+  "iliopsoas_left": {
+   "k": [
+    8,
+    215
+   ],
+   "z_mm": [
+    -953.0,
+    -642.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L1"
+   ]
+  },
+  "iliopsoas_right": {
+   "k": [
+    16,
+    214
+   ],
+   "z_mm": [
+    -941.0,
+    -644.0
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L1"
+   ]
+  },
+  "inferior_vena_cava": {
+   "k": [
+    134,
+    275
+   ],
+   "z_mm": [
+    -764.0,
+    -552.5
+   ],
+   "levels": [
+    "L5",
+    "T10"
+   ]
+  },
+  "kidney_cyst_left": {
+   "k": [
+    165,
+    173
+   ],
+   "z_mm": [
+    -717.5,
+    -705.5
+   ],
+   "levels": [
+    "L3",
+    "L3"
+   ]
+  },
+  "kidney_cyst_right": null,
+  "kidney_left": {
+   "k": [
+    164,
+    242
+   ],
+   "z_mm": [
+    -719.0,
+    -602.0
+   ],
+   "levels": [
+    "L3",
+    "T12"
+   ]
+  },
+  "kidney_right": {
+   "k": [
+    161,
+    230
+   ],
+   "z_mm": [
+    -723.5,
+    -620.0
+   ],
+   "levels": [
+    "L4",
+    "T12"
+   ]
+  },
+  "liver": {
+   "k": [
+    157,
+    274
+   ],
+   "z_mm": [
+    -729.5,
+    -554.0
+   ],
+   "levels": [
+    "L4",
+    "T10"
+   ]
+  },
+  "pancreas": {
+   "k": [
+    177,
+    231
+   ],
+   "z_mm": [
+    -699.5,
+    -618.5
+   ],
+   "levels": [
+    "L3",
+    "T12"
+   ]
+  },
+  "portal_vein_and_splenic_vein": {
+   "k": [
+    204,
+    242
+   ],
+   "z_mm": [
+    -659.0,
+    -602.0
+   ],
+   "levels": [
+    "L2",
+    "T12"
+   ]
+  },
+  "sacrum": {
+   "k": [
+    49,
+    126
+   ],
+   "z_mm": [
+    -891.5,
+    -776.0
+   ],
+   "levels": [
+    "sacrum",
+    "L5"
+   ]
+  },
+  "small_bowel": {
+   "k": [
+    67,
+    208
+   ],
+   "z_mm": [
+    -864.5,
+    -653.0
+   ],
+   "levels": [
+    "sacrum",
+    "L1"
+   ]
+  },
+  "spleen": {
+   "k": [
+    152,
+    263
+   ],
+   "z_mm": [
+    -737.0,
+    -570.5
+   ],
+   "levels": [
+    "L4",
+    "T10"
+   ]
+  },
+  "stomach": {
+   "k": [
+    195,
+    256
+   ],
+   "z_mm": [
+    -672.5,
+    -581.0
+   ],
+   "levels": [
+    "L2",
+    "T11"
+   ]
+  },
+  "superior_vena_cava": {
+   "k": [
+    297,
+    341
+   ],
+   "z_mm": [
+    -519.5,
+    -453.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "none(<T9 or >sacrum)"
+   ]
+  },
+  "urinary_bladder": {
+   "k": [
+    35,
+    69
+   ],
+   "z_mm": [
+    -912.5,
+    -861.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "sacrum"
+   ]
+  },
+  "vertebrae_L1": {
+   "k": [
+    192,
+    228
+   ],
+   "z_mm": [
+    -677.0,
+    -623.0
+   ],
+   "levels": [
+    "L2",
+    "T12"
+   ]
+  },
+  "vertebrae_L2": {
+   "k": [
+    172,
+    208
+   ],
+   "z_mm": [
+    -707.0,
+    -653.0
+   ],
+   "levels": [
+    "L3",
+    "L1"
+   ]
+  },
+  "vertebrae_L3": {
+   "k": [
+    150,
+    186
+   ],
+   "z_mm": [
+    -740.0,
+    -686.0
+   ],
+   "levels": [
+    "L4",
+    "L2"
+   ]
+  },
+  "vertebrae_L4": {
+   "k": [
+    133,
+    164
+   ],
+   "z_mm": [
+    -765.5,
+    -719.0
+   ],
+   "levels": [
+    "L5",
+    "L3"
+   ]
+  },
+  "vertebrae_L5": {
+   "k": [
+    116,
+    145
+   ],
+   "z_mm": [
+    -791.0,
+    -747.5
+   ],
+   "levels": [
+    "S1",
+    "L4"
+   ]
+  },
+  "vertebrae_S1": {
+   "k": [
+    100,
+    129
+   ],
+   "z_mm": [
+    -815.0,
+    -771.5
+   ],
+   "levels": [
+    "sacrum",
+    "L5"
+   ]
+  },
+  "vertebrae_T10": {
+   "k": [
+    248,
+    279
+   ],
+   "z_mm": [
+    -593.0,
+    -546.5
+   ],
+   "levels": [
+    "T11",
+    "T9"
+   ]
+  },
+  "vertebrae_T11": {
+   "k": [
+    232,
+    262
+   ],
+   "z_mm": [
+    -617.0,
+    -572.0
+   ],
+   "levels": [
+    "T12",
+    "T10"
+   ]
+  },
+  "vertebrae_T12": {
+   "k": [
+    216,
+    245
+   ],
+   "z_mm": [
+    -641.0,
+    -597.5
+   ],
+   "levels": [
+    "L1",
+    "T11"
+   ]
+  },
+  "vertebrae_T9": {
+   "k": [
+    261,
+    296
+   ],
+   "z_mm": [
+    -573.5,
+    -521.0
+   ],
+   "levels": [
+    "T10",
+    "T9"
+   ]
+  }
+ },
+ "volumes_ml": {
+  "adrenal_gland_left": 2.9,
+  "adrenal_gland_right": 2.6,
+  "aorta": 155.9,
+  "atrial_appendage_left": 5.3,
+  "colon": 682.8,
+  "duodenum": 38.1,
+  "gallbladder": 24.9,
+  "heart": 577.5,
+  "iliac_artery_left": 10.4,
+  "iliac_artery_right": 9.3,
+  "iliac_vena_left": 28.0,
+  "iliac_vena_right": 21.4,
+  "iliopsoas_left": 194.1,
+  "iliopsoas_right": 198.0,
+  "inferior_vena_cava": 95.3,
+  "kidney_cyst_left": 0.5,
+  "kidney_cyst_right": 0.0,
+  "kidney_left": 203.5,
+  "kidney_right": 136.5,
+  "liver": 1826.2,
+  "pancreas": 64.3,
+  "portal_vein_and_splenic_vein": 25.6,
+  "sacrum": 134.7,
+  "small_bowel": 993.0,
+  "spleen": 179.1,
+  "stomach": 168.1,
+  "superior_vena_cava": 21.6,
+  "urinary_bladder": 213.3,
+  "vertebrae_L1": 36.8,
+  "vertebrae_L2": 42.1,
+  "vertebrae_L3": 47.2,
+  "vertebrae_L4": 48.9,
+  "vertebrae_L5": 47.8,
+  "vertebrae_S1": 38.3,
+  "vertebrae_T10": 27.4,
+  "vertebrae_T11": 30.9,
+  "vertebrae_T12": 31.7,
+  "vertebrae_T9": 24.5
+ },
+ "kidney_analysis": {
+  "left": {
+   "n": 155634,
+   "mean": 83.9,
+   "sd": 38.8,
+   "p5": 7.0,
+   "p25": 63.0,
+   "median": 88.0,
+   "p75": 113.0,
+   "p95": 137.0,
+   "frac_lt20": 0.081,
+   "frac_20_100": 0.53,
+   "frac_100_150": 0.377,
+   "frac_ge150": 0.012
+  },
+  "right": {
+   "n": 104442,
+   "mean": 129.6,
+   "sd": 32.8,
+   "p5": 68.0,
+   "p25": 121.0,
+   "median": 136.0,
+   "p75": 148.0,
+   "p95": 166.0,
+   "frac_lt20": 0.018,
+   "frac_20_100": 0.091,
+   "frac_100_150": 0.664,
+   "frac_ge150": 0.227
+  },
+  "left_eroded": {
+   "n": 142163,
+   "mean": 85.6,
+   "sd": 37.5,
+   "p5": 9.0,
+   "p25": 64.0,
+   "median": 89.0,
+   "p75": 114.0,
+   "p95": 137.0,
+   "frac_lt20": 0.073,
+   "frac_20_100": 0.526,
+   "frac_100_150": 0.389,
+   "frac_ge150": 0.012
+  },
+  "right_eroded": {
+   "n": 92205,
+   "mean": 135.9,
+   "sd": 21.8,
+   "p5": 99.0,
+   "p25": 125.0,
+   "median": 138.0,
+   "p75": 150.0,
+   "p95": 166.0,
+   "frac_lt20": 0.002,
+   "frac_20_100": 0.049,
+   "frac_100_150": 0.7,
+   "frac_ge150": 0.25
+  },
+  "right_p5_threshold": 99.0,
+  "left_low_largest_component": {
+   "ml": 104.4,
+   "z_mm": [
+    -693.5,
+    -602.0
+   ],
+   "levels": [
+    "L3",
+    "T12"
+   ],
+   "mean_hu": 60.6
+  },
+  "left_lowHU_ml_below_right_p5": 109.5,
+  "right_lowHU_ml_below_right_p5": 5.8,
+  "left_bbox_mm": [
+   81.2,
+   136.3,
+   118.5
+  ],
+  "left_components": 2,
+  "right_bbox_mm": [
+   62.6,
+   73.8,
+   105.0
+  ],
+  "right_components": 1,
+  "cyst_left_ml": 0.5,
+  "cyst_right_ml": 0.0,
+  "ratio_L_over_R": 1.49
+ },
+ "ivc": {
+  "k_range": [
+   134,
+   275
+  ],
+  "z_mm": [
+   -764.0,
+   -552.5
+  ],
+  "levels": [
+   "L5",
+   "T10"
+  ],
+  "n_slices": 142,
+  "n_gap_slices": 0,
+  "rows": [
+   {
+    "k": 134,
+    "z_mm": -764.0,
+    "level": "L5",
+    "area_mm2": 100.2,
+    "n_comp": 1,
+    "mean_hu": 102.5,
+    "flags": []
+   },
+   {
+    "k": 135,
+    "z_mm": -762.5,
+    "level": "L5",
+    "area_mm2": 226.6,
+    "n_comp": 1,
+    "mean_hu": 102.6,
+    "flags": [
+     "jump2.26"
+    ]
+   },
+   {
+    "k": 136,
+    "z_mm": -761.0,
+    "level": "L5",
+    "area_mm2": 252.8,
+    "n_comp": 1,
+    "mean_hu": 100.8,
+    "flags": []
+   },
+   {
+    "k": 137,
+    "z_mm": -759.5,
+    "level": "L5",
+    "area_mm2": 278.0,
+    "n_comp": 1,
+    "mean_hu": 100.5,
+    "flags": []
+   },
+   {
+    "k": 138,
+    "z_mm": -758.0,
+    "level": "L5",
+    "area_mm2": 292.9,
+    "n_comp": 1,
+    "mean_hu": 101.1,
+    "flags": []
+   },
+   {
+    "k": 139,
+    "z_mm": -756.5,
+    "level": "L5",
+    "area_mm2": 299.8,
+    "n_comp": 1,
+    "mean_hu": 104.8,
+    "flags": []
+   },
+   {
+    "k": 140,
+    "z_mm": -755.0,
+    "level": "L4",
+    "area_mm2": 309.4,
+    "n_comp": 1,
+    "mean_hu": 101.7,
+    "flags": []
+   },
+   {
+    "k": 141,
+    "z_mm": -753.5,
+    "level": "L4",
+    "area_mm2": 316.4,
+    "n_comp": 1,
+    "mean_hu": 100.2,
+    "flags": []
+   },
+   {
+    "k": 142,
+    "z_mm": -752.0,
+    "level": "L4",
+    "area_mm2": 327.7,
+    "n_comp": 1,
+    "mean_hu": 95.8,
+    "flags": []
+   },
+   {
+    "k": 143,
+    "z_mm": -750.5,
+    "level": "L4",
+    "area_mm2": 331.2,
+    "n_comp": 1,
+    "mean_hu": 92.1,
+    "flags": []
+   },
+   {
+    "k": 144,
+    "z_mm": -749.0,
+    "level": "L4",
+    "area_mm2": 331.2,
+    "n_comp": 1,
+    "mean_hu": 90.2,
+    "flags": []
+   },
+   {
+    "k": 145,
+    "z_mm": -747.5,
+    "level": "L4",
+    "area_mm2": 332.1,
+    "n_comp": 1,
+    "mean_hu": 89.8,
+    "flags": []
+   },
+   {
+    "k": 146,
+    "z_mm": -746.0,
+    "level": "L4",
+    "area_mm2": 337.3,
+    "n_comp": 1,
+    "mean_hu": 94.0,
+    "flags": []
+   },
+   {
+    "k": 147,
+    "z_mm": -744.5,
+    "level": "L4",
+    "area_mm2": 349.5,
+    "n_comp": 1,
+    "mean_hu": 92.7,
+    "flags": []
+   },
+   {
+    "k": 148,
+    "z_mm": -743.0,
+    "level": "L4",
+    "area_mm2": 357.4,
+    "n_comp": 1,
+    "mean_hu": 95.2,
+    "flags": []
+   },
+   {
+    "k": 149,
+    "z_mm": -741.5,
+    "level": "L4",
+    "area_mm2": 362.6,
+    "n_comp": 1,
+    "mean_hu": 97.2,
+    "flags": []
+   },
+   {
+    "k": 150,
+    "z_mm": -740.0,
+    "level": "L4",
+    "area_mm2": 364.3,
+    "n_comp": 1,
+    "mean_hu": 98.2,
+    "flags": []
+   },
+   {
+    "k": 151,
+    "z_mm": -738.5,
+    "level": "L4",
+    "area_mm2": 356.5,
+    "n_comp": 1,
+    "mean_hu": 99.1,
+    "flags": []
+   },
+   {
+    "k": 152,
+    "z_mm": -737.0,
+    "level": "L4",
+    "area_mm2": 354.7,
+    "n_comp": 1,
+    "mean_hu": 97.4,
+    "flags": []
+   },
+   {
+    "k": 153,
+    "z_mm": -735.5,
+    "level": "L4",
+    "area_mm2": 357.4,
+    "n_comp": 1,
+    "mean_hu": 97.3,
+    "flags": []
+   },
+   {
+    "k": 154,
+    "z_mm": -734.0,
+    "level": "L4",
+    "area_mm2": 353.0,
+    "n_comp": 1,
+    "mean_hu": 99.6,
+    "flags": []
+   },
+   {
+    "k": 155,
+    "z_mm": -732.5,
+    "level": "L4",
+    "area_mm2": 351.3,
+    "n_comp": 1,
+    "mean_hu": 99.3,
+    "flags": []
+   },
+   {
+    "k": 156,
+    "z_mm": -731.0,
+    "level": "L4",
+    "area_mm2": 350.4,
+    "n_comp": 1,
+    "mean_hu": 99.9,
+    "flags": []
+   },
+   {
+    "k": 157,
+    "z_mm": -729.5,
+    "level": "L4",
+    "area_mm2": 339.1,
+    "n_comp": 1,
+    "mean_hu": 101.6,
+    "flags": []
+   },
+   {
+    "k": 158,
+    "z_mm": -728.0,
+    "level": "L4",
+    "area_mm2": 333.8,
+    "n_comp": 1,
+    "mean_hu": 102.9,
+    "flags": []
+   },
+   {
+    "k": 159,
+    "z_mm": -726.5,
+    "level": "L4",
+    "area_mm2": 333.0,
+    "n_comp": 1,
+    "mean_hu": 103.8,
+    "flags": []
+   },
+   {
+    "k": 160,
+    "z_mm": -725.0,
+    "level": "L4",
+    "area_mm2": 325.1,
+    "n_comp": 1,
+    "mean_hu": 103.8,
+    "flags": []
+   },
+   {
+    "k": 161,
+    "z_mm": -723.5,
+    "level": "L4",
+    "area_mm2": 326.8,
+    "n_comp": 1,
+    "mean_hu": 105.4,
+    "flags": []
+   },
+   {
+    "k": 162,
+    "z_mm": -722.0,
+    "level": "L3",
+    "area_mm2": 329.5,
+    "n_comp": 1,
+    "mean_hu": 109.9,
+    "flags": []
+   },
+   {
+    "k": 163,
+    "z_mm": -720.5,
+    "level": "L3",
+    "area_mm2": 329.5,
+    "n_comp": 1,
+    "mean_hu": 106.1,
+    "flags": []
+   },
+   {
+    "k": 164,
+    "z_mm": -719.0,
+    "level": "L3",
+    "area_mm2": 332.1,
+    "n_comp": 1,
+    "mean_hu": 104.7,
+    "flags": []
+   },
+   {
+    "k": 165,
+    "z_mm": -717.5,
+    "level": "L3",
+    "area_mm2": 332.1,
+    "n_comp": 1,
+    "mean_hu": 101.1,
+    "flags": []
+   },
+   {
+    "k": 166,
+    "z_mm": -716.0,
+    "level": "L3",
+    "area_mm2": 340.8,
+    "n_comp": 1,
+    "mean_hu": 102.1,
+    "flags": []
+   },
+   {
+    "k": 167,
+    "z_mm": -714.5,
+    "level": "L3",
+    "area_mm2": 338.2,
+    "n_comp": 1,
+    "mean_hu": 104.9,
+    "flags": []
+   },
+   {
+    "k": 168,
+    "z_mm": -713.0,
+    "level": "L3",
+    "area_mm2": 339.9,
+    "n_comp": 1,
+    "mean_hu": 104.6,
+    "flags": []
+   },
+   {
+    "k": 169,
+    "z_mm": -711.5,
+    "level": "L3",
+    "area_mm2": 346.0,
+    "n_comp": 1,
+    "mean_hu": 101.4,
+    "flags": []
+   },
+   {
+    "k": 170,
+    "z_mm": -710.0,
+    "level": "L3",
+    "area_mm2": 342.5,
+    "n_comp": 1,
+    "mean_hu": 103.3,
+    "flags": []
+   },
+   {
+    "k": 171,
+    "z_mm": -708.5,
+    "level": "L3",
+    "area_mm2": 351.3,
+    "n_comp": 1,
+    "mean_hu": 102.2,
+    "flags": []
+   },
+   {
+    "k": 172,
+    "z_mm": -707.0,
+    "level": "L3",
+    "area_mm2": 351.3,
+    "n_comp": 1,
+    "mean_hu": 100.5,
+    "flags": []
+   },
+   {
+    "k": 173,
+    "z_mm": -705.5,
+    "level": "L3",
+    "area_mm2": 353.0,
+    "n_comp": 1,
+    "mean_hu": 99.6,
+    "flags": []
+   },
+   {
+    "k": 174,
+    "z_mm": -704.0,
+    "level": "L3",
+    "area_mm2": 354.7,
+    "n_comp": 1,
+    "mean_hu": 97.7,
+    "flags": []
+   },
+   {
+    "k": 175,
+    "z_mm": -702.5,
+    "level": "L3",
+    "area_mm2": 362.6,
+    "n_comp": 1,
+    "mean_hu": 96.6,
+    "flags": []
+   },
+   {
+    "k": 176,
+    "z_mm": -701.0,
+    "level": "L3",
+    "area_mm2": 368.7,
+    "n_comp": 1,
+    "mean_hu": 97.4,
+    "flags": []
+   },
+   {
+    "k": 177,
+    "z_mm": -699.5,
+    "level": "L3",
+    "area_mm2": 375.7,
+    "n_comp": 1,
+    "mean_hu": 97.4,
+    "flags": []
+   },
+   {
+    "k": 178,
+    "z_mm": -698.0,
+    "level": "L3",
+    "area_mm2": 387.9,
+    "n_comp": 1,
+    "mean_hu": 96.2,
+    "flags": []
+   },
+   {
+    "k": 179,
+    "z_mm": -696.5,
+    "level": "L3",
+    "area_mm2": 401.8,
+    "n_comp": 1,
+    "mean_hu": 96.2,
+    "flags": []
+   },
+   {
+    "k": 180,
+    "z_mm": -695.0,
+    "level": "L3",
+    "area_mm2": 413.1,
+    "n_comp": 1,
+    "mean_hu": 97.4,
+    "flags": []
+   },
+   {
+    "k": 181,
+    "z_mm": -693.5,
+    "level": "L3",
+    "area_mm2": 416.6,
+    "n_comp": 1,
+    "mean_hu": 101.3,
+    "flags": []
+   },
+   {
+    "k": 182,
+    "z_mm": -692.0,
+    "level": "L3",
+    "area_mm2": 413.1,
+    "n_comp": 1,
+    "mean_hu": 101.9,
+    "flags": []
+   },
+   {
+    "k": 183,
+    "z_mm": -690.5,
+    "level": "L3",
+    "area_mm2": 418.4,
+    "n_comp": 1,
+    "mean_hu": 102.7,
+    "flags": []
+   },
+   {
+    "k": 184,
+    "z_mm": -689.0,
+    "level": "L3",
+    "area_mm2": 418.4,
+    "n_comp": 1,
+    "mean_hu": 107.3,
+    "flags": []
+   },
+   {
+    "k": 185,
+    "z_mm": -687.5,
+    "level": "L3",
+    "area_mm2": 417.5,
+    "n_comp": 1,
+    "mean_hu": 109.3,
+    "flags": []
+   },
+   {
+    "k": 186,
+    "z_mm": -686.0,
+    "level": "L2",
+    "area_mm2": 419.2,
+    "n_comp": 1,
+    "mean_hu": 111.5,
+    "flags": []
+   },
+   {
+    "k": 187,
+    "z_mm": -684.5,
+    "level": "L2",
+    "area_mm2": 413.1,
+    "n_comp": 1,
+    "mean_hu": 110.3,
+    "flags": []
+   },
+   {
+    "k": 188,
+    "z_mm": -683.0,
+    "level": "L2",
+    "area_mm2": 405.3,
+    "n_comp": 1,
+    "mean_hu": 109.9,
+    "flags": []
+   },
+   {
+    "k": 189,
+    "z_mm": -681.5,
+    "level": "L2",
+    "area_mm2": 400.9,
+    "n_comp": 1,
+    "mean_hu": 109.7,
+    "flags": []
+   },
+   {
+    "k": 190,
+    "z_mm": -680.0,
+    "level": "L2",
+    "area_mm2": 387.9,
+    "n_comp": 1,
+    "mean_hu": 110.4,
+    "flags": []
+   },
+   {
+    "k": 191,
+    "z_mm": -678.5,
+    "level": "L2",
+    "area_mm2": 389.6,
+    "n_comp": 1,
+    "mean_hu": 107.5,
+    "flags": []
+   },
+   {
+    "k": 192,
+    "z_mm": -677.0,
+    "level": "L2",
+    "area_mm2": 392.2,
+    "n_comp": 1,
+    "mean_hu": 106.3,
+    "flags": []
+   },
+   {
+    "k": 193,
+    "z_mm": -675.5,
+    "level": "L2",
+    "area_mm2": 399.2,
+    "n_comp": 1,
+    "mean_hu": 105.8,
+    "flags": []
+   },
+   {
+    "k": 194,
+    "z_mm": -674.0,
+    "level": "L2",
+    "area_mm2": 398.3,
+    "n_comp": 1,
+    "mean_hu": 108.8,
+    "flags": []
+   },
+   {
+    "k": 195,
+    "z_mm": -672.5,
+    "level": "L2",
+    "area_mm2": 401.8,
+    "n_comp": 1,
+    "mean_hu": 108.9,
+    "flags": []
+   },
+   {
+    "k": 196,
+    "z_mm": -671.0,
+    "level": "L2",
+    "area_mm2": 422.7,
+    "n_comp": 1,
+    "mean_hu": 106.1,
+    "flags": []
+   },
+   {
+    "k": 197,
+    "z_mm": -669.5,
+    "level": "L2",
+    "area_mm2": 429.7,
+    "n_comp": 1,
+    "mean_hu": 107.9,
+    "flags": []
+   },
+   {
+    "k": 198,
+    "z_mm": -668.0,
+    "level": "L2",
+    "area_mm2": 432.3,
+    "n_comp": 1,
+    "mean_hu": 109.0,
+    "flags": []
+   },
+   {
+    "k": 199,
+    "z_mm": -666.5,
+    "level": "L2",
+    "area_mm2": 438.4,
+    "n_comp": 1,
+    "mean_hu": 109.8,
+    "flags": []
+   },
+   {
+    "k": 200,
+    "z_mm": -665.0,
+    "level": "L2",
+    "area_mm2": 451.5,
+    "n_comp": 1,
+    "mean_hu": 108.4,
+    "flags": []
+   },
+   {
+    "k": 201,
+    "z_mm": -663.5,
+    "level": "L2",
+    "area_mm2": 448.0,
+    "n_comp": 1,
+    "mean_hu": 109.4,
+    "flags": []
+   },
+   {
+    "k": 202,
+    "z_mm": -662.0,
+    "level": "L2",
+    "area_mm2": 448.9,
+    "n_comp": 1,
+    "mean_hu": 109.3,
+    "flags": []
+   },
+   {
+    "k": 203,
+    "z_mm": -660.5,
+    "level": "L2",
+    "area_mm2": 452.4,
+    "n_comp": 1,
+    "mean_hu": 110.9,
+    "flags": []
+   },
+   {
+    "k": 204,
+    "z_mm": -659.0,
+    "level": "L2",
+    "area_mm2": 475.0,
+    "n_comp": 1,
+    "mean_hu": 111.3,
+    "flags": []
+   },
+   {
+    "k": 205,
+    "z_mm": -657.5,
+    "level": "L2",
+    "area_mm2": 510.8,
+    "n_comp": 1,
+    "mean_hu": 112.4,
+    "flags": []
+   },
+   {
+    "k": 206,
+    "z_mm": -656.0,
+    "level": "L2",
+    "area_mm2": 564.8,
+    "n_comp": 1,
+    "mean_hu": 112.9,
+    "flags": []
+   },
+   {
+    "k": 207,
+    "z_mm": -654.5,
+    "level": "L1",
+    "area_mm2": 602.3,
+    "n_comp": 1,
+    "mean_hu": 115.3,
+    "flags": []
+   },
+   {
+    "k": 208,
+    "z_mm": -653.0,
+    "level": "L1",
+    "area_mm2": 619.7,
+    "n_comp": 1,
+    "mean_hu": 117.4,
+    "flags": []
+   },
+   {
+    "k": 209,
+    "z_mm": -651.5,
+    "level": "L1",
+    "area_mm2": 631.0,
+    "n_comp": 1,
+    "mean_hu": 119.4,
+    "flags": []
+   },
+   {
+    "k": 210,
+    "z_mm": -650.0,
+    "level": "L1",
+    "area_mm2": 641.5,
+    "n_comp": 1,
+    "mean_hu": 119.8,
+    "flags": []
+   },
+   {
+    "k": 211,
+    "z_mm": -648.5,
+    "level": "L1",
+    "area_mm2": 654.6,
+    "n_comp": 1,
+    "mean_hu": 119.5,
+    "flags": []
+   },
+   {
+    "k": 212,
+    "z_mm": -647.0,
+    "level": "L1",
+    "area_mm2": 656.3,
+    "n_comp": 1,
+    "mean_hu": 117.2,
+    "flags": []
+   },
+   {
+    "k": 213,
+    "z_mm": -645.5,
+    "level": "L1",
+    "area_mm2": 646.7,
+    "n_comp": 1,
+    "mean_hu": 115.8,
+    "flags": []
+   },
+   {
+    "k": 214,
+    "z_mm": -644.0,
+    "level": "L1",
+    "area_mm2": 642.4,
+    "n_comp": 1,
+    "mean_hu": 113.4,
+    "flags": []
+   },
+   {
+    "k": 215,
+    "z_mm": -642.5,
+    "level": "L1",
+    "area_mm2": 645.0,
+    "n_comp": 1,
+    "mean_hu": 110.7,
+    "flags": []
+   },
+   {
+    "k": 216,
+    "z_mm": -641.0,
+    "level": "L1",
+    "area_mm2": 639.8,
+    "n_comp": 1,
+    "mean_hu": 111.3,
+    "flags": []
+   },
+   {
+    "k": 217,
+    "z_mm": -639.5,
+    "level": "L1",
+    "area_mm2": 624.1,
+    "n_comp": 1,
+    "mean_hu": 112.1,
+    "flags": []
+   },
+   {
+    "k": 218,
+    "z_mm": -638.0,
+    "level": "L1",
+    "area_mm2": 631.0,
+    "n_comp": 1,
+    "mean_hu": 110.9,
+    "flags": []
+   },
+   {
+    "k": 219,
+    "z_mm": -636.5,
+    "level": "L1",
+    "area_mm2": 619.7,
+    "n_comp": 1,
+    "mean_hu": 111.6,
+    "flags": []
+   },
+   {
+    "k": 220,
+    "z_mm": -635.0,
+    "level": "L1",
+    "area_mm2": 606.6,
+    "n_comp": 1,
+    "mean_hu": 110.9,
+    "flags": []
+   },
+   {
+    "k": 221,
+    "z_mm": -633.5,
+    "level": "L1",
+    "area_mm2": 595.3,
+    "n_comp": 1,
+    "mean_hu": 110.9,
+    "flags": []
+   },
+   {
+    "k": 222,
+    "z_mm": -632.0,
+    "level": "L1",
+    "area_mm2": 591.8,
+    "n_comp": 1,
+    "mean_hu": 112.1,
+    "flags": []
+   },
+   {
+    "k": 223,
+    "z_mm": -630.5,
+    "level": "L1",
+    "area_mm2": 578.7,
+    "n_comp": 1,
+    "mean_hu": 112.5,
+    "flags": []
+   },
+   {
+    "k": 224,
+    "z_mm": -629.0,
+    "level": "L1",
+    "area_mm2": 561.3,
+    "n_comp": 1,
+    "mean_hu": 114.6,
+    "flags": []
+   },
+   {
+    "k": 225,
+    "z_mm": -627.5,
+    "level": "L1",
+    "area_mm2": 555.2,
+    "n_comp": 1,
+    "mean_hu": 115.4,
+    "flags": []
+   },
+   {
+    "k": 226,
+    "z_mm": -626.0,
+    "level": "T12",
+    "area_mm2": 547.4,
+    "n_comp": 1,
+    "mean_hu": 115.1,
+    "flags": []
+   },
+   {
+    "k": 227,
+    "z_mm": -624.5,
+    "level": "T12",
+    "area_mm2": 536.0,
+    "n_comp": 1,
+    "mean_hu": 115.2,
+    "flags": []
+   },
+   {
+    "k": 228,
+    "z_mm": -623.0,
+    "level": "T12",
+    "area_mm2": 523.8,
+    "n_comp": 1,
+    "mean_hu": 116.6,
+    "flags": []
+   },
+   {
+    "k": 229,
+    "z_mm": -621.5,
+    "level": "T12",
+    "area_mm2": 509.0,
+    "n_comp": 1,
+    "mean_hu": 117.3,
+    "flags": []
+   },
+   {
+    "k": 230,
+    "z_mm": -620.0,
+    "level": "T12",
+    "area_mm2": 494.2,
+    "n_comp": 1,
+    "mean_hu": 117.7,
+    "flags": []
+   },
+   {
+    "k": 231,
+    "z_mm": -618.5,
+    "level": "T12",
+    "area_mm2": 483.7,
+    "n_comp": 1,
+    "mean_hu": 118.5,
+    "flags": []
+   },
+   {
+    "k": 232,
+    "z_mm": -617.0,
+    "level": "T12",
+    "area_mm2": 475.0,
+    "n_comp": 1,
+    "mean_hu": 117.5,
+    "flags": []
+   },
+   {
+    "k": 233,
+    "z_mm": -615.5,
+    "level": "T12",
+    "area_mm2": 462.8,
+    "n_comp": 1,
+    "mean_hu": 116.4,
+    "flags": []
+   },
+   {
+    "k": 234,
+    "z_mm": -614.0,
+    "level": "T12",
+    "area_mm2": 454.1,
+    "n_comp": 1,
+    "mean_hu": 116.4,
+    "flags": []
+   },
+   {
+    "k": 235,
+    "z_mm": -612.5,
+    "level": "T12",
+    "area_mm2": 453.2,
+    "n_comp": 1,
+    "mean_hu": 115.7,
+    "flags": []
+   },
+   {
+    "k": 236,
+    "z_mm": -611.0,
+    "level": "T12",
+    "area_mm2": 449.7,
+    "n_comp": 1,
+    "mean_hu": 115.5,
+    "flags": []
+   },
+   {
+    "k": 237,
+    "z_mm": -609.5,
+    "level": "T12",
+    "area_mm2": 448.9,
+    "n_comp": 1,
+    "mean_hu": 114.7,
+    "flags": []
+   },
+   {
+    "k": 238,
+    "z_mm": -608.0,
+    "level": "T12",
+    "area_mm2": 441.0,
+    "n_comp": 1,
+    "mean_hu": 115.7,
+    "flags": []
+   },
+   {
+    "k": 239,
+    "z_mm": -606.5,
+    "level": "T12",
+    "area_mm2": 441.9,
+    "n_comp": 1,
+    "mean_hu": 116.3,
+    "flags": []
+   },
+   {
+    "k": 240,
+    "z_mm": -605.0,
+    "level": "T12",
+    "area_mm2": 430.6,
+    "n_comp": 1,
+    "mean_hu": 117.0,
+    "flags": []
+   },
+   {
+    "k": 241,
+    "z_mm": -603.5,
+    "level": "T12",
+    "area_mm2": 425.3,
+    "n_comp": 1,
+    "mean_hu": 117.8,
+    "flags": []
+   },
+   {
+    "k": 242,
+    "z_mm": -602.0,
+    "level": "T12",
+    "area_mm2": 414.9,
+    "n_comp": 1,
+    "mean_hu": 117.5,
+    "flags": []
+   },
+   {
+    "k": 243,
+    "z_mm": -600.5,
+    "level": "T12",
+    "area_mm2": 406.2,
+    "n_comp": 1,
+    "mean_hu": 117.8,
+    "flags": []
+   },
+   {
+    "k": 244,
+    "z_mm": -599.0,
+    "level": "T11",
+    "area_mm2": 398.3,
+    "n_comp": 1,
+    "mean_hu": 118.3,
+    "flags": []
+   },
+   {
+    "k": 245,
+    "z_mm": -597.5,
+    "level": "T11",
+    "area_mm2": 396.6,
+    "n_comp": 1,
+    "mean_hu": 117.9,
+    "flags": []
+   },
+   {
+    "k": 246,
+    "z_mm": -596.0,
+    "level": "T11",
+    "area_mm2": 388.7,
+    "n_comp": 1,
+    "mean_hu": 117.2,
+    "flags": []
+   },
+   {
+    "k": 247,
+    "z_mm": -594.5,
+    "level": "T11",
+    "area_mm2": 379.1,
+    "n_comp": 1,
+    "mean_hu": 117.3,
+    "flags": []
+   },
+   {
+    "k": 248,
+    "z_mm": -593.0,
+    "level": "T11",
+    "area_mm2": 376.5,
+    "n_comp": 1,
+    "mean_hu": 115.9,
+    "flags": []
+   },
+   {
+    "k": 249,
+    "z_mm": -591.5,
+    "level": "T11",
+    "area_mm2": 373.9,
+    "n_comp": 1,
+    "mean_hu": 113.2,
+    "flags": []
+   },
+   {
+    "k": 250,
+    "z_mm": -590.0,
+    "level": "T11",
+    "area_mm2": 358.2,
+    "n_comp": 1,
+    "mean_hu": 111.3,
+    "flags": []
+   },
+   {
+    "k": 251,
+    "z_mm": -588.5,
+    "level": "T11",
+    "area_mm2": 369.6,
+    "n_comp": 1,
+    "mean_hu": 109.7,
+    "flags": []
+   },
+   {
+    "k": 252,
+    "z_mm": -587.0,
+    "level": "T11",
+    "area_mm2": 419.2,
+    "n_comp": 1,
+    "mean_hu": 110.0,
+    "flags": []
+   },
+   {
+    "k": 253,
+    "z_mm": -585.5,
+    "level": "T11",
+    "area_mm2": 466.3,
+    "n_comp": 1,
+    "mean_hu": 112.6,
+    "flags": []
+   },
+   {
+    "k": 254,
+    "z_mm": -584.0,
+    "level": "T11",
+    "area_mm2": 512.5,
+    "n_comp": 1,
+    "mean_hu": 116.3,
+    "flags": []
+   },
+   {
+    "k": 255,
+    "z_mm": -582.5,
+    "level": "T11",
+    "area_mm2": 576.1,
+    "n_comp": 1,
+    "mean_hu": 119.2,
+    "flags": []
+   },
+   {
+    "k": 256,
+    "z_mm": -581.0,
+    "level": "T11",
+    "area_mm2": 611.0,
+    "n_comp": 1,
+    "mean_hu": 121.5,
+    "flags": []
+   },
+   {
+    "k": 257,
+    "z_mm": -579.5,
+    "level": "T11",
+    "area_mm2": 635.4,
+    "n_comp": 1,
+    "mean_hu": 125.4,
+    "flags": []
+   },
+   {
+    "k": 258,
+    "z_mm": -578.0,
+    "level": "T11",
+    "area_mm2": 656.3,
+    "n_comp": 1,
+    "mean_hu": 123.2,
+    "flags": []
+   },
+   {
+    "k": 259,
+    "z_mm": -576.5,
+    "level": "T11",
+    "area_mm2": 656.3,
+    "n_comp": 1,
+    "mean_hu": 126.2,
+    "flags": []
+   },
+   {
+    "k": 260,
+    "z_mm": -575.0,
+    "level": "T11",
+    "area_mm2": 676.4,
+    "n_comp": 1,
+    "mean_hu": 128.3,
+    "flags": []
+   },
+   {
+    "k": 261,
+    "z_mm": -573.5,
+    "level": "T10",
+    "area_mm2": 672.9,
+    "n_comp": 1,
+    "mean_hu": 127.4,
+    "flags": []
+   },
+   {
+    "k": 262,
+    "z_mm": -572.0,
+    "level": "T10",
+    "area_mm2": 673.7,
+    "n_comp": 1,
+    "mean_hu": 126.9,
+    "flags": []
+   },
+   {
+    "k": 263,
+    "z_mm": -570.5,
+    "level": "T10",
+    "area_mm2": 679.8,
+    "n_comp": 1,
+    "mean_hu": 127.3,
+    "flags": []
+   },
+   {
+    "k": 264,
+    "z_mm": -569.0,
+    "level": "T10",
+    "area_mm2": 685.9,
+    "n_comp": 1,
+    "mean_hu": 128.2,
+    "flags": []
+   },
+   {
+    "k": 265,
+    "z_mm": -567.5,
+    "level": "T10",
+    "area_mm2": 697.3,
+    "n_comp": 1,
+    "mean_hu": 128.0,
+    "flags": []
+   },
+   {
+    "k": 266,
+    "z_mm": -566.0,
+    "level": "T10",
+    "area_mm2": 682.5,
+    "n_comp": 1,
+    "mean_hu": 126.1,
+    "flags": []
+   },
+   {
+    "k": 267,
+    "z_mm": -564.5,
+    "level": "T10",
+    "area_mm2": 689.4,
+    "n_comp": 1,
+    "mean_hu": 126.7,
+    "flags": []
+   },
+   {
+    "k": 268,
+    "z_mm": -563.0,
+    "level": "T10",
+    "area_mm2": 681.6,
+    "n_comp": 1,
+    "mean_hu": 129.2,
+    "flags": []
+   },
+   {
+    "k": 269,
+    "z_mm": -561.5,
+    "level": "T10",
+    "area_mm2": 659.8,
+    "n_comp": 1,
+    "mean_hu": 132.4,
+    "flags": []
+   },
+   {
+    "k": 270,
+    "z_mm": -560.0,
+    "level": "T10",
+    "area_mm2": 598.8,
+    "n_comp": 1,
+    "mean_hu": 137.1,
+    "flags": []
+   },
+   {
+    "k": 271,
+    "z_mm": -558.5,
+    "level": "T10",
+    "area_mm2": 512.5,
+    "n_comp": 1,
+    "mean_hu": 142.8,
+    "flags": []
+   },
+   {
+    "k": 272,
+    "z_mm": -557.0,
+    "level": "T10",
+    "area_mm2": 433.2,
+    "n_comp": 1,
+    "mean_hu": 146.4,
+    "flags": []
+   },
+   {
+    "k": 273,
+    "z_mm": -555.5,
+    "level": "T10",
+    "area_mm2": 315.5,
+    "n_comp": 1,
+    "mean_hu": 152.0,
+    "flags": []
+   },
+   {
+    "k": 274,
+    "z_mm": -554.0,
+    "level": "T10",
+    "area_mm2": 197.0,
+    "n_comp": 1,
+    "mean_hu": 156.3,
+    "flags": [
+     "jump0.62"
+    ]
+   },
+   {
+    "k": 275,
+    "z_mm": -552.5,
+    "level": "T10",
+    "area_mm2": 92.4,
+    "n_comp": 1,
+    "mean_hu": 154.3,
+    "flags": [
+     "jump0.47"
+    ]
+   }
+  ]
+ },
+ "relations": {
+  "heart": {
+   "k": [
+    257,
+    331
+   ],
+   "z_mm": [
+    -579.5,
+    -468.5
+   ],
+   "levels": [
+    "T11",
+    "none(<T9 or >sacrum)"
+   ]
+  },
+  "ivc": {
+   "k": [
+    134,
+    275
+   ],
+   "z_mm": [
+    -764.0,
+    -552.5
+   ],
+   "levels": [
+    "L5",
+    "T10"
+   ]
+  },
+  "iliac_vena_left": {
+   "k": [
+    24,
+    133
+   ],
+   "z_mm": [
+    -929.0,
+    -765.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L5"
+   ]
+  },
+  "iliac_vena_right": {
+   "k": [
+    32,
+    133
+   ],
+   "z_mm": [
+    -917.0,
+    -765.5
+   ],
+   "levels": [
+    "none(<T9 or >sacrum)",
+    "L5"
+   ]
+  },
+  "aorta": {
+   "k": [
+    137,
+    346
+   ],
+   "z_mm": [
+    -759.5,
+    -446.0
+   ],
+   "levels": [
+    "L5",
+    "none(<T9 or >sacrum)"
+   ]
+  },
+  "kidney_left": {
+   "k": [
+    164,
+    242
+   ],
+   "z_mm": [
+    -719.0,
+    -602.0
+   ],
+   "levels": [
+    "L3",
+    "T12"
+   ]
+  },
+  "kidney_right": {
+   "k": [
+    161,
+    230
+   ],
+   "z_mm": [
+    -723.5,
+    -620.0
+   ],
+   "levels": [
+    "L4",
+    "T12"
+   ]
+  }
+ }
+}

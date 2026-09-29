@@ -1,0 +1,1859 @@
+{
+ "grid": {
+  "file": "phases/venous.nii.gz",
+  "shape": [
+   512,
+   512,
+   404
+  ],
+  "orientation": "LAS",
+  "spacing_mm": [
+   0.9336,
+   0.9336,
+   1.5
+  ],
+  "z_mm": "-965 + 1.5*k"
+ },
+ "disclaimer": "AI + surgeon GT research segmentation - educational / surgical-planning use only, NOT diagnostic; no measurement invented (all values computed from the masks).",
+ "structures": [
+  {
+   "structure": "tumor_left",
+   "fonte": "cirurgiao",
+   "confiavel": true,
+   "final_ml": 1198.95,
+   "k_range": [
+    102,
+    227
+   ],
+   "prev_source": "fused/tumor_left.nii.gz",
+   "prev_ml": 955.88,
+   "prev_k_range": [
+    110,
+    218
+   ],
+   "dice_vs_prev": 0.8569,
+   "hd95_vs_prev_mm": 35.01,
+   "overlap_removed_ml": null,
+   "components": 4,
+   "flag": null
+  },
+  {
+   "structure": "kidney_left",
+   "fonte": "cirurgiao",
+   "confiavel": true,
+   "final_ml": 64.69,
+   "k_range": [
+    213,
+    241
+   ],
+   "prev_source": "fused/kidney_left.nii.gz",
+   "prev_ml": 141.76,
+   "prev_k_range": [
+    191,
+    242
+   ],
+   "dice_vs_prev": 0.5941,
+   "hd95_vs_prev_mm": 22.5,
+   "overlap_removed_ml": null,
+   "components": 1,
+   "flag": null,
+   "note": "Leo drew kidney only k213-241 (below: all red = tumour); previous fused kidney_left 141.8 mL k191-242"
+  },
+  {
+   "structure": "collecting_system",
+   "fonte": "cirurgiao",
+   "confiavel": true,
+   "final_ml": 19.52,
+   "k_range": [
+    205,
+    238
+   ],
+   "prev_source": "fused/collecting_system.nii.gz",
+   "prev_ml": 12.96,
+   "prev_k_range": [
+    177,
+    386
+   ],
+   "dice_vs_prev": 0.1464,
+   "hd95_vs_prev_mm": 225.99,
+   "overlap_removed_ml": null,
+   "components": 5,
+   "flag": null,
+   "prev_left_only_ml": 6.67,
+   "dice_vs_prev_left_only": 0.1816,
+   "hd95_vs_prev_left_only_mm": 93.56,
+   "note": "previous fused collecting_system = UNesT, both kidneys + stray lung-base fragments; *_left_only = restricted to the left side in the drawn region"
+  },
+  {
+   "structure": "collecting_system_right",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 6.61,
+   "k_range": [
+    177,
+    215
+   ],
+   "prev_source": "fused/collecting_system.nii.gz (right side i<209)",
+   "prev_ml": 4.26,
+   "prev_k_range": [
+    177,
+    378
+   ],
+   "dice_vs_prev": 0.7061,
+   "hd95_vs_prev_mm": 13.04,
+   "overlap_removed_ml": 0.0,
+   "components": 2,
+   "flag": "model only (UNesT), not drawn by Leo"
+  },
+  {
+   "structure": "kidney_right",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 142.15,
+   "k_range": [
+    163,
+    230
+   ],
+   "prev_source": "fused/kidney_right.nii.gz",
+   "prev_ml": 142.15,
+   "prev_k_range": [
+    163,
+    230
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "aorta",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 153.08,
+   "k_range": [
+    137,
+    346
+   ],
+   "prev_source": "fused/aorta.nii.gz",
+   "prev_ml": 153.08,
+   "prev_k_range": [
+    137,
+    346
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "inferior_vena_cava",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 105.24,
+   "k_range": [
+    133,
+    275
+   ],
+   "prev_source": "fused/inferior_vena_cava.nii.gz",
+   "prev_ml": 105.24,
+   "prev_k_range": [
+    133,
+    275
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "thrombus",
+   "fonte": "modelo",
+   "confiavel": false,
+   "final_ml": 15.48,
+   "k_range": [
+    135,
+    271
+   ],
+   "prev_source": "fused/thrombus.nii.gz",
+   "prev_ml": 15.48,
+   "prev_k_range": [
+    135,
+    271
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 6,
+   "flag": "LOW CONFIDENCE candidate only (single-source HU filling-defect search: 15.5 mL, 49 HU vs ~115-131 HU IVC blood, thin rims along IVC wall, never touches tumour) - likely wall/partial-volume/mixing artefact; off by default"
+  },
+  {
+   "structure": "renal_arteries",
+   "fonte": "modelo",
+   "confiavel": false,
+   "final_ml": 1.17,
+   "k_range": [
+    122,
+    333
+   ],
+   "prev_source": "fused/renal_arteries.nii.gz",
+   "prev_ml": 1.17,
+   "prev_k_range": [
+    122,
+    333
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 5,
+   "flag": "unreliable (CECT single source failed QC; fragments not at renal hila)"
+  },
+  {
+   "structure": "renal_veins_other",
+   "fonte": "modelo",
+   "confiavel": false,
+   "final_ml": 4.02,
+   "k_range": [
+    193,
+    261
+   ],
+   "prev_source": "fused/renal_veins_other.nii.gz",
+   "prev_ml": 4.02,
+   "prev_k_range": [
+    193,
+    261
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 3,
+   "flag": "unreliable (CECT single source failed QC; right-sided only, no left renal vein)"
+  },
+  {
+   "structure": "iliac_artery_left",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 10.36,
+   "k_range": [
+    27,
+    139
+   ],
+   "prev_source": "fused/iliac_artery_left.nii.gz",
+   "prev_ml": 10.36,
+   "prev_k_range": [
+    27,
+    139
+   ],
+   "dice_vs_prev": 0.9997,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.01,
+   "components": 2,
+   "flag": null
+  },
+  {
+   "structure": "iliac_artery_right",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 9.3,
+   "k_range": [
+    32,
+    138
+   ],
+   "prev_source": "fused/iliac_artery_right.nii.gz",
+   "prev_ml": 9.3,
+   "prev_k_range": [
+    32,
+    138
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "iliac_vena_left",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 27.99,
+   "k_range": [
+    24,
+    133
+   ],
+   "prev_source": "fused/iliac_vena_left.nii.gz",
+   "prev_ml": 27.99,
+   "prev_k_range": [
+    24,
+    133
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "iliac_vena_right",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 21.41,
+   "k_range": [
+    32,
+    133
+   ],
+   "prev_source": "fused/iliac_vena_right.nii.gz",
+   "prev_ml": 21.41,
+   "prev_k_range": [
+    32,
+    133
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "portal_vein_and_splenic_vein",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 25.64,
+   "k_range": [
+    204,
+    242
+   ],
+   "prev_source": "fused/portal_vein_and_splenic_vein.nii.gz",
+   "prev_ml": 25.64,
+   "prev_k_range": [
+    204,
+    242
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "spleen",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 178.51,
+   "k_range": [
+    213,
+    263
+   ],
+   "prev_source": "fused/spleen.nii.gz",
+   "prev_ml": 178.98,
+   "prev_k_range": [
+    213,
+    263
+   ],
+   "dice_vs_prev": 0.9987,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.47,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "pancreas",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 64.32,
+   "k_range": [
+    177,
+    231
+   ],
+   "prev_source": "fused/pancreas.nii.gz",
+   "prev_ml": 64.32,
+   "prev_k_range": [
+    177,
+    231
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "liver",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 1826.24,
+   "k_range": [
+    157,
+    274
+   ],
+   "prev_source": "fused/liver.nii.gz",
+   "prev_ml": 1826.24,
+   "prev_k_range": [
+    157,
+    274
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "duodenum",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 38.09,
+   "k_range": [
+    163,
+    210
+   ],
+   "prev_source": "fused/duodenum.nii.gz",
+   "prev_ml": 38.09,
+   "prev_k_range": [
+    163,
+    210
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "stomach",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 168.09,
+   "k_range": [
+    195,
+    256
+   ],
+   "prev_source": "fused/stomach.nii.gz",
+   "prev_ml": 168.09,
+   "prev_k_range": [
+    195,
+    256
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "gallbladder",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 24.9,
+   "k_range": [
+    180,
+    211
+   ],
+   "prev_source": "fused/gallbladder.nii.gz",
+   "prev_ml": 24.9,
+   "prev_k_range": [
+    180,
+    211
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "colon",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 676.72,
+   "k_range": [
+    35,
+    219
+   ],
+   "prev_source": "masks/colon.nii.gz",
+   "prev_ml": 682.76,
+   "prev_k_range": [
+    35,
+    219
+   ],
+   "dice_vs_prev": 0.9956,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 6.03,
+   "components": 2,
+   "flag": null
+  },
+  {
+   "structure": "small_bowel",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 549.4,
+   "k_range": [
+    67,
+    197
+   ],
+   "prev_source": "masks/small_bowel.nii.gz",
+   "prev_ml": 993.03,
+   "prev_k_range": [
+    67,
+    208
+   ],
+   "dice_vs_prev": 0.7124,
+   "hd95_vs_prev_mm": 45.75,
+   "overlap_removed_ml": 435.86,
+   "components": 4,
+   "flag": "TotalSegmentator; false 'small bowel' inside the mass removed (overlap with Leo tumour + rims); loops adjacent to the caudal tumour below k102 remain unverified",
+   "rim_removed_ml": 6.24
+  },
+  {
+   "structure": "iliopsoas_left",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 192.44,
+   "k_range": [
+    8,
+    215
+   ],
+   "prev_source": "masks/iliopsoas_left.nii.gz",
+   "prev_ml": 194.05,
+   "prev_k_range": [
+    8,
+    215
+   ],
+   "dice_vs_prev": 0.9958,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 1.61,
+   "components": 1,
+   "flag": "TotalSegmentator context; overlap with Leo tumour subtracted (Leo wins)"
+  },
+  {
+   "structure": "adrenal_gland_left",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 2.88,
+   "k_range": [
+    221,
+    242
+   ],
+   "prev_source": "fused/adrenal_gland_left.nii.gz",
+   "prev_ml": 2.88,
+   "prev_k_range": [
+    221,
+    242
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "adrenal_gland_right",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 2.58,
+   "k_range": [
+    216,
+    239
+   ],
+   "prev_source": "fused/adrenal_gland_right.nii.gz",
+   "prev_ml": 2.58,
+   "prev_k_range": [
+    216,
+    239
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "kidney_cyst_left",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 0.0,
+   "k_range": null,
+   "prev_source": "fused/kidney_cyst_left.nii.gz",
+   "prev_ml": 0.0,
+   "prev_k_range": [
+    218,
+    220
+   ],
+   "dice_vs_prev": 0.0,
+   "hd95_vs_prev_mm": null,
+   "overlap_removed_ml": 0.0,
+   "components": 0,
+   "flag": null
+  },
+  {
+   "structure": "kidney_cyst_right",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 0.72,
+   "k_range": [
+    159,
+    166
+   ],
+   "prev_source": "fused/kidney_cyst_right.nii.gz",
+   "prev_ml": 0.72,
+   "prev_k_range": [
+    159,
+    166
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "vertebrae_T11",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 30.89,
+   "k_range": [
+    232,
+    262
+   ],
+   "prev_source": "fused/vertebrae_T11.nii.gz",
+   "prev_ml": 30.89,
+   "prev_k_range": [
+    232,
+    262
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "vertebrae_T12",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 31.66,
+   "k_range": [
+    216,
+    245
+   ],
+   "prev_source": "fused/vertebrae_T12.nii.gz",
+   "prev_ml": 31.66,
+   "prev_k_range": [
+    216,
+    245
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "vertebrae_L1",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 36.78,
+   "k_range": [
+    192,
+    228
+   ],
+   "prev_source": "fused/vertebrae_L1.nii.gz",
+   "prev_ml": 36.78,
+   "prev_k_range": [
+    192,
+    228
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "vertebrae_L2",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 42.11,
+   "k_range": [
+    172,
+    208
+   ],
+   "prev_source": "fused/vertebrae_L2.nii.gz",
+   "prev_ml": 42.11,
+   "prev_k_range": [
+    172,
+    208
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "vertebrae_L3",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 47.24,
+   "k_range": [
+    150,
+    186
+   ],
+   "prev_source": "fused/vertebrae_L3.nii.gz",
+   "prev_ml": 47.24,
+   "prev_k_range": [
+    150,
+    186
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "vertebrae_L4",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 48.91,
+   "k_range": [
+    133,
+    164
+   ],
+   "prev_source": "fused/vertebrae_L4.nii.gz",
+   "prev_ml": 48.91,
+   "prev_k_range": [
+    133,
+    164
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  },
+  {
+   "structure": "vertebrae_L5",
+   "fonte": "modelo",
+   "confiavel": true,
+   "final_ml": 47.75,
+   "k_range": [
+    116,
+    145
+   ],
+   "prev_source": "fused/vertebrae_L5.nii.gz",
+   "prev_ml": 47.75,
+   "prev_k_range": [
+    116,
+    145
+   ],
+   "dice_vs_prev": 1.0,
+   "hd95_vs_prev_mm": 0.0,
+   "overlap_removed_ml": 0.0,
+   "components": 1,
+   "flag": null
+  }
+ ],
+ "tumor": {
+  "ml": 1198.95,
+  "k_range": [
+   102,
+   227
+  ],
+  "z_mm": [
+   -812.0,
+   -624.5
+  ],
+  "extent_mm_LR_AP_SI": [
+   180.2,
+   164.3,
+   189.0
+  ],
+  "centroid_ras_mm": [
+   -78.8,
+   179.5,
+   -726.5
+  ],
+  "components_ml": [
+   1196.67,
+   1.45,
+   0.7,
+   0.13
+  ],
+  "venous_hu_median_IQR": [
+   69.0,
+   44.0,
+   85.0
+  ],
+  "hu_below_minus50_pct": 0.44,
+  "model_outside_drawing_ml": 0.0
+ },
+ "distances_from_tumor": [
+  {
+   "target": "pancreas",
+   "source": "modelo",
+   "min_mm": 2.0,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -105.6,
+    147.1,
+    -630.5
+   ],
+   "closest_target_ras": [
+    -106.6,
+    148.1,
+    -629.0
+   ],
+   "closest_k": 224,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "close (<5 mm, 2-4 voxels); masks never overlapped"
+  },
+  {
+   "target": "spleen",
+   "source": "modelo",
+   "min_mm": 2.09,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -115.9,
+    135.0,
+    -632.0
+   ],
+   "closest_target_ras": [
+    -117.8,
+    135.9,
+    -632.0
+   ],
+   "closest_k": 222,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "close (<5 mm, 2-4 voxels); masks never overlapped"
+  },
+  {
+   "target": "aorta",
+   "source": "modelo",
+   "min_mm": 2.64,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -21.6,
+    170.5,
+    -744.5
+   ],
+   "closest_target_ras": [
+    -19.7,
+    168.6,
+    -744.5
+   ],
+   "closest_k": 147,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "close (<5 mm, 2-4 voxels); masks never overlapped"
+  },
+  {
+   "target": "inferior_vena_cava",
+   "source": "modelo",
+   "min_mm": 17.1,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -21.6,
+    164.9,
+    -762.5
+   ],
+   "closest_target_ras": [
+    -5.7,
+    159.3,
+    -759.5
+   ],
+   "closest_k": 137,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "kidney_left (Leo)",
+   "source": "cirurgiao",
+   "min_mm": 0.93,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -70.2,
+    135.9,
+    -636.5
+   ],
+   "closest_target_ras": [
+    -69.2,
+    135.9,
+    -636.5
+   ],
+   "closest_k": 219,
+   "contact": "same source (Leo): adjacent/contiguous by construction"
+  },
+  {
+   "target": "collecting_system (Leo, renal pelvis)",
+   "source": "cirurgiao",
+   "min_mm": 0.93,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -61.7,
+    120.1,
+    -656.0
+   ],
+   "closest_target_ras": [
+    -61.7,
+    121.0,
+    -656.0
+   ],
+   "closest_k": 206,
+   "contact": "same source (Leo): adjacent/contiguous by construction"
+  },
+  {
+   "target": "renal_arteries (unreliable)",
+   "source": "modelo",
+   "min_mm": 11.36,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -20.7,
+    169.5,
+    -762.5
+   ],
+   "closest_target_ras": [
+    -9.5,
+    167.7,
+    -762.5
+   ],
+   "closest_k": 135,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "renal_veins_other (unreliable, right-sided)",
+   "source": "modelo",
+   "min_mm": 49.67,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -39.3,
+    158.3,
+    -672.5
+   ],
+   "closest_target_ras": [
+    4.5,
+    136.9,
+    -663.5
+   ],
+   "closest_k": 201,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "colon",
+   "source": "modelo",
+   "min_mm": 0.93,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -16.0,
+    193.8,
+    -782.0
+   ],
+   "closest_target_ras": [
+    -15.1,
+    193.8,
+    -782.0
+   ],
+   "closest_k": 122,
+   "overlap_with_leo_tumor_before_removal_ml": 6.03,
+   "contact": "contact (adjacent voxel): masks from different sources abut; 6.03 mL overlap was removed, so this is NOT evidence of invasion"
+  },
+  {
+   "target": "small_bowel",
+   "source": "modelo",
+   "min_mm": 0.93,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    34.4,
+    230.2,
+    -774.5
+   ],
+   "closest_target_ras": [
+    35.3,
+    230.2,
+    -774.5
+   ],
+   "closest_k": 127,
+   "overlap_with_leo_tumor_before_removal_ml": 435.86,
+   "contact": "contact (adjacent voxel): masks from different sources abut; 435.86 mL overlap was removed, so this is NOT evidence of invasion"
+  },
+  {
+   "target": "duodenum",
+   "source": "modelo",
+   "min_mm": 5.3,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -22.5,
+    181.7,
+    -696.5
+   ],
+   "closest_target_ras": [
+    -22.5,
+    178.9,
+    -701.0
+   ],
+   "closest_k": 176,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "adrenal_gland_left",
+   "source": "modelo",
+   "min_mm": 15.78,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -72.0,
+    145.3,
+    -638.0
+   ],
+   "closest_target_ras": [
+    -58.9,
+    149.9,
+    -630.5
+   ],
+   "closest_k": 223,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "iliac_artery_left",
+   "source": "modelo",
+   "min_mm": 0.93,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -21.6,
+    164.9,
+    -762.5
+   ],
+   "closest_target_ras": [
+    -20.7,
+    164.9,
+    -762.5
+   ],
+   "closest_k": 135,
+   "overlap_with_leo_tumor_before_removal_ml": 0.01,
+   "contact": "contact (adjacent voxel): masks from different sources abut; 0.01 mL overlap was removed, so this is NOT evidence of invasion"
+  },
+  {
+   "target": "iliac_vena_left",
+   "source": "modelo",
+   "min_mm": 6.69,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -25.3,
+    165.8,
+    -782.0
+   ],
+   "closest_target_ras": [
+    -21.6,
+    161.1,
+    -785.0
+   ],
+   "closest_k": 120,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "portal_vein_and_splenic_vein",
+   "source": "modelo",
+   "min_mm": 8.06,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -90.7,
+    145.3,
+    -630.5
+   ],
+   "closest_target_ras": [
+    -89.8,
+    148.1,
+    -623.0
+   ],
+   "closest_k": 228,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "stomach",
+   "source": "modelo",
+   "min_mm": 10.14,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -69.2,
+    212.5,
+    -662.0
+   ],
+   "closest_target_ras": [
+    -69.2,
+    217.2,
+    -653.0
+   ],
+   "closest_k": 208,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "liver",
+   "source": "modelo",
+   "min_mm": 28.28,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -44.0,
+    218.1,
+    -677.0
+   ],
+   "closest_target_ras": [
+    -29.1,
+    232.1,
+    -657.5
+   ],
+   "closest_k": 205,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "kidney_right",
+   "source": "modelo",
+   "min_mm": 62.55,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -52.4,
+    116.3,
+    -648.5
+   ],
+   "closest_target_ras": [
+    10.1,
+    116.3,
+    -648.5
+   ],
+   "closest_k": 211,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "thrombus (candidate)",
+   "source": "modelo",
+   "min_mm": 15.38,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -21.6,
+    164.9,
+    -762.5
+   ],
+   "closest_target_ras": [
+    -7.6,
+    159.3,
+    -759.5
+   ],
+   "closest_k": 137,
+   "overlap_with_leo_tumor_before_removal_ml": 0.0,
+   "contact": "separated"
+  },
+  {
+   "target": "iliopsoas_left (TotalSegmentator, Leo overlap subtracted)",
+   "source": "modelo",
+   "min_mm": 0.93,
+   "overlap_ml_final": 0.0,
+   "closest_tumor_ras": [
+    -40.3,
+    153.7,
+    -761.0
+   ],
+   "closest_target_ras": [
+    -40.3,
+    152.7,
+    -761.0
+   ],
+   "closest_k": 136,
+   "overlap_with_leo_tumor_before_removal_ml": 1.61,
+   "contact": "contact (adjacent voxel): masks from different sources abut; 1.61 mL overlap was removed, so this is NOT evidence of invasion"
+  },
+  {
+   "target": "left renal hilum (approx. point: centroid of the most medial 10% of Leo collecting-system voxels)",
+   "source": "cirurgiao (derived landmark)",
+   "min_mm": 20.88,
+   "point_ras": [
+    -64.1,
+    110.2,
+    -625.8
+   ],
+   "point_ijk": [
+    315,
+    206,
+    226
+   ],
+   "inside_tumor": false,
+   "contact": "approximate landmark"
+  },
+  {
+   "target": "left renal vein / left renal artery",
+   "available": false,
+   "reason": "no reliable left renal vessel mask: CECT vessel model failed QC (renal_arteries = fragments not at the hila; renal_veins_other = right-sided only); TotalSegmentator has no renal vessels. Assess on CT."
+  }
+ ],
+ "distance_method": "min Euclidean distance (mm, world RAS) between boundary-voxel centres of the final tumour and of each structure; 0 = masks overlap; adjacent voxels give 0.93-1.5 mm (~1 voxel). Masks from different sources: overlaps with Leo were REMOVED in the fusion, so ~1 mm here = abutting / previously overlapping masks, NOT invasion.",
+ "gt_checks": {
+  "midline_crossing": {
+   "total_ml": 16.32,
+   "k_range": [
+    104,
+    154
+   ],
+   "slices": [
+    {
+     "k": 104,
+     "voxels_right_of_midline": 68,
+     "ml": 0.089,
+     "tumor_i_min": 243,
+     "midline_i": 261.9
+    },
+    {
+     "k": 105,
+     "voxels_right_of_midline": 64,
+     "ml": 0.084,
+     "tumor_i_min": 243,
+     "midline_i": 261.5
+    },
+    {
+     "k": 106,
+     "voxels_right_of_midline": 82,
+     "ml": 0.107,
+     "tumor_i_min": 242,
+     "midline_i": 261.2
+    },
+    {
+     "k": 107,
+     "voxels_right_of_midline": 108,
+     "ml": 0.141,
+     "tumor_i_min": 243,
+     "midline_i": 260.2
+    },
+    {
+     "k": 108,
+     "voxels_right_of_midline": 87,
+     "ml": 0.114,
+     "tumor_i_min": 244,
+     "midline_i": 260.1
+    },
+    {
+     "k": 109,
+     "voxels_right_of_midline": 83,
+     "ml": 0.109,
+     "tumor_i_min": 245,
+     "midline_i": 260.7
+    },
+    {
+     "k": 110,
+     "voxels_right_of_midline": 103,
+     "ml": 0.135,
+     "tumor_i_min": 246,
+     "midline_i": 260.5
+    },
+    {
+     "k": 112,
+     "voxels_right_of_midline": 109,
+     "ml": 0.143,
+     "tumor_i_min": 249,
+     "midline_i": 260.7
+    },
+    {
+     "k": 113,
+     "voxels_right_of_midline": 97,
+     "ml": 0.127,
+     "tumor_i_min": 249,
+     "midline_i": 260.6
+    },
+    {
+     "k": 114,
+     "voxels_right_of_midline": 214,
+     "ml": 0.28,
+     "tumor_i_min": 212,
+     "midline_i": 260.6
+    },
+    {
+     "k": 116,
+     "voxels_right_of_midline": 217,
+     "ml": 0.284,
+     "tumor_i_min": 234,
+     "midline_i": 260.2
+    },
+    {
+     "k": 117,
+     "voxels_right_of_midline": 184,
+     "ml": 0.241,
+     "tumor_i_min": 235,
+     "midline_i": 260.5
+    },
+    {
+     "k": 118,
+     "voxels_right_of_midline": 185,
+     "ml": 0.242,
+     "tumor_i_min": 234,
+     "midline_i": 259.4
+    },
+    {
+     "k": 119,
+     "voxels_right_of_midline": 127,
+     "ml": 0.166,
+     "tumor_i_min": 235,
+     "midline_i": 258.5
+    },
+    {
+     "k": 120,
+     "voxels_right_of_midline": 201,
+     "ml": 0.263,
+     "tumor_i_min": 231,
+     "midline_i": 256.5
+    },
+    {
+     "k": 121,
+     "voxels_right_of_midline": 241,
+     "ml": 0.315,
+     "tumor_i_min": 231,
+     "midline_i": 255.3
+    },
+    {
+     "k": 122,
+     "voxels_right_of_midline": 364,
+     "ml": 0.476,
+     "tumor_i_min": 231,
+     "midline_i": 255.6
+    },
+    {
+     "k": 123,
+     "voxels_right_of_midline": 363,
+     "ml": 0.475,
+     "tumor_i_min": 240,
+     "midline_i": 258.9
+    },
+    {
+     "k": 124,
+     "voxels_right_of_midline": 724,
+     "ml": 0.947,
+     "tumor_i_min": 209,
+     "midline_i": 260.0
+    },
+    {
+     "k": 125,
+     "voxels_right_of_midline": 647,
+     "ml": 0.846,
+     "tumor_i_min": 223,
+     "midline_i": 259.9
+    },
+    {
+     "k": 126,
+     "voxels_right_of_midline": 700,
+     "ml": 0.915,
+     "tumor_i_min": 225,
+     "midline_i": 260.9
+    },
+    {
+     "k": 127,
+     "voxels_right_of_midline": 942,
+     "ml": 1.232,
+     "tumor_i_min": 209,
+     "midline_i": 262.0
+    },
+    {
+     "k": 128,
+     "voxels_right_of_midline": 1197,
+     "ml": 1.565,
+     "tumor_i_min": 211,
+     "midline_i": 264.6
+    },
+    {
+     "k": 129,
+     "voxels_right_of_midline": 31,
+     "ml": 0.041,
+     "tumor_i_min": 262,
+     "midline_i": 266.9
+    },
+    {
+     "k": 132,
+     "voxels_right_of_midline": 1219,
+     "ml": 1.594,
+     "tumor_i_min": 214,
+     "midline_i": 263.9
+    },
+    {
+     "k": 133,
+     "voxels_right_of_midline": 22,
+     "ml": 0.029,
+     "tumor_i_min": 261,
+     "midline_i": 263.6
+    },
+    {
+     "k": 135,
+     "voxels_right_of_midline": 1386,
+     "ml": 1.812,
+     "tumor_i_min": 223,
+     "midline_i": 264.0
+    },
+    {
+     "k": 136,
+     "voxels_right_of_midline": 1150,
+     "ml": 1.504,
+     "tumor_i_min": 221,
+     "midline_i": 261.8
+    },
+    {
+     "k": 137,
+     "voxels_right_of_midline": 1,
+     "ml": 0.001,
+     "tumor_i_min": 261,
+     "midline_i": 261.2
+    },
+    {
+     "k": 146,
+     "voxels_right_of_midline": 315,
+     "ml": 0.412,
+     "tumor_i_min": 250,
+     "midline_i": 264.4
+    },
+    {
+     "k": 150,
+     "voxels_right_of_midline": 362,
+     "ml": 0.473,
+     "tumor_i_min": 257,
+     "midline_i": 267.6
+    },
+    {
+     "k": 152,
+     "voxels_right_of_midline": 370,
+     "ml": 0.484,
+     "tumor_i_min": 257,
+     "midline_i": 268.0
+    },
+    {
+     "k": 153,
+     "voxels_right_of_midline": 285,
+     "ml": 0.373,
+     "tumor_i_min": 258,
+     "midline_i": 267.7
+    },
+    {
+     "k": 154,
+     "voxels_right_of_midline": 231,
+     "ml": 0.302,
+     "tumor_i_min": 258,
+     "midline_i": 266.8
+    }
+   ],
+   "midline": "per-slice centroid i of all TotalSegmentator vertebrae + sacrum (interpolated where absent); LAS: i < midline = patient RIGHT"
+  },
+  "tumor_slice_area_jumps": {
+   "rule": "slice area <80% of both neighbours or >125% of both",
+   "slices": [
+    {
+     "k": 110,
+     "area_ml_k-1_k_k+1": [
+      2.17,
+      4.1,
+      2.91
+     ]
+    },
+    {
+     "k": 215,
+     "area_ml_k-1_k_k+1": [
+      1.43,
+      2.03,
+      1.45
+     ]
+    }
+   ]
+  },
+  "tumor": {
+   "components": [
+    {
+     "ml": 1196.67,
+     "k_range": [
+      102,
+      227
+     ],
+     "centroid_ijk": [
+      330.3,
+      280.7,
+      159.1
+     ]
+    },
+    {
+     "ml": 1.45,
+     "k_range": [
+      110,
+      110
+     ],
+     "centroid_ijk": [
+      353.9,
+      273.8,
+      110.0
+     ]
+    },
+    {
+     "ml": 0.7,
+     "k_range": [
+      104,
+      110
+     ],
+     "centroid_ijk": [
+      249.6,
+      335.9,
+      107.5
+     ]
+    },
+    {
+     "ml": 0.13,
+     "k_range": [
+      114,
+      114
+     ],
+     "centroid_ijk": [
+      218.1,
+      331.1,
+      114.0
+     ]
+    }
+   ],
+   "holes_3d_ml": 0.0,
+   "holes_2d_ml": 0.0,
+   "holes_2d_slices": [
+    205
+   ],
+   "holes_2d_median_hu": 22.0
+  },
+  "kidney_left": {
+   "components": [
+    {
+     "ml": 64.69,
+     "k_range": [
+      213,
+      241
+     ],
+     "centroid_ijk": [
+      330.3,
+      203.2,
+      225.3
+     ]
+    }
+   ],
+   "holes_3d_ml": 0.0,
+   "holes_2d_ml": 8.77,
+   "holes_2d_slices": [
+    216,
+    219,
+    225,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    236,
+    237,
+    238
+   ],
+   "holes_2d_median_hu": 59.0
+  },
+  "collecting_system": {
+   "components": [
+    {
+     "ml": 7.29,
+     "k_range": [
+      213,
+      220
+     ],
+     "centroid_ijk": [
+      337.6,
+      212.5,
+      216.1
+     ]
+    },
+    {
+     "ml": 7.13,
+     "k_range": [
+      227,
+      238
+     ],
+     "centroid_ijk": [
+      326.9,
+      200.3,
+      231.0
+     ]
+    },
+    {
+     "ml": 2.9,
+     "k_range": [
+      222,
+      225
+     ],
+     "centroid_ijk": [
+      330.7,
+      206.4,
+      223.1
+     ]
+    },
+    {
+     "ml": 2.11,
+     "k_range": [
+      205,
+      207
+     ],
+     "centroid_ijk": [
+      329.8,
+      220.5,
+      206.3
+     ]
+    },
+    {
+     "ml": 0.08,
+     "k_range": [
+      220,
+      220
+     ],
+     "centroid_ijk": [
+      351.9,
+      205.4,
+      220.0
+     ]
+    }
+   ],
+   "holes_3d_ml": 0.0,
+   "holes_2d_ml": 0.0,
+   "holes_2d_slices": [
+    214
+   ],
+   "holes_2d_median_hu": 3.0
+  },
+  "union": {
+   "components": [
+    {
+     "ml": 1280.88,
+     "k_range": [
+      102,
+      241
+     ],
+     "centroid_ijk": [
+      330.3,
+      275.6,
+      163.4
+     ]
+    },
+    {
+     "ml": 1.45,
+     "k_range": [
+      110,
+      110
+     ],
+     "centroid_ijk": [
+      353.9,
+      273.8,
+      110.0
+     ]
+    },
+    {
+     "ml": 0.7,
+     "k_range": [
+      104,
+      110
+     ],
+     "centroid_ijk": [
+      249.6,
+      335.9,
+      107.5
+     ]
+    },
+    {
+     "ml": 0.13,
+     "k_range": [
+      114,
+      114
+     ],
+     "centroid_ijk": [
+      218.1,
+      331.1,
+      114.0
+     ]
+    }
+   ],
+   "holes_3d_ml": 0.49,
+   "holes_2d_ml": 0.55,
+   "holes_2d_slices": [
+    205,
+    206,
+    214,
+    215,
+    217,
+    221,
+    222,
+    225,
+    226,
+    229,
+    233,
+    237
+   ],
+   "holes_2d_median_hu": 47.5
+  },
+  "kidney_left_drawn_k": [
+   213,
+   241
+  ],
+  "crop_edge_contact_voxels_i209": 11,
+  "overlaps_with_other_masks_before_removal_ml": {
+   "iliac_artery_left": 0.01,
+   "spleen": 0.47,
+   "colon": 6.03,
+   "small_bowel": 435.86,
+   "iliopsoas_left": 1.61
+  },
+  "tumor_hu": [
+   69.0,
+   44.0,
+   85.0
+  ]
+ },
+ "extension_outside_drawing": {
+  "tumor_left": {
+   "model_voxels_outside_drawn_ml": 0.0,
+   "model_k_range_outside_drawn": null,
+   "added_ml": 0.0,
+   "added_k_range": null,
+   "reason": "model fusion has no voxels outside the drawn region"
+  },
+  "kidney_left": {
+   "model_voxels_outside_drawn_ml": 0.0,
+   "model_k_range_outside_drawn": null,
+   "added_ml": 0.0,
+   "added_k_range": null,
+   "reason": "model fusion has no voxels outside the drawn region"
+  },
+  "collecting_system": {
+   "model_voxels_outside_drawn_ml": 6.29,
+   "model_k_range_outside_drawn": [
+    177,
+    386
+   ],
+   "added_ml": 0.0,
+   "added_k_range": null,
+   "components": [],
+   "not_connected_ml": 6.29,
+   "hu_window": [
+    -16.0,
+    105.0
+   ]
+  },
+  "flag": "modelo, fora do desenho",
+  "total_added_ml": 0.0
+ },
+ "superseded_model_voxels_ml": {
+  "fused_tumor_left_not_in_leo_union": 32.35,
+  "fused_tumor_left_in_leo_kidney_or_cs": 0.33,
+  "fused_kidney_left_in_leo_tumor": 52.33,
+  "fused_kidney_left_in_leo_cs": 16.58,
+  "fused_kidney_left_not_in_leo_union": 11.52,
+  "fused_collecting_system_left_not_in_leo_union": 0.53
+ },
+ "fused_collecting_system_split": {
+  "right_kept_ml": 6.61,
+  "left_superseded_by_leo_ml": 3.9,
+  "stray_dropped_ml": 2.45,
+  "stray_dropped_k_range": [
+   368,
+   386
+  ],
+  "note": "stray UNesT fragments at lung-base level (not connected to any kidney) dropped"
+ },
+ "small_bowel_cleanup": {
+  "overlap_removed_ml": 435.86,
+  "crumbs_removed_ml": 1.53,
+  "ts_ml": 993.03,
+  "rim_removed_ml": 6.24,
+  "rim_components_removed": 16,
+  "kept_components_touching_tumor": [
+   {
+    "ml": 541.01,
+    "k_range": [
+     67,
+     197
+    ],
+    "touch_frac": 0.23,
+    "max_thickness_mm": 26.8,
+    "median_hu": 35.0
+   },
+   {
+    "ml": 5.45,
+    "k_range": [
+     111,
+     116
+    ],
+    "touch_frac": 0.61,
+    "max_thickness_mm": 9.0,
+    "median_hu": 78.0
+   },
+   {
+    "ml": 1.58,
+    "k_range": [
+     103,
+     109
+    ],
+    "touch_frac": 0.43,
+    "max_thickness_mm": 9.0,
+    "median_hu": 74.0
+   }
+  ],
+  "rule": "residual component touching Leo mask with >=50% of its surface and (<1 mL or max thickness <=6 mm) = TotalSegmentator rim of the mass -> removed",
+  "final_ml": 549.4
+ },
+ "viewer_labelmap": {
+  "file": "out/volume/labels_roi_fused_gt_u8.raw",
+  "meta": "out/volume/volume_meta_fused_gt.json",
+  "roi_clipping_check_leo": {
+   "tumor_left": {
+    "source_ml": 1198.95,
+    "roi_ml": 1195.71
+   },
+   "kidney_left": {
+    "source_ml": 64.69,
+    "roi_ml": 64.63
+   },
+   "collecting_system": {
+    "source_ml": 19.52,
+    "roi_ml": 20.28
+   }
+  },
+  "geometry_selfcheck": {
+   "rebuilt_fused_labelmap_identical_to_labels_roi_fused_u8": true,
+   "rebuilt_TS_labelmap_identical_to_labels_roi_u8": true
+  }
+ },
+ "superseded_model_rims": {
+  "fused_kidney_left_not_in_leo_union": {
+   "ml": 11.52,
+   "k_range": [
+    191,
+    242
+   ],
+   "distance_from_leo_contour_mm_p50_p90_max": [
+    1.3,
+    1.8,
+    4.5
+   ],
+   "max_slice": "k213 2.14 mL",
+   "interpretation": "thin boundary rim (contour disagreement), not a missed structure"
+  },
+  "fused_tumor_left_not_in_leo_union": {
+   "ml": 32.35,
+   "k_range": [
+    111,
+    217
+   ],
+   "distance_from_leo_contour_mm_p50_p90_max": [
+    1.5,
+    3.0,
+    6.0
+   ],
+   "max_slices": "k115 1.56 mL, k114 1.46 mL, k209-210 ~1 mL",
+   "interpretation": "mostly thin boundary rim; k114-115 = slices where Leo did not draw the anteromedial lobule"
+  }
+ }
+}

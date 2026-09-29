@@ -1,0 +1,26 @@
+# ambiente/caches
+.venv/
+__pycache__/
+node_modules/
+.cache/
+*.log
+.DS_Store
+# NUNCA versionar dados de imagem da TC, máscaras ou arquivos originais (a auditoria também bloqueia)
+*.dcm
+*.dicom
+*.nii
+*.nii.gz
+*.nrrd
+*.nhdr
+*.mha
+*.mhd
+*.mgz
+*.npy
+*.npz
+*.raw
+*.raw.gz
+*.zip
+*.tar
+*.tar.gz
+*.7z
+phi_terms.json

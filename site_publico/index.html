@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>TC Nefrec — planejamento cirúrgico 3D (material educacional)</title>
+  <link rel="icon" href="data:," />
+  <style>
+    :root { --bg:#0b0f16; --card:#141b26; --line:#243042; --tx:#e6edf5; --mu:#9fb0c3; --ac:#3ed6c6; --warn:#ffb74d; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--tx); }
+    .disc { background:#3a2a0d; color:#ffe2b0; border-bottom:1px solid #6b4b12; padding:10px 18px; font-weight:600; text-align:center; }
+    main { max-width:980px; margin:0 auto; padding:28px 18px 60px; }
+    h1 { font-size:1.9rem; margin:.2em 0 .1em; } h1 small { display:block; font-size:1rem; color:var(--mu); font-weight:400; margin-top:6px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:26px 0; }
+    a.card { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; color:var(--tx); text-decoration:none; transition:border-color .15s, transform .15s; }
+    a.card:hover, a.card:focus { border-color:var(--ac); transform:translateY(-2px); outline:none; }
+    .card h2 { margin:0 0 6px; font-size:1.25rem; } .card .tag { color:var(--ac); font-size:.85rem; font-weight:600; letter-spacing:.03em; text-transform:uppercase; }
+    .card p { color:var(--mu); margin:.5em 0 0; font-size:.95rem; } .card .go { margin-top:14px; color:var(--ac); font-weight:600; }
+    section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-top:18px; }
+    section h3 { margin:0 0 8px; font-size:1.05rem; } section p, section li { color:var(--mu); font-size:.95rem; }
+    .warn { color:var(--warn); } code { background:#0e141d; padding:1px 5px; border-radius:4px; }
+    footer { color:var(--mu); font-size:.85rem; margin-top:28px; }
+    footer a, section a { color:var(--ac); }
+  </style>
+</head>
+<body>
+  <div class="disc" role="alert">⚠ Segmentação automática por IA — uso educacional/planejamento, não diagnóstico; validar com radiologista. Material educacional: não é laudo nem orientação clínica.</div>
+  <main>
+    <h1>TC Nefrec — planejamento cirúrgico 3D
+      <small>Nefrectomia esquerda · caso único · modelos 3D derivados da TC · versão pública (sem imagens da TC)</small></h1>
+
+    <div class="grid">
+      <a class="card" href="./v1/">
+        <div class="tag">Visualizador v1</div>
+        <h2>Modelos 3D (GLB) · comparação entre modelos</h2>
+        <p>Malhas 3D das estruturas segmentadas, distâncias do tumor, planos de corte e comparação entre modelos de IA (métricas Dice/HD95).
+           Os cortes 2D e o volume da TC ficam só na versão local.</p>
+        <div class="go">Abrir v1 →</div>
+      </a>
+      <a class="card" href="./v2/">
+        <div class="tag">Visualizador v2</div>
+        <h2>Cena cirúrgica 3D</h2>
+        <p>Nova cena cirúrgica com materiais realistas e vistas cirúrgicas — em finalização; será publicada aqui quando estiver pronta.</p>
+        <div class="go">Abrir v2 →</div>
+      </a>
+    </div>
+
+    <section>
+      <h3>O que é</h3>
+      <p>Reconstrução 3D de estruturas abdominais a partir de uma tomografia computadorizada multifásica, feita para estudo e planejamento
+         cirúrgico de uma nefrectomia esquerda. As estruturas foram segmentadas por modelos de IA (TotalSegmentator, MONAI e outros) e
+         revisadas/corrigidas manualmente pelo cirurgião.</p>
+      <p class="warn">Não é laudo nem diagnóstico. Distâncias e volumes são estimativas a partir de segmentações; concordância entre modelos (Dice/HD95) não é acurácia.</p>
+    </section>
+    <section>
+      <h3>Política de dados deste site</h3>
+      <ul>
+        <li>Publicamos <b>somente dados derivados</b>: malhas 3D (GLB), manifestos e métricas em JSON, relatórios de QA em texto e imagens renderizadas das malhas 3D.</li>
+        <li><b>Nenhum dado de imagem da TC</b> é publicado: nada de DICOM, NIfTI, volumes ou recortes brutos, nem cortes/renderizações de cortes da tomografia. Também não publicamos máscaras NIfTI.</li>
+        <li>Nenhum dado de identificação (nome, data de nascimento, prontuário, instituição, data do exame ou UIDs) e nenhum nome de arquivo com datas ou identificadores.</li>
+        <li>Cada publicação passa por uma auditoria automática que bloqueia o envio se encontrar qualquer arquivo desses tipos.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Requisitos</h3>
+      <p>Navegador atual com WebGL2 (Chrome, Edge, Safari 16+ ou Firefox). Os modelos 3D somam cerca de 25 MB.</p>
+    </section>
+    <footer>
+      Código sob licença MIT; dados apenas para fins educacionais. Créditos de bibliotecas e modelos no <a href="https://github.com/drleandroalm/ct-nefrec-planejamento-3d#readme">README do repositório</a>.
+      <br />Build: <code>p19fb682ee15e</code>
+    </footer>
+  </main>
+</body>
+</html>

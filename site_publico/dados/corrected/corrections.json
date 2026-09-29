@@ -1,0 +1,528 @@
+{
+ "disclaimer": "Segmentação automática por IA — uso educacional/planejamento, não diagnóstico; validar com radiologista.",
+ "inputs": {
+  "venous": "phases/venous.nii.gz (512×512×404, 0.934×0.934×1.5 mm, LAS)",
+  "kidney_left": "out/masks/kidney_left.nii.gz (md5 d95ca3700254b0f3671beab392afbf5b, não modificado)",
+  "delayed": "phases/delayed.nii.gz (512×512×291, 0.936×0.936×1.5 mm, LAS; FOV/origem diferentes)",
+  "annotations": "review/leo_—/*.jpg"
+ },
+ "k_index_convention": {
+  "k": "índice 0-based do eixo 2 (z) do array venous (nibabel), sem flip; z_RAS_mm = −965 + 1.5·k",
+  "display_of_annotated_images": "radiológica: np.flipud(slice.T) → topo = anterior, direita do paciente à esquerda da tela",
+  "verification": "k=172: 1 componente 2D (k=173 teria 2); k=178: primeiro corte com orifício interno no kidney_right (k=177 não tem); k=184: orifício no kidney_right; k=190: sem orifício (seio aberto) — tudo igual às imagens de Leo. Imagens de Leo são recortes de out/qa/qa_left_kidney_zoom.png.",
+  "k278_note": "“k=278” escrito por Leo = k=178 (confirmado)."
+ },
+ "glb_3d_mapping": {
+  "render": "3d_green_3_errors.jpg = out/qa/glb_render_anterior_axisfixed.png (glb_render.py, matplotlib, elev=0/azim=90); eixo Z mostra |z| (rótulo 700 = z −700 mm RAS)",
+  "k_from_z": "k = (z + 965)/1.5 → z≈−706 → k≈173; z≈−735 → k≈153; z≈−797 → k≈112",
+  "green_1": "kidney_left, componente 3D isolado 3,12 mL (k164–181) = F1 → tumor",
+  "green_2": "NÃO é kidney_left: fragmento de spleen 0,16 mL (k152–157, RAS ≈(−46,193,−735)) dentro da massa. Fora do kidney_left → não entra na semente (regra de não invenção); marcado em leo_flagged_nonkidney_fragments.nii.gz (valor 1)",
+  "green_3": "NÃO é kidney_left: fragmento isolado de iliac_artery_left 1,84 mL (k105–120, RAS ≈(−50,167,−797)), HU venosa mediana 130 (compatível com vaso). Fora do kidney_left → não alterado; marcado em leo_flagged_nonkidney_fragments.nii.gz (valor 2)",
+  "verification_png": "qa/leo3d_match_fragments.png (reprodução da vista com os fragmentos pequenos circulados)"
+ },
+ "registration": {
+  "method": "SimpleITK rigid Euler3D, Mattes MI 50 bins, random 20% sampling, fixed-image mask = kidney_left bbox + 30 mm, 3-level pyramid (4/2/1), RSGD, init = header (same scanner frame of reference)",
+  "roi_venous_vox": [
+   [
+    259,
+    142,
+    144
+   ],
+   [
+    411,
+    353,
+    262
+   ]
+  ],
+  "stop": "RegularStepGradientDescentOptimizerv4: Step too small after 19 iterations. Current step (0.00094037) is less than minimum step (0.001).",
+  "iterations": 20,
+  "rotation_deg": [
+   -0.399,
+   -0.347,
+   -0.326
+  ],
+  "translation_mm_LPS": [
+   -0.37,
+   -0.53,
+   -3.95
+  ],
+  "center_mm_LPS": [
+   83.22,
+   -148.53,
+   -660.5
+  ],
+  "before": {
+   "label": "header (identidade no espaço físico)",
+   "ncc_hu": 0.8012,
+   "ncc_gradient": 0.5834,
+   "dice_bone_gt250HU": 0.5355,
+   "mattes_mi": -0.447
+  },
+  "after": {
+   "label": "rígido SimpleITK (Mattes MI, máscara ROI)",
+   "ncc_hu": 0.8901,
+   "ncc_gradient": 0.7523,
+   "dice_bone_gt250HU": 0.834,
+   "mattes_mi": -0.5674
+  },
+  "note": "mattes_mi é negativo no SimpleITK (mais negativo = melhor). NCC/Dice calculados apenas na ROI.",
+  "quality_summary": "NCC(HU) 0,80→0,89; NCC(gradiente) 0,58→0,75; Dice osso>250 HU 0,54→0,83; Mattes MI −0,447→−0,567. Deslocamento principal ≈4 mm craniocaudal (respiração); rotações <0,4°. Inspeção visual: bordas renais/vasos alinhados (qa/delayed_k184.png).",
+  "files": [
+   "delayed_on_venous_rigid.nii.gz (tardia reamostrada na grade venosa, linear, int16 HU)",
+   "work/delayed_to_venous_rigid.tfm"
+  ]
+ },
+ "method": {
+  "step1": "Componentes 3D (26-conectividade) do kidney_left: principal 200,35 mL (k180–242) e isolado 3,12 mL (k164–181).",
+  "step2": "Componente isolado (F1) = tumor inteiro (fragmento 3D verde de Leo + contornos verdes k166/172/178; todos os voxels desses cortes pertencem a ele).",
+  "step3": "Componente principal: random walker 3D (skimage, beta=130) em duas features normalizadas — HU venosa e HU tardia registrada, ambas suavizadas (gauss σ=2 voxels) — restrito à máscara. Sementes: rim = todos os voxels k≥196 + voxels a ≤3 voxels de contraste excretado (tardia >300 HU); tumor = contorno inteiro de k=190; incerto = contorno inteiro de k=184. A decisão é propagada em 3D até onde cada região termina (não corte a corte).",
+  "rule": "Fronteira = onde a probabilidade do random walker muda de classe; guiada pelo realce (rim retém contraste na tardia ≈91 HU; região tumoral lava ≈61 HU) e pela continuidade com o rim posterossuperior. Nenhum voxel fora do kidney_left original foi adicionado.",
+  "no_invention": "tumor_from_kidney_left ⊂ kidney_left original; é semente positiva para fusão, NÃO o tumor completo (a massa está majoritariamente fora do kidney_left).",
+  "hu_thresholds": "Nenhum limiar de HU define bordas; limiar >300 HU só identifica contraste excretado (semente de rim)."
+ },
+ "enhancement_hu_median_venous_delayed": {
+  "kidney_right": [
+   136,
+   125
+  ],
+  "kidney_left_corrected": [
+   89,
+   91
+  ],
+  "F1": [
+   86,
+   71
+  ],
+  "F2": [
+   78,
+   61
+  ],
+  "F3_incerto": [
+   85,
+   67
+  ],
+  "note": "Rim esquerdo realça menos que o direito (≈89 vs 136 HU venosa) em todo o órgão; por isso HU sozinho não separa rim de tumor na venosa — a tardia (retenção vs lavagem) e a excreção foram mais informativas."
+ },
+ "fragments": [
+  {
+   "id": "F1",
+   "name": "Fragmento anteromedial isolado (componente 3D nº2 do kidney_left)",
+   "classification": "tumor",
+   "evidence": "Leo: fragmento verde nº1 no 3D (z≈−706 mm) e contornos verdes em k=166/172/178; componente 3D separado do rim, dentro da massa; sem contraste excretado; realce ≈ massa",
+   "voxels": 2390,
+   "volume_ml": 3.12,
+   "k_min": 164,
+   "k_max": 181,
+   "venous_hu_median": 86,
+   "delayed_hu_median": 71,
+   "excreted_contrast_voxels_gt300HU": 0
+  },
+  {
+   "id": "F2",
+   "name": "Porção inferior do componente principal invadindo a massa (polo inferior)",
+   "classification": "tumor",
+   "evidence": "Leo: contorno inteiro em k=190 é tumor; propagado em 3D (random walker) até k=185 e k=193; sem contraste excretado; lavagem venosa→tardia (≈78→61 HU) diferente do rim (≈89→91 HU)",
+   "voxels": 9972,
+   "volume_ml": 13.04,
+   "k_min": 185,
+   "k_max": 193,
+   "venous_hu_median": 78,
+   "delayed_hu_median": 61,
+   "excreted_contrast_voxels_gt300HU": 0
+  },
+  {
+   "id": "F3",
+   "name": "Ponta inferior posterolateral (região amarela k=184)",
+   "classification": "incerto",
+   "evidence": "Leo: incerto. Tardia registrada: sem contraste excretado; centro hipodenso ≈50 HU venosa / ≈63 HU tardia (não é líquido nem cálice opacificado); orla ≈92→67 HU (lavagem, como F2). Favorece tumor mas não exclui polo inferior desvascularizado/não funcionante → NÃO decidido",
+   "voxels": 2510,
+   "volume_ml": 3.28,
+   "k_min": 180,
+   "k_max": 186,
+   "venous_hu_median": 85,
+   "delayed_hu_median": 67,
+   "excreted_contrast_voxels_gt300HU": 0
+  },
+  {
+   "id": "F4",
+   "name": "Parênquima renal verdadeiro (restante)",
+   "classification": "rim",
+   "evidence": "Contínuo com rim posterossuperior (k≥196, Leo); contém/adjacente a todo o contraste excretado na tardia (cálices k≥194)",
+   "voxels": 140762,
+   "volume_ml": 184.03,
+   "k_min": 191,
+   "k_max": 242,
+   "venous_hu_median": 89,
+   "delayed_hu_median": 91,
+   "excreted_contrast_voxels_gt300HU": 3308
+  }
+ ],
+ "flagged_outside_kidney_left": [
+  {
+   "source_mask": "spleen",
+   "volume_ml": 0.005,
+   "k_min": 159,
+   "k_max": 159,
+   "centroid_ras_mm": [
+    -37.5,
+    186.8,
+    -726.5
+   ],
+   "venous_hu_median": 95,
+   "delayed_hu_median": 71
+  },
+  {
+   "source_mask": "spleen",
+   "volume_ml": 0.158,
+   "k_min": 152,
+   "k_max": 157,
+   "centroid_ras_mm": [
+    -45.9,
+    193.4,
+    -734.8
+   ],
+   "venous_hu_median": 89,
+   "delayed_hu_median": 70
+  },
+  {
+   "source_mask": "spleen",
+   "volume_ml": 0.001,
+   "k_min": 155,
+   "k_max": 155,
+   "centroid_ras_mm": [
+    -49.6,
+    191.9,
+    -732.5
+   ],
+   "venous_hu_median": 125,
+   "delayed_hu_median": 91
+  },
+  {
+   "source_mask": "spleen",
+   "volume_ml": 0.001,
+   "k_min": 157,
+   "k_max": 157,
+   "centroid_ras_mm": [
+    -49.6,
+    191.9,
+    -729.5
+   ],
+   "venous_hu_median": 80,
+   "delayed_hu_median": 77
+  },
+  {
+   "source_mask": "iliac_artery_left",
+   "volume_ml": 1.843,
+   "k_min": 105,
+   "k_max": 120,
+   "centroid_ras_mm": [
+    -49.6,
+    167.0,
+    -797.0
+   ],
+   "venous_hu_median": 130,
+   "delayed_hu_median": 73
+  }
+ ],
+ "volumes_ml": {
+  "kidney_left_original": 203.48,
+  "kidney_left_corrected": 184.03,
+  "tumor_from_kidney_left": 16.16,
+  "uncertain_k184": 3.28,
+  "check_sum": 203.48
+ },
+ "slices_changed": {
+  "k_min": 164,
+  "k_max": 193,
+  "count": 30,
+  "per_slice": [
+   {
+    "k": 164,
+    "z_mm": -719.0,
+    "before": 6,
+    "after_kidney": 0,
+    "removed_tumor": 6,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 165,
+    "z_mm": -717.5,
+    "before": 32,
+    "after_kidney": 0,
+    "removed_tumor": 32,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 166,
+    "z_mm": -716.0,
+    "before": 47,
+    "after_kidney": 0,
+    "removed_tumor": 47,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 167,
+    "z_mm": -714.5,
+    "before": 74,
+    "after_kidney": 0,
+    "removed_tumor": 74,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 168,
+    "z_mm": -713.0,
+    "before": 112,
+    "after_kidney": 0,
+    "removed_tumor": 112,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 169,
+    "z_mm": -711.5,
+    "before": 159,
+    "after_kidney": 0,
+    "removed_tumor": 159,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 170,
+    "z_mm": -710.0,
+    "before": 229,
+    "after_kidney": 0,
+    "removed_tumor": 229,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 171,
+    "z_mm": -708.5,
+    "before": 246,
+    "after_kidney": 0,
+    "removed_tumor": 246,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 172,
+    "z_mm": -707.0,
+    "before": 252,
+    "after_kidney": 0,
+    "removed_tumor": 252,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 173,
+    "z_mm": -705.5,
+    "before": 270,
+    "after_kidney": 0,
+    "removed_tumor": 270,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 174,
+    "z_mm": -704.0,
+    "before": 265,
+    "after_kidney": 0,
+    "removed_tumor": 265,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 175,
+    "z_mm": -702.5,
+    "before": 209,
+    "after_kidney": 0,
+    "removed_tumor": 209,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 176,
+    "z_mm": -701.0,
+    "before": 196,
+    "after_kidney": 0,
+    "removed_tumor": 196,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 177,
+    "z_mm": -699.5,
+    "before": 166,
+    "after_kidney": 0,
+    "removed_tumor": 166,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 178,
+    "z_mm": -698.0,
+    "before": 62,
+    "after_kidney": 0,
+    "removed_tumor": 62,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 179,
+    "z_mm": -696.5,
+    "before": 44,
+    "after_kidney": 0,
+    "removed_tumor": 44,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 180,
+    "z_mm": -695.0,
+    "before": 43,
+    "after_kidney": 0,
+    "removed_tumor": 20,
+    "removed_uncertain": 23
+   },
+   {
+    "k": 181,
+    "z_mm": -693.5,
+    "before": 134,
+    "after_kidney": 0,
+    "removed_tumor": 1,
+    "removed_uncertain": 133
+   },
+   {
+    "k": 182,
+    "z_mm": -692.0,
+    "before": 259,
+    "after_kidney": 0,
+    "removed_tumor": 0,
+    "removed_uncertain": 259
+   },
+   {
+    "k": 183,
+    "z_mm": -690.5,
+    "before": 432,
+    "after_kidney": 0,
+    "removed_tumor": 0,
+    "removed_uncertain": 432
+   },
+   {
+    "k": 184,
+    "z_mm": -689.0,
+    "before": 602,
+    "after_kidney": 0,
+    "removed_tumor": 0,
+    "removed_uncertain": 602
+   },
+   {
+    "k": 185,
+    "z_mm": -687.5,
+    "before": 811,
+    "after_kidney": 0,
+    "removed_tumor": 221,
+    "removed_uncertain": 590
+   },
+   {
+    "k": 186,
+    "z_mm": -686.0,
+    "before": 1021,
+    "after_kidney": 0,
+    "removed_tumor": 550,
+    "removed_uncertain": 471
+   },
+   {
+    "k": 187,
+    "z_mm": -684.5,
+    "before": 1182,
+    "after_kidney": 0,
+    "removed_tumor": 1182,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 188,
+    "z_mm": -683.0,
+    "before": 1344,
+    "after_kidney": 0,
+    "removed_tumor": 1344,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 189,
+    "z_mm": -681.5,
+    "before": 1546,
+    "after_kidney": 0,
+    "removed_tumor": 1546,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 190,
+    "z_mm": -680.0,
+    "before": 1706,
+    "after_kidney": 0,
+    "removed_tumor": 1706,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 191,
+    "z_mm": -678.5,
+    "before": 1850,
+    "after_kidney": 98,
+    "removed_tumor": 1752,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 192,
+    "z_mm": -677.0,
+    "before": 1976,
+    "after_kidney": 543,
+    "removed_tumor": 1433,
+    "removed_uncertain": 0
+   },
+   {
+    "k": 193,
+    "z_mm": -675.5,
+    "before": 2110,
+    "after_kidney": 1872,
+    "removed_tumor": 238,
+    "removed_uncertain": 0
+   }
+  ]
+ },
+ "sensitivity": {
+  "random_walker_beta_30_130_500": "rim 183,9/184,0/184,3 mL · tumor(F2) 13,0/13,0/12,9 mL · incerto 3,4/3,3/3,1 mL",
+  "flat_cut_alternative": "corte plano (k≤187 incerto, 188–190 tumor, ≥191 rim): rim 188,5 mL · F2 6,0 mL · incerto 5,8 mL",
+  "lowest_kidney_slice_after": 191
+ },
+ "roi_labels": {
+  "file": "labels_roi_corrected_u8.raw",
+  "meta": "labels_roi_corrected_meta.json",
+  "crosscheck": "labels_roi_corrected.nii.gz",
+  "kidney_left_label_id": 1,
+  "label_id_check": "volume_meta.json: id 1 = kidney_left (confirmado)",
+  "resampling": "nearest (map_coordinates order=0, mesmo mapeamento de export_volume.py); só voxels com label 1 foram alterados",
+  "label_counts_changed_old_new": {
+   "0": [
+    20182646,
+    20189518
+   ],
+   "1": [
+    397812,
+    359548
+   ],
+   "20": [
+    0,
+    31392
+   ]
+  },
+  "other_labels_unchanged": true,
+  "label1_voxels_before": 397812
+ },
+ "open_decisions": [
+  "F3 (k≈180–186, região amarela de k=184): incerto — favorece tumor (sem excreção, lavagem igual à de F2, centro não líquido), mas não exclui polo inferior não funcionante. Fora das duas máscaras; =0 na grade ROI.",
+  "Em k≈187–190 há um pequeno foco posterior com HU tardia um pouco maior, contínuo com a crista posterior de parênquima acima; mantido como tumor porque Leo marcou o contorno inteiro de k=190 — revisar.",
+  "Fronteira rim/tumor em k191–193 é uma transição gradual (sem plano nítido); ver sensibilidade.",
+  "Parte anterior do contorno em k196–205 encosta na massa com realce baixo; mantida como rim conforme instrução (k≥196 = rim) — revisar se houver invasão.",
+  "Fragmentos verdes nº2 (spleen) e nº3 (iliac_artery_left) não pertencem ao kidney_left; não alterados — decidir na fusão/revisão manual."
+ ],
+ "outputs": {
+  "kidney_left_corrected.nii.gz": "parênquima verdadeiro (geometria/affine/header do original)",
+  "tumor_from_kidney_left.nii.gz": "semente positiva de tumor = F1+F2 (só voxels removidos do kidney_left)",
+  "uncertain_k184.nii.gz": "F3 incerto — fora das duas máscaras acima",
+  "leo_flagged_nonkidney_fragments.nii.gz": "informativo: 1 = fragmento de spleen (verde nº2), 2 = fragmento de iliac_artery_left (verde nº3); originais NÃO alterados",
+  "delayed_on_venous_rigid.nii.gz": "fase tardia reamostrada na grade venosa (rígido)",
+  "labels_roi_corrected_u8.raw / labels_roi_corrected_meta.json / labels_roi_corrected.nii.gz": "grade ROI 302×239×347 0,8 mm: label 1 = rim corrigido, 20 = semente de tumor, incerto = 0; demais labels inalterados",
+  "kidney_left_corrected.glb": "malhas rim/semente/incerto em RAS mm, Z para cima (mesma convenção de nefrec_surgical_axisfixed.glb)",
+  "qa/": "before_after_k{166,172,178,184,190,202}.png, delayed_k184.png, montage_all_changed_slices.png, 3d_before_after.png, leo3d_match_fragments.png, k_index_check.png",
+  "scripts": "correct_kidney_left.py, qa_corrections.py, make_glb.py, work/register_delayed.py"
+ }
+}

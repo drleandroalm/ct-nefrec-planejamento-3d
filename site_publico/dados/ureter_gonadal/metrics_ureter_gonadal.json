@@ -1,0 +1,310 @@
+{
+ "aviso": "Uso educacional/planejamento. NAO diagnostico. Medidas derivadas de segmentacao semi-automatica; conferir na TC.",
+ "geometria": {
+  "grade": "venous.nii.gz 512x512x404, 0.934x0.934x1.5 mm, LAS; k = indice axial",
+  "affine": [
+   [
+    -0.9336,
+    -0.0,
+    0.0,
+    229.5332
+   ],
+   [
+    0.0,
+    0.9336,
+    0.0,
+    -82.5332
+   ],
+   [
+    0.0,
+    0.0,
+    1.5,
+    -965.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  ]
+ },
+ "ureter_right": {
+  "comprimento_mm": 241.6,
+  "volume_ml": 4.793,
+  "fase": "tardia (excretora) registrada na venosa",
+  "confianca_contagem_pontos": {
+   "baixa": 45,
+   "media": 2,
+   "alta": 207
+  },
+  "segmentos": [
+   {
+    "conf": "baixa",
+    "k_from": 198.0,
+    "k_to": 198.0,
+    "length_mm": 0.0
+   },
+   {
+    "conf": "media",
+    "k_from": 197.5,
+    "k_to": 196.9,
+    "length_mm": 1.1
+   },
+   {
+    "conf": "alta",
+    "k_from": 196.3,
+    "k_to": 175.1,
+    "length_mm": 36.2
+   },
+   {
+    "conf": "baixa",
+    "k_from": 174.5,
+    "k_to": 171.5,
+    "length_mm": 4.7
+   },
+   {
+    "conf": "alta",
+    "k_from": 170.9,
+    "k_to": 136.9,
+    "length_mm": 54.8
+   },
+   {
+    "conf": "baixa",
+    "k_from": 136.3,
+    "k_to": 133.6,
+    "length_mm": 4.8
+   },
+   {
+    "conf": "alta",
+    "k_from": 133.0,
+    "k_to": 114.8,
+    "length_mm": 28.2
+   },
+   {
+    "conf": "baixa",
+    "k_from": 114.3,
+    "k_to": 103.7,
+    "length_mm": 19.0
+   },
+   {
+    "conf": "alta",
+    "k_from": 103.2,
+    "k_to": 102.1,
+    "length_mm": 1.9
+   },
+   {
+    "conf": "baixa",
+    "k_from": 101.6,
+    "k_to": 99.5,
+    "length_mm": 3.8
+   },
+   {
+    "conf": "alta",
+    "k_from": 99.0,
+    "k_to": 70.5,
+    "length_mm": 53.9
+   },
+   {
+    "conf": "baixa",
+    "k_from": 69.9,
+    "k_to": 68.1,
+    "length_mm": 2.9
+   },
+   {
+    "conf": "alta",
+    "k_from": 67.5,
+    "k_to": 57.8,
+    "length_mm": 17.8
+   },
+   {
+    "conf": "baixa",
+    "k_from": 57.4,
+    "k_to": 57.4,
+    "length_mm": 0.0
+   }
+  ],
+  "juncao_ureterovesical_vox": [
+   243,
+   220,
+   58
+  ],
+  "jup_vox": [
+   223,
+   215,
+   198
+  ],
+  "raio_medio_mm_mediana": 1.8
+ },
+ "ureter_left": {
+  "status": "NAO segmentado com confianca",
+  "motivo": "rim esquerdo hidronefrotico; ureter esquerdo nao opacificado abaixo da pelve na fase tardia; trajeto ao longo da interface tumor-psoas sem contraste suficiente",
+  "trajetoria_estimada_comprimento_mm": 254.3,
+  "inicio_vox": [
+   314,
+   230,
+   205
+  ],
+  "fim_vox_estimado": [
+   254,
+   223,
+   58
+  ],
+  "mascara": "ureter_left_trajetoria_estimada.nii.gz = tubo de 1.5 mm ao redor da trajetoria estimada (NAO e medida)"
+ },
+ "gonadal_vein_left": {
+  "comprimento_centerline_mm": 210.4,
+  "k_range": [
+   80.2,
+   203.6
+  ],
+  "volume_lumen_patente_ml": 14.825,
+  "volume_total_ml": 15.761,
+  "HU": {
+   "lumen_patente_interior_venoso": {
+    "n_vox": 7662,
+    "median": 130.0,
+    "mean": 127.9,
+    "sd": 24.5,
+    "p10": 97.0,
+    "p90": 156.0
+   },
+   "trombo_venoso": {
+    "n_vox": 716,
+    "median": 70.0,
+    "mean": 69.2,
+    "sd": 18.7,
+    "p10": 46.0,
+    "p90": 91.0
+   },
+   "tumor_Leo_venoso_mediana": 69.0,
+   "lumen_patente_interior_tardio_registrado": {
+    "n_vox": 7662,
+    "median": 79.0,
+    "mean": 74.3,
+    "sd": 23.9,
+    "p10": 47.0,
+    "p90": 97.0
+   },
+   "trombo_tardio_registrado": {
+    "n_vox": 716,
+    "median": 61.0,
+    "mean": 58.1,
+    "sd": 19.2,
+    "p10": 42.0,
+    "p90": 75.0
+   },
+   "limiar_trombo_HU": 90.0,
+   "ref_patente_mediana": 128.8,
+   "ref_patente_sd_robusto": 13.3
+  },
+  "realce_fase_arterial": "mediana ~100 HU na veia gonadal vs ~50 HU na VCI/veia iliaca na mesma fase (retorno venoso precoce? achado a confirmar)",
+  "compressao": {
+   "dist_min_parede_tumor_mm": 0.0,
+   "dist_min_centro_tumor_mm": 0.0,
+   "contato_total_mm": 148.4,
+   "segmentos_contato": [
+    {
+     "k": [
+      175.4,
+      199.4
+     ],
+     "comprimento_mm": 39.9
+    },
+    {
+     "k": [
+      112.2,
+      171.1
+     ],
+     "comprimento_mm": 106.5
+    }
+   ],
+   "diametro_equivalente": {
+    "normal_k150_195": {
+     "k": [
+      150,
+      195
+     ],
+     "deq_mediana_mm": 9.3,
+     "deq_min_mm": 7.3,
+     "deq_max_mm": 10.8,
+     "n_pts": 76
+    },
+    "comprimido_k124_146": {
+     "k": [
+      124,
+      146
+     ],
+     "deq_mediana_mm": 4.3,
+     "deq_min_mm": 2.0,
+     "deq_max_mm": 6.8,
+     "n_pts": 42
+    },
+    "ingurgitado_k108_122": {
+     "k": [
+      108,
+      122
+     ],
+     "deq_mediana_mm": 13.6,
+     "deq_min_mm": 6.6,
+     "deq_max_mm": 15.5,
+     "n_pts": 37
+    },
+    "distal_k80_106": {
+     "k": [
+      80,
+      106
+     ],
+     "deq_mediana_mm": 9.7,
+     "deq_min_mm": 6.1,
+     "deq_max_mm": 11.7,
+     "n_pts": 42
+    },
+    "juncao_hipodensa_k196_205": {
+     "k": [
+      196,
+      205
+     ],
+     "deq_mediana_mm": 8.2,
+     "deq_min_mm": 5.6,
+     "deq_max_mm": 11.9,
+     "n_pts": 15
+    }
+   },
+   "razao_estreitamento_vs_normal": 0.46,
+   "razao_ingurgitamento_vs_normal": 1.46
+  }
+ },
+ "gonadal_vein_left_thrombus": {
+  "volume_ml": 0.936,
+  "k_range": [
+   190,
+   206
+  ],
+  "clusters_mantidos": [
+   {
+    "id": 9,
+    "vol_ml": 0.936,
+    "k_range": [
+     190,
+     206
+    ],
+    "n_slices": 17,
+    "kept": true,
+    "vol_deep_ml": 0.187,
+    "frac_deep": 0.2,
+    "V_median": 70.0,
+    "V_p10_p90": [
+     46.0,
+     91.0
+    ]
+   }
+  ],
+  "clusters_rejeitados_volume_parcial": 21,
+  "interpretacao": "defeito de enchimento hipodenso no segmento proximal da veia gonadal junto a confluencia com a veia renal esquerda; atenuacao (~70 HU) semelhante ao tumor (mediana 69 HU): trombo tumoral vs trombo brando vs tecido contiguo nao distinguiveis nesta TC. A veia renal esquerda pre-aortica tambem parece hipoatenuante (~40-80 HU) - nao segmentada aqui."
+ },
+ "gonadal_artery_left": {
+  "status": "nao identificada de forma confiavel",
+  "motivo": "fase arterial com realce modesto (aorta ~190-200 HU), cobertura so a partir de k~110; busca de componentes >150 HU a <15 mm da veia encontrou apenas AMI e ramos, arteria renal, e ramos lombares - sem cadeia continua compativel com arteria gonadal"
+ }
+}

@@ -1,0 +1,2 @@
+Arquivo copiado do pacote npm three@0.169.0 (examples/jsm): libs/meshopt_decoder.module.js (MIT, ver ../LICENSE).
+Decodificador DRACO omitido: nenhum GLB publicado usa KHR_draco_mesh_compression.

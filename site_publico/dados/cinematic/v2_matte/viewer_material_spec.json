@@ -1,0 +1,1137 @@
+{
+ "schema": "nefrec-viewer-material-spec/1",
+ "disclaimer": "AI output — not diagnostic · educational/planning use",
+ "target": "three.js r169 WebGLRenderer + MeshPhysicalMaterial (vendored in the viewer); values also valid for r18x MeshPhysicalNodeMaterial",
+ "intent": "MATTE fresh-tissue look (anatomy photography, no wet/plastic highlights). Colours are the perceived sRGB colours used in the Blender Cycles matte stills (out/cinematic/v2_matte/blender/).",
+ "color_management": {
+  "renderer.outputColorSpace": "SRGBColorSpace",
+  "THREE.ColorManagement.enabled": true,
+  "note": "pass hex strings to material.color.set(...) so three converts sRGB->linear"
+ },
+ "tone_mapping_op": "AgX",
+ "exposure": 1.0,
+ "environment_intensity": 0.45,
+ "compat_note": "Top-level 'structures' is keyed by viewer case.json structure keys (ct-nefrec-viewer-v2 reads SPEC.structures[def.key], SPEC.defaults, SPEC.by_kind, SPEC.exposure, SPEC.environment_intensity). 'exposure' 1.0 is for Neutral; use 0.9 with AgX.",
+ "defaults": {
+  "color": "#9a8a80",
+  "roughness": 0.85,
+  "metalness": 0.0,
+  "specularIntensity": 0.15,
+  "clearcoat": 0.0,
+  "sheen": 0.0
+ },
+ "by_kind": {
+  "tumor": {
+   "roughness": 0.9,
+   "specularIntensity": 0.08
+  },
+  "organ": {
+   "roughness": 0.88,
+   "specularIntensity": 0.08
+  },
+  "artery": {
+   "roughness": 0.85,
+   "specularIntensity": 0.1
+  },
+  "vein": {
+   "roughness": 0.85,
+   "specularIntensity": 0.1
+  },
+  "duct": {
+   "roughness": 0.88,
+   "specularIntensity": 0.08
+  },
+  "muscle": {
+   "roughness": 0.95,
+   "specularIntensity": 0.05
+  },
+  "bone": {
+   "roughness": 0.92,
+   "specularIntensity": 0.08
+  },
+  "thrombus": {
+   "roughness": 0.92,
+   "specularIntensity": 0.06
+  },
+  "estimated": {
+   "roughness": 0.95,
+   "specularIntensity": 0.04
+  },
+  "ghost": {
+   "roughness": 0.95,
+   "specularIntensity": 0.04
+  }
+ },
+ "structures": {
+  "kidney_left": {
+   "group": "kidney",
+   "color": "#5c2a22",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "kidney_right": {
+   "group": "kidney",
+   "color": "#5c2a22",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "kidney_left_corrected": {
+   "group": "kidney",
+   "color": "#5c2a22",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "inferior_vena_cava": {
+   "group": "veins",
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "aorta": {
+   "group": "arteries",
+   "color": "#5a2826",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "portal_vein_and_splenic_vein": {
+   "group": "veins",
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "iliac_artery_left": {
+   "group": "arteries",
+   "color": "#5a2826",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "iliac_artery_right": {
+   "group": "arteries",
+   "color": "#5a2826",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "iliac_vena_left": {
+   "group": "veins",
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "iliac_vena_right": {
+   "group": "veins",
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "adrenal_gland_left": {
+   "group": "adrenal",
+   "color": "#a07a38",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "adrenal_gland_right": {
+   "group": "adrenal",
+   "color": "#a07a38",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "liver": {
+   "group": "liver",
+   "color": "#5e2e25",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.22
+  },
+  "spleen": {
+   "group": "spleen",
+   "color": "#4e2538",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.35
+  },
+  "pancreas": {
+   "group": "pancreas",
+   "color": "#a88a6a",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.55
+  },
+  "duodenum": {
+   "group": "duodenum",
+   "color": "#9c7a6c",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.3
+  },
+  "gallbladder": {
+   "group": "gallbladder",
+   "color": "#435830",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.45
+  },
+  "kidney_cyst_right": {
+   "group": "kidney_cyst",
+   "color": "#cfc393",
+   "roughness": 0.75,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.55
+  },
+  "tumor_left": {
+   "group": "tumor_corpo",
+   "color": "#6c4646",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "tumor": {
+   "group": "tumor_corpo",
+   "color": "#6c4646",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "tumor_corpo": {
+   "group": "tumor_corpo",
+   "color": "#6c4646",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "tumor_projecoes_espiculadas": {
+   "group": "tumor_projecoes_espiculadas",
+   "color": "#744c4a",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "thrombus": {
+   "group": "thrombus",
+   "color": "#4e1a1f",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.1,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "gonadal_vein_left_thrombus": {
+   "group": "thrombus",
+   "color": "#4e1a1f",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.1,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "renal_arteries": {
+   "group": "arteries",
+   "color": "#5a2826",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "renal_veins_other": {
+   "group": "veins",
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "collecting_system": {
+   "group": "collecting_system",
+   "color": "#b8a283",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "collecting_system_right": {
+   "group": "collecting_system",
+   "color": "#b8a283",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "spine": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "sacrum": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "ureter_right": {
+   "group": "ureter",
+   "color": "#b09280",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "ureter_left_trajetoria_estimada": {
+   "group": "ureter",
+   "color": "#b09280",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.6,
+   "note": "estimated path; keep dashed"
+  },
+  "gonadal_vein_left": {
+   "group": "veins",
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "stomach": {
+   "group": "other",
+   "color": "#8e6a62",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.08,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.2
+  },
+  "colon": {
+   "group": "other",
+   "color": "#8c7258",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.08,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.2
+  },
+  "small_bowel": {
+   "group": "other",
+   "color": "#98766a",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.08,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.2
+  },
+  "iliopsoas_left": {
+   "group": "other",
+   "color": "#6e3029",
+   "roughness": 0.95,
+   "metalness": 0.0,
+   "specularIntensity": 0.08,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "iliopsoas_right": {
+   "group": "other",
+   "color": "#6e3029",
+   "roughness": 0.95,
+   "metalness": 0.0,
+   "specularIntensity": 0.08,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "arterial_tree": {
+   "group": "arteries",
+   "color": "#5a2826",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "venous_tree": {
+   "group": "veins",
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "vertebrae_T11": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "vertebrae_T12": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "vertebrae_L1": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "vertebrae_L2": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "vertebrae_L3": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "vertebrae_L4": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  },
+  "vertebrae_L5": {
+   "group": "bone",
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "clearcoat": 0.0,
+   "sheen": 0.0,
+   "transmission": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0
+  }
+ },
+ "materials": {
+  "tumor_corpo": {
+   "match_node_name_contains": [
+    "tumor_corpo",
+    "tumor_left"
+   ],
+   "color": "#6c4646",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "muted rose-brown flesh; clearly separable from red-brown kidney without magenta 'plastic' look"
+  },
+  "tumor_projecoes_espiculadas": {
+   "match_node_name_contains": [
+    "tumor_projecoes_espiculadas"
+   ],
+   "color": "#744c4a",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "slightly lighter than tumour body so projections read as tumour"
+  },
+  "kidney": {
+   "match_node_name_contains": [
+    "kidney_left",
+    "kidney_right"
+   ],
+   "color": "#5c2a22",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "dark red-brown parenchyma"
+  },
+  "collecting_system": {
+   "match_node_name_contains": [
+    "collecting_system"
+   ],
+   "color": "#b8a283",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "pale tan urothelium"
+  },
+  "kidney_cyst": {
+   "match_node_name_contains": [
+    "kidney_cyst"
+   ],
+   "color": "#cfc393",
+   "roughness": 0.75,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.55,
+   "transparent": true,
+   "depthWrite": false,
+   "flatShading": false,
+   "note": "pale straw, semi-transparent (transparent=true, depthWrite=false)",
+   "ghost_rim": {
+    "enabled": true,
+    "alpha_facing": 0.55,
+    "alpha_grazing": 0.85,
+    "power": 3.0,
+    "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+   }
+  },
+  "arteries": {
+   "match_node_name_contains": [
+    "arterial_tree",
+    "aorta",
+    "iliac_artery",
+    "renal_arter"
+   ],
+   "color": "#5a2826",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "muted arterial red"
+  },
+  "veins": {
+   "match_node_name_contains": [
+    "venous_tree",
+    "vena_cava",
+    "iliac_vena",
+    "renal_vein",
+    "portal_vein",
+    "gonadal_vein_left"
+   ],
+   "color": "#34324a",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "deep blue-purple, matte"
+  },
+  "thrombus": {
+   "match_node_name_contains": [
+    "thrombus"
+   ],
+   "color": "#4e1a1f",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.1,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "dark clot maroon; LOW-CONFIDENCE candidate layers only"
+  },
+  "adrenal": {
+   "match_node_name_contains": [
+    "adrenal"
+   ],
+   "color": "#a07a38",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "ochre-yellow"
+  },
+  "ureter": {
+   "match_node_name_contains": [
+    "ureter"
+   ],
+   "color": "#b09280",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "pale pink-cream"
+  },
+  "liver": {
+   "match_node_name_contains": [
+    "liver"
+   ],
+   "color": "#5e2e25",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.22,
+   "transparent": true,
+   "depthWrite": false,
+   "flatShading": false,
+   "note": "red-brown; ghost (fresnel rim) in overview",
+   "ghost_rim": {
+    "enabled": true,
+    "alpha_facing": 0.22,
+    "alpha_grazing": 0.6799999999999999,
+    "power": 3.0,
+    "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+   }
+  },
+  "spleen": {
+   "match_node_name_contains": [
+    "spleen"
+   ],
+   "color": "#4e2538",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.35,
+   "transparent": true,
+   "depthWrite": false,
+   "flatShading": false,
+   "note": "purple-red; ghost",
+   "ghost_rim": {
+    "enabled": true,
+    "alpha_facing": 0.35,
+    "alpha_grazing": 0.85,
+    "power": 3.0,
+    "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+   }
+  },
+  "pancreas": {
+   "match_node_name_contains": [
+    "pancreas"
+   ],
+   "color": "#a88a6a",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.12,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.55,
+   "transparent": true,
+   "depthWrite": false,
+   "flatShading": false,
+   "note": "pale tan, lobulated",
+   "ghost_rim": {
+    "enabled": true,
+    "alpha_facing": 0.55,
+    "alpha_grazing": 0.85,
+    "power": 3.0,
+    "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+   }
+  },
+  "duodenum": {
+   "match_node_name_contains": [
+    "duodenum"
+   ],
+   "color": "#9c7a6c",
+   "roughness": 0.85,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.3,
+   "transparent": true,
+   "depthWrite": false,
+   "flatShading": false,
+   "note": "pinkish tan; ghost",
+   "ghost_rim": {
+    "enabled": true,
+    "alpha_facing": 0.3,
+    "alpha_grazing": 0.7999999999999999,
+    "power": 3.0,
+    "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+   }
+  },
+  "gallbladder": {
+   "match_node_name_contains": [
+    "gallbladder"
+   ],
+   "color": "#435830",
+   "roughness": 0.8,
+   "metalness": 0.0,
+   "specularIntensity": 0.15,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 0.45,
+   "transparent": true,
+   "depthWrite": false,
+   "flatShading": false,
+   "note": "dark olive green; ghost",
+   "ghost_rim": {
+    "enabled": true,
+    "alpha_facing": 0.45,
+    "alpha_grazing": 0.85,
+    "power": 3.0,
+    "formula": "alpha = mix(alpha_facing, alpha_grazing, pow(1 - |dot(N, V)|, power))"
+   }
+  },
+  "bone": {
+   "match_node_name_contains": [
+    "vertebrae",
+    "rib",
+    "bone"
+   ],
+   "color": "#cbbfa3",
+   "roughness": 0.9,
+   "metalness": 0.0,
+   "specularIntensity": 0.2,
+   "specularColor": "#ffffff",
+   "ior": 1.4,
+   "clearcoat": 0.0,
+   "clearcoatRoughness": 0.0,
+   "sheen": 0.0,
+   "iridescence": 0.0,
+   "transmission": 0.0,
+   "thickness": 0.0,
+   "envMapIntensity": 0.45,
+   "opacity": 1.0,
+   "transparent": false,
+   "depthWrite": true,
+   "flatShading": false,
+   "note": "ivory, matte"
+  }
+ },
+ "micro_detail": {
+  "enabled": true,
+  "type": "tiling tangent-space noise normal map (or triplanar in shader)",
+  "normalScale": [
+   0.08,
+   0.08
+  ],
+  "feature_size_mm": 2.5,
+  "note": "very low; only to break CG smoothness. Omit on iPad if GPU-bound."
+ },
+ "fake_sss_optional": {
+  "method": "wrap lighting + thickness-based back-light (onBeforeCompile) or r18x MeshSSSNodeMaterial",
+  "wrap": 0.25,
+  "scatterColor": "#a0372a",
+  "thicknessPower": 2.0,
+  "thicknessScale": 4.0,
+  "thicknessAmbient": 0.0,
+  "note": "keep subtle; this is what gives tissue its soft light bleed at edges without any specular"
+ },
+ "lighting": {
+  "environment": {
+   "hdri": "Poly Haven photo_studio_loft_hall_1k.hdr (CC0) — low-contrast studio",
+   "loader": "RGBELoader (r169)",
+   "pmrem": "PMREMGenerator.fromEquirectangular",
+   "scene.environment": true,
+   "scene.background": "dark vertical gradient (#07080b -> #17191e), NOT the HDRI",
+   "environmentIntensity_or_envMapIntensity": 0.45,
+   "environmentRotationY_deg": 30
+  },
+  "key": {
+   "type": "DirectionalLight",
+   "intensity": 1.6,
+   "color": "#fff7ee",
+   "position": "camera-relative: up-left (~45° elevation)",
+   "castShadow": true,
+   "shadow": {
+    "type": "PCFSoftShadowMap",
+    "mapSize": 2048,
+    "radius": 6,
+    "bias": -0.0005,
+    "normalBias": 0.6
+   }
+  },
+  "fill": {
+   "type": "HemisphereLight",
+   "skyColor": "#f2f3f7",
+   "groundColor": "#3a3635",
+   "intensity": 0.6
+  },
+  "rim": {
+   "type": "DirectionalLight",
+   "intensity": 0.5,
+   "color": "#f5f7ff",
+   "position": "behind-above",
+   "castShadow": false
+  },
+  "avoid": "PointLight/SpotLight close to the meshes and any RoomEnvironment with bright small emitters (they create hot specular spots)"
+ },
+ "tone_mapping": {
+  "toneMapping": "AgXToneMapping",
+  "toneMappingExposure": 0.9,
+  "alternative": "NeutralToneMapping (Khronos PBR Neutral) when legend colours must match exactly; both are in r169",
+  "avoid": "ACESFilmicToneMapping (shifts saturated reds to orange and adds contrast)"
+ },
+ "ambient_occlusion": {
+  "preferred": "N8AO 2.0.1 (N8AOPass for three EffectComposer)",
+  "aoRadius_mm": 10,
+  "distanceFalloff": 1.0,
+  "intensity": 2.5,
+  "halfRes_on_iPad": true,
+  "fallback": "GTAOPass (vendored) radius 10 mm, render transparent ghosts after AO"
+ },
+ "post": {
+  "bloom": "off (or threshold >= 0.95, strength <= 0.05)",
+  "SMAA": true,
+  "DOF": "presentation only (BokehPass, focus on tumour centroid)"
+ },
+ "references": {
+  "offline_matte_stills": "out/cinematic/v2_matte/blender/*.png",
+  "volume_matte_stills": "out/cinematic/v2_matte/volume/*.png"
+ }
+}

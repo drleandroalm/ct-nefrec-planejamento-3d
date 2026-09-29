@@ -1,0 +1,225 @@
+{
+ "tumor_left": {
+  "v1": {
+   "mean_mm": 0.517,
+   "hd95_mm": 1.623,
+   "dice": 0.983,
+   "triangles": 150000,
+   "bodies": 4
+  },
+  "v2": {
+   "mean_mm": 0.603,
+   "hd95_mm": 1.812,
+   "dice": 0.9787,
+   "triangles": 285084,
+   "bodies": 257
+  }
+ },
+ "tumor_corpo": {
+  "v2": {
+   "mean_mm": 0.657,
+   "hd95_mm": 1.956,
+   "dice": 0.9795,
+   "triangles": 245084,
+   "bodies": 1
+  }
+ },
+ "tumor_projecoes_espiculadas": {
+  "v2": {
+   "mean_mm": 0.27,
+   "hd95_mm": 0.68,
+   "dice": 0.9243,
+   "triangles": 40000,
+   "bodies": 256
+  }
+ },
+ "kidney_left": {
+  "v1": {
+   "mean_mm": 0.566,
+   "hd95_mm": 1.992,
+   "dice": 0.9459,
+   "triangles": 57128,
+   "bodies": 1
+  },
+  "v2": {
+   "mean_mm": 0.256,
+   "hd95_mm": 0.596,
+   "dice": 0.9745,
+   "triangles": 119690,
+   "bodies": 1
+  }
+ },
+ "kidney_right": {
+  "v1": {
+   "mean_mm": 0.29,
+   "hd95_mm": 0.706,
+   "dice": 0.9842,
+   "triangles": 60000,
+   "bodies": 5
+  },
+  "v2": {
+   "mean_mm": 0.307,
+   "hd95_mm": 0.931,
+   "dice": 0.9861,
+   "triangles": 117896,
+   "bodies": 2
+  }
+ },
+ "liver": {
+  "v1": {
+   "mean_mm": 0.313,
+   "hd95_mm": 0.743,
+   "dice": 0.9909,
+   "triangles": 150000,
+   "bodies": 1
+  },
+  "v2": {
+   "mean_mm": 0.289,
+   "hd95_mm": 0.699,
+   "dice": 0.9915,
+   "triangles": 245890,
+   "bodies": 1
+  }
+ },
+ "spleen": {
+  "v1": {
+   "mean_mm": 0.327,
+   "hd95_mm": 0.755,
+   "dice": 0.9823,
+   "triangles": 50000,
+   "bodies": 1
+  },
+  "v2": {
+   "mean_mm": 0.284,
+   "hd95_mm": 0.673,
+   "dice": 0.9843,
+   "triangles": 98124,
+   "bodies": 1
+  }
+ },
+ "arterial_tree": {
+  "v1": {
+   "mean_mm": 0.238,
+   "hd95_mm": 0.655,
+   "dice": 0.975,
+   "triangles": 90000,
+   "bodies": 4
+  },
+  "v2": {
+   "mean_mm": 0.402,
+   "hd95_mm": 0.716,
+   "dice": 0.9637,
+   "triangles": 213808,
+   "bodies": 1
+  }
+ },
+ "venous_tree": {
+  "v1": {
+   "mean_mm": 0.272,
+   "hd95_mm": 0.762,
+   "dice": 0.9706,
+   "triangles": 90000,
+   "bodies": 3
+  },
+  "v2": {
+   "mean_mm": 0.415,
+   "hd95_mm": 1.148,
+   "dice": 0.9515,
+   "triangles": 217504,
+   "bodies": 1
+  }
+ },
+ "collecting_system": {
+  "v1": {
+   "mean_mm": 0.628,
+   "hd95_mm": 2.574,
+   "dice": 0.9092,
+   "triangles": 25000,
+   "bodies": 5
+  },
+  "v2": {
+   "mean_mm": 0.192,
+   "hd95_mm": 0.497,
+   "dice": 0.9705,
+   "triangles": 59846,
+   "bodies": 4
+  }
+ },
+ "collecting_system_right": {
+  "v1": {
+   "mean_mm": 0.301,
+   "hd95_mm": 0.783,
+   "dice": 0.9101,
+   "triangles": 14660,
+   "bodies": 1
+  },
+  "v2": {
+   "mean_mm": 0.199,
+   "hd95_mm": 0.5,
+   "dice": 0.9493,
+   "triangles": 38084,
+   "bodies": 1
+  }
+ },
+ "portal_vein_and_splenic_vein": {
+  "v1": {
+   "mean_mm": 0.279,
+   "hd95_mm": 0.67,
+   "dice": 0.9578,
+   "triangles": 25000,
+   "bodies": 1
+  },
+  "v2": {
+   "mean_mm": 0.224,
+   "hd95_mm": 0.537,
+   "dice": 0.967,
+   "triangles": 58504,
+   "bodies": 1
+  }
+ },
+ "_note": "v1 = BEFORE meshes (out/viewer_assets_gt). Same reference for v1 and v2: unsmoothed MC surface (level 0.5, native grid) of the mask after the v2 component cleanup + hole filling; trees: union of the ORIGINAL raw part masks (incl. the disconnected fragment v2 drops, and without bridges, so v2 junction repair counts as deviation). v1 trees = the 3 separate v1 part meshes concatenated.",
+ "slice_jitter": {
+  "arterial_tree:aorta k150-320": {
+   "excluded_branch_event_triplets": 2,
+   "mask": {
+    "centroid_2nd_diff_rms_mm": 0.309,
+    "radius_2nd_diff_rms_mm": 0.165,
+    "n_slices": 170
+   },
+   "v1": {
+    "centroid_2nd_diff_rms_mm": 0.135,
+    "radius_2nd_diff_rms_mm": 0.069,
+    "n_slices": 170
+   },
+   "v2": {
+    "centroid_2nd_diff_rms_mm": 0.096,
+    "radius_2nd_diff_rms_mm": 0.043,
+    "n_slices": 170
+   }
+  },
+  "venous_tree:inferior_vena_cava k145-260": {
+   "excluded_branch_event_triplets": 0,
+   "mask": {
+    "centroid_2nd_diff_rms_mm": 0.422,
+    "radius_2nd_diff_rms_mm": 0.231,
+    "n_slices": 115
+   },
+   "v1": {
+    "centroid_2nd_diff_rms_mm": 0.208,
+    "radius_2nd_diff_rms_mm": 0.107,
+    "n_slices": 115
+   },
+   "v2": {
+    "centroid_2nd_diff_rms_mm": 0.111,
+    "radius_2nd_diff_rms_mm": 0.061,
+    "n_slices": 115
+   }
+  }
+ },
+ "slice_jitter_note": "RMS of the second difference (slice k-1, k, k+1; 1.5 mm spacing) of the axial cross-section centroid and equivalent radius along the aorta / IVC: mask (largest 2-D component per slice) vs v1 part mesh vs v2 tree mesh. Lower = less slice-to-slice jitter.",
+ "tree_overlap": {
+  "v2_arterial_x_venous_mesh_overlap_ml": 0.099,
+  "original_masks_overlap_ml": 0.088,
+  "note": "voxels (native grid) inside both LOD0 tree meshes; interpenetration of the two trees"
+ }
+}

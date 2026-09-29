@@ -1,0 +1,112 @@
+{
+ "schema": "nefrec-viewer-assets/1 (subset: ureter_gonadal)",
+ "disclaimer": {
+  "disclaimer_pt": "Saída de IA/semi-automática — não diagnóstica; uso educacional / planejamento cirúrgico; conferir na TC.",
+  "disclaimer_en": "AI / semi-automatic output — not diagnostic; educational / surgical-planning use; verify against CT.",
+  "generator": "ct-nefrec/ureter_gonadal/s08_mesh_glb.py"
+ },
+ "coordinate_convention": {
+  "name": "ras_yup",
+  "description": "glTF = (x, z, -y) of NIfTI RAS mm, minus centre_offset_gltf_mm; +X patient right, +Y superior, +Z posterior (Y-up, right-handed, never mirrored)",
+  "units": "mm",
+  "centre_offset_gltf_mm": [
+   -22.417094440597396,
+   -653.0798635095184,
+   -108.08947155915854
+  ],
+  "to_ras": "RAS = (X + ox, -(Z + oz), Y + oy) where (ox,oy,oz) = centre_offset_gltf_mm",
+  "same_as": "out/glb/nefrec_surgical_fused.glb / out/viewer_assets"
+ },
+ "mesh_method": "Smooth meshes + GLB following the viewer asset contract (out/viewer_assets/build_viewer_assets.py; imported read-only).\nMesh pipeline per structure: crop -> signed distance field (mm) -> cubic resample to 0.5 mm isotropic -> Gaussian\nanti-aliasing (0.5 mm) -> marching cubes (level 0) -> windowed-sinc smoothing (VTK) -> isotropic explicit remeshing\n(pymeshlab) -> small normal-offset volume correction to the mask volume -> glTF coords (x, z, -y) of RAS mm minus\ncentre_offset_gltf_mm (Y-up).",
+ "structures": {
+  "semiauto_tardia__ureter_right": {
+   "structure": "ureter_right",
+   "extras": {
+    "grupo": "rins_vias_coletoras",
+    "volume_ml": 4.795,
+    "cor": "#f2b705",
+    "fonte": "semiauto_tardia",
+    "confiavel": true
+   },
+   "display_name_pt": "Ureter direito (fase tardia, caminho mínimo + seção transversal)",
+   "mask_file": "out/ureter_gonadal/ureter_right.nii.gz",
+   "volume_ml_mask": 4.793,
+   "triangles": 25082,
+   "vertices": 12543,
+   "watertight": true,
+   "volume_ml": 4.795,
+   "n_bodies": 1,
+   "volume_correction_offset_mm": 0.092
+  },
+  "estimado_caminho_minimo__ureter_left_trajetoria_estimada": {
+   "structure": "ureter_left_trajetoria_estimada",
+   "extras": {
+    "grupo": "opcional_incerto",
+    "volume_ml": 2.224,
+    "cor": "#f2b705",
+    "fonte": "estimado_caminho_minimo",
+    "confiavel": false
+   },
+   "display_name_pt": "Ureter esquerdo — TRAJETÓRIA ESTIMADA (não opacificado; sem evidência tecidual)",
+   "mask_file": "out/ureter_gonadal/ureter_left_trajetoria_estimada.nii.gz",
+   "volume_ml_mask": 2.224,
+   "triangles": 15566,
+   "vertices": 7785,
+   "watertight": true,
+   "volume_ml": 2.224,
+   "n_bodies": 1,
+   "volume_correction_offset_mm": 0.115
+  },
+  "semiauto_venosa__gonadal_vein_left": {
+   "structure": "gonadal_vein_left",
+   "extras": {
+    "grupo": "veias",
+    "volume_ml": 14.82,
+    "cor": "#3f6fd8",
+    "fonte": "semiauto_venosa",
+    "confiavel": true
+   },
+   "display_name_pt": "Veia gonadal esquerda — luz patente",
+   "mask_file": "out/ureter_gonadal/gonadal_vein_left.nii.gz",
+   "volume_ml_mask": 14.822,
+   "triangles": 42584,
+   "vertices": 21300,
+   "watertight": true,
+   "volume_ml": 14.82,
+   "n_bodies": 4,
+   "volume_correction_offset_mm": 0.058
+  },
+  "semiauto_venosa__gonadal_vein_left_thrombus": {
+   "structure": "gonadal_vein_left_thrombus",
+   "extras": {
+    "grupo": "veias",
+    "volume_ml": 0.936,
+    "cor": "#5b2a86",
+    "fonte": "semiauto_venosa",
+    "confiavel": false
+   },
+   "display_name_pt": "Trombo na veia gonadal esquerda (defeito de enchimento; natureza indeterminada)",
+   "mask_file": "out/ureter_gonadal/gonadal_vein_left_thrombus.nii.gz",
+   "volume_ml_mask": 0.936,
+   "triangles": 6914,
+   "vertices": 3459,
+   "watertight": true,
+   "volume_ml": 0.936,
+   "n_bodies": 2,
+   "volume_correction_offset_mm": 0.103
+  }
+ },
+ "glb_verification": {
+  "file": "ureter_gonadal.glb",
+  "nodes": 4,
+  "meshes": 4,
+  "extensionsUsed": [],
+  "node_names_equal_mesh_names": true,
+  "problems": [],
+  "ok": true
+ },
+ "not_built": {
+  "gonadal_artery_left": "não identificada de forma confiável na fase arterial (ver metrics_ureter_gonadal.json)",
+  "ureter_left (segmentação)": "não opacificado; apenas trajetória estimada (opcional_incerto, confiavel=false)"
+ }
+}
