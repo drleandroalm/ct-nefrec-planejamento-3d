@@ -2,24 +2,83 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>Visualizador v2 — em breve</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>Nefrec · Planejamento cirúrgico 3D</title>
   <link rel="icon" href="data:," />
-  <style>
-    body { margin:0; min-height:100vh; display:flex; flex-direction:column; background:#0b0f16; color:#e6edf5; font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-    .disc { background:#3a2a0d; color:#ffe2b0; padding:10px 18px; font-weight:600; text-align:center; }
-    main { margin:auto; max-width:620px; padding:32px 20px; text-align:center; }
-    h1 { font-size:1.7rem; margin:0 0 10px; } p { color:#9fb0c3; } a { color:#3ed6c6; font-weight:600; }
-  </style>
+  <link rel="stylesheet" href="css/app.css" />
+  <script type="importmap">
+  { "imports": {
+      "three": "./vendor/three/three.module.js",
+      "three/addons/": "./vendor/three/addons/",
+      "three-mesh-bvh": "./vendor/three-mesh-bvh/index.module.js",
+      "three-gpu-pathtracer": "./vendor/three-gpu-pathtracer/index.module.js" } }
+  </script>
 </head>
 <body>
-  <div class="disc" role="alert">⚠ Segmentação automática por IA — uso educacional/planejamento, não diagnóstico; validar com radiologista. Material educacional: não é laudo.</div>
-  <main>
-    <h1>Visualizador v2 em finalização — em breve</h1>
-    <p>A nova cena cirúrgica 3D está nos ajustes finais e será publicada aqui em uma próxima atualização.</p>
-    <p>Esta versão pública contém somente dados derivados (malhas 3D e métricas); imagens da TC não são publicadas.</p>
-    <p><a href="../v1/">Abrir o visualizador v1</a> · <a href="../">Voltar ao início</a></p>
-  </main>
+  <div id="splash" class="splash" role="status" aria-live="polite">
+    <div class="splash-card">
+      <div class="logo-ring" aria-hidden="true"></div>
+      <h1>Nefrec <span>Planejamento cirúrgico 3D</span></h1>
+      <div class="bar"><i id="splashBar"></i></div>
+      <p id="splashMsg">Iniciando…</p>
+      <p class="splash-disc">Material educacional — não é diagnóstico nem laudo.</p>
+    </div>
+  </div>
+
+  <div id="app" class="app">
+    <header class="topbar">
+      <button id="btnLeft" class="icon-btn only-narrow" aria-label="Estruturas" title="Estruturas">☰</button>
+      <div class="brand"><span class="dot"></span><b>Nefrec</b><span class="muted hide-sm">· Planejamento cirúrgico · TC multifásica anonimizada</span></div>
+      <div class="seg" role="tablist" aria-label="Layout">
+        <button id="lay3d" class="on" role="tab" title="Somente 3D">3D</button>
+        <button id="laySplit" role="tab" title="3D com MPR 2D sincronizado (tecla M)">3D + MPR</button>
+      </div>
+      <div class="top-actions">
+        <button id="btnPalette" class="btn ghost" title="Buscar estruturas, vistas e ações (Ctrl/⌘ K)"><span>Buscar</span><kbd class="hide-sm">⌘K</kbd></button>
+        <button id="btnPT" class="btn ghost" title="Path tracing progressivo com a câmera parada — materiais foscos, luz HDRI (tecla R)" aria-pressed="false">Path tracing</button>
+        <button id="btnShot" class="btn" title="Captura em alta resolução com aviso (tecla P)">Captura</button>
+        <button id="btnHelp" class="icon-btn" title="Atalhos (?)" aria-label="Atalhos">?</button>
+        <button id="btnRight" class="icon-btn only-narrow" aria-label="Relações e cortes" title="Relações e cortes">⟂</button>
+      </div>
+    </header>
+
+    <aside id="left" class="panel left" aria-label="Estruturas"></aside>
+
+    <main id="center" class="center">
+      <section id="stageWrap" class="stage-wrap">
+        <div id="stage" class="stage"></div>
+        <div id="orient" class="orient" aria-live="polite"></div>
+        <svg id="gizmo" class="gizmo" viewBox="-50 -50 100 100" aria-label="Orientação"></svg>
+        <div id="badges" class="stage-badges"></div>
+        <nav id="views" class="dock" aria-label="Vistas"></nav>
+        <div id="tooltip" class="tooltip" hidden></div>
+      </section>
+      <section id="mprWrap" class="mpr-wrap" hidden>
+        <div class="mpr-bar">
+          <b>MPR 2D</b><span class="muted">convenção radiológica: lado esquerdo da imagem = direita do paciente (R)</span>
+          <span class="spacer"></span>
+          <label class="sel">Fase <select id="mprPhase"></select></label>
+          <span id="mprWarn" class="warn" hidden></span>
+          <span id="mprLeo" class="mono muted"></span><span id="mprPos" class="mono muted"></span>
+        </div>
+        <canvas id="mprCanvas"></canvas>
+      </section>
+    </main>
+
+    <aside id="right" class="panel right" aria-label="Relações e cortes"></aside>
+
+    <footer class="disclaimer" role="note">
+      <b>Material educacional — não é diagnóstico nem laudo.</b>
+      <span>Segmentações por IA e desenho manual preliminar; valores medidos das máscaras com a fonte indicada. Decisões clínicas exigem revisão por especialista.</span>
+    </footer>
+  </div>
+  <div id="scrim" class="scrim" hidden></div>
+  <div id="palette" class="palette" hidden role="dialog" aria-modal="true" aria-label="Buscar">
+    <div class="pal-box"><input id="palInput" type="search" placeholder="Estrutura, vista ou ação…" autocomplete="off" /><ul id="palList" role="listbox"></ul><div class="pal-foot">↑↓ navegar · Enter executar · Esc fechar</div></div>
+  </div>
+  <div id="help" class="help" hidden role="dialog" aria-modal="true" aria-label="Atalhos"></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
