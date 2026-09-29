@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Galeria cinematográfica — TC Nefrec (material educacional)</title>
+  <link rel="icon" href="data:," />
+  <style>
+    :root { --bg:#0b0f16; --card:#141b26; --line:#243042; --tx:#e6edf5; --mu:#9fb0c3; --ac:#3ed6c6; --warn:#ffb74d; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--tx); }
+    .disc { background:#3a2a0d; color:#ffe2b0; border-bottom:1px solid #6b4b12; padding:10px 18px; font-weight:600; text-align:center; }
+    main { max-width:1240px; margin:0 auto; padding:24px 18px 60px; }
+    a { color:var(--ac); } .back { text-decoration:none; font-weight:600; }
+    h1 { font-size:1.8rem; margin:.4em 0 .1em; } h1 small { display:block; font-size:1rem; color:var(--mu); font-weight:400; margin-top:6px; }
+    h2 { font-size:1.2rem; margin:30px 0 12px; }
+    .intro { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 18px; margin-top:16px; color:var(--mu); font-size:.95rem; }
+    .intro li { margin:.2em 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:18px; }
+    figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+    figure button.abrir { all:unset; cursor:zoom-in; display:block; background:#000; }
+    figure button.abrir:focus-visible { outline:2px solid var(--ac); outline-offset:-2px; }
+    figure img, figure video { display:block; width:100%; height:auto; background:#000; }
+    figcaption { padding:12px 14px 14px; font-size:.92rem; color:var(--mu); }
+    figcaption b { color:var(--tx); display:block; margin-bottom:3px; font-size:1rem; }
+    .rotulo { display:block; margin-top:8px; color:var(--warn); font-size:.82rem; font-weight:600; }
+    .video { max-width:1100px; }
+    dialog { border:1px solid var(--line); border-radius:12px; background:#05080d; color:var(--tx); padding:0; max-width:96vw; max-height:96vh; }
+    dialog::backdrop { background:rgba(0,0,0,.8); }
+    dialog img { display:block; max-width:94vw; max-height:80vh; width:auto; height:auto; margin:0 auto; }
+    dialog .cap { padding:10px 16px 14px; color:var(--mu); font-size:.92rem; max-width:94vw; }
+    dialog .cap b { color:var(--tx); }
+    dialog .fechar { position:absolute; top:8px; right:10px; background:#141b26cc; color:var(--tx); border:1px solid var(--line); border-radius:8px; padding:4px 10px; cursor:pointer; font-size:1rem; }
+    footer { color:var(--mu); font-size:.85rem; margin-top:30px; }
+  </style>
+</head>
+<body>
+  <div class="disc" role="alert">⚠ Render ilustrativo das malhas segmentadas — educacional, não diagnóstico. Segmentação automática por IA revisada pelo cirurgião — não é laudo nem orientação clínica.</div>
+  <main>
+    <a class="back" href="../">← Início</a>
+    <h1>Galeria cinematográfica
+      <small>Renders fotorrealistas (Blender Cycles, material fosco) das malhas 3D segmentadas · nefrectomia esquerda · caso único</small></h1>
+    <div class="intro" role="note">
+      <ul>
+        <li>Todas as imagens e o vídeo desta página são <b>renders das malhas 3D</b> (superfícies derivadas da segmentação). Nenhuma imagem é corte, projeção ou render do volume da tomografia — esses não são publicados.</li>
+        <li>As cores são convencionais (artéria vermelho-escura, veia azul-ardósia, tumor rosa-acastanhado) e não representam realce nem histologia.</li>
+        <li>As projeções espiculadas do tumor foram suavizadas só para visualização; a malha de origem não foi alterada. Pequenas ilhas soltas de segmentação podem aparecer.</li>
+        <li>Nenhuma medida nova foi calculada para estas imagens.</li>
+      </ul>
+    </div>
+
+    <h2>Giro de 360°</h2>
+    <figure class="video" id="figVideo">
+      <video id="giro" controls muted loop playsinline preload="metadata" poster="video/giro_360_poster.jpg" width="1920" height="1080">
+        <source src="video/giro_360.mp4" type="video/mp4" />
+        Seu navegador não reproduz vídeo MP4 (H.264).
+      </video>
+      <figcaption><b>Giro de 360°</b>Giro de 360° das malhas (mesma cena da vista anterior: fígado, vesícula biliar e duodeno ocultos), 10 s.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+    </figure>
+
+    <h2>Blender Cycles — material fosco</h2>
+    <div class="grid">
+      <figure id="fig-anterior_contexto">
+        <button class="abrir" type="button" data-full="img/anterior_contexto.jpg" aria-label="Ampliar: Vista anterior — contexto"><img src="img/anterior_contexto_mini.jpg" alt="Vista anterior — contexto — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Vista anterior — contexto</b>Vista anterior com todas as estruturas opacas, incluindo o fígado.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-anterior">
+        <button class="abrir" type="button" data-full="img/anterior.jpg" aria-label="Ampliar: Vista anterior"><img src="img/anterior_mini.jpg" alt="Vista anterior — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Vista anterior</b>Vista anterior com fígado, vesícula biliar e duodeno ocultos.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-flanco_esquerdo">
+        <button class="abrir" type="button" data-full="img/flanco_esquerdo.jpg" aria-label="Ampliar: Flanco esquerdo"><img src="img/flanco_esquerdo_mini.jpg" alt="Flanco esquerdo — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Flanco esquerdo</b>Flanco esquerdo (visão do cirurgião), fígado oculto. Tumor com corpo e projeções espiculadas, estas suavizadas só para visualização.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-flanco_esquerdo_sem_projecoes">
+        <button class="abrir" type="button" data-full="img/flanco_esquerdo_sem_projecoes.jpg" aria-label="Ampliar: Flanco esquerdo — sem projeções"><img src="img/flanco_esquerdo_sem_projecoes_mini.jpg" alt="Flanco esquerdo — sem projeções — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Flanco esquerdo — sem projeções</b>Mesma vista do flanco esquerdo com as projeções espiculadas do tumor ocultas (somente o corpo do tumor).<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-hilo">
+        <button class="abrir" type="button" data-full="img/hilo.jpg" aria-label="Ampliar: Oblíqua da região hilar"><img src="img/hilo_mini.jpg" alt="Oblíqua da região hilar — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Oblíqua da região hilar</b>Oblíqua ântero-inferior esquerda (região hilar), com fígado e duodeno ocultos.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-closeup_tumor">
+        <button class="abrir" type="button" data-full="img/closeup_tumor.jpg" aria-label="Ampliar: Close-up do tumor"><img src="img/closeup_tumor_mini.jpg" alt="Close-up do tumor — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Close-up do tumor</b>Close-up do tumor (polo inferior e projeções espiculadas suavizadas), fígado oculto.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-closeup_tumor_sem_projecoes">
+        <button class="abrir" type="button" data-full="img/closeup_tumor_sem_projecoes.jpg" aria-label="Ampliar: Close-up do tumor — sem projeções"><img src="img/closeup_tumor_sem_projecoes_mini.jpg" alt="Close-up do tumor — sem projeções — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Close-up do tumor — sem projeções</b>Mesmo close-up com as projeções espiculadas ocultas (somente o corpo do tumor).<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-corte_coronal_malhas">
+        <button class="abrir" type="button" data-full="img/corte_coronal_malhas.jpg" aria-label="Ampliar: Corte coronal das malhas"><img src="img/corte_coronal_malhas_mini.jpg" alt="Corte coronal das malhas — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Corte coronal das malhas</b>Corte booleano das MALHAS por um plano coronal no centroide do tumor + 2 mm; estruturas anteriores ao plano removidas; fígado e duodeno ocultos. Não é um corte da tomografia.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+      <figure id="fig-posterior">
+        <button class="abrir" type="button" data-full="img/posterior.jpg" aria-label="Ampliar: Vista posterior"><img src="img/posterior_mini.jpg" alt="Vista posterior — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="450" /></button>
+        <figcaption><b>Vista posterior</b>Vista posterior. O rim esquerdo do modelo do cirurgião foi desenhado só no polo superior e aparece acima do tumor.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+    </div>
+
+    <h2>Comparação de material</h2>
+    <div class="grid">
+      <figure id="fig-material_v1_vs_v2">
+        <button class="abrir" type="button" data-full="img/material_v1_vs_v2.jpg" aria-label="Ampliar: Material brilhante (v1) × fosco (v2)"><img src="img/material_v1_vs_v2_mini.jpg" alt="Material brilhante (v1) × fosco (v2) — Render ilustrativo das malhas segmentadas — educacional, não diagnóstico" loading="lazy" width="800" height="497" /></button>
+        <figcaption><b>Material brilhante (v1) × fosco (v2)</b>Mesmas malhas v2 nas vistas anterior e flanco esquerdo: à esquerda o material brilhante do v1, à direita o material fosco do v2. Só o material e a iluminação mudam; o enquadramento do v1 difere ligeiramente.<span class="rotulo">Render ilustrativo das malhas segmentadas — educacional, não diagnóstico</span></figcaption>
+      </figure>
+    </div>
+
+    <footer>
+      Renders gerados a partir das malhas publicadas neste site. Código sob licença MIT; imagens apenas para fins educacionais.
+      <br /><a href="../">← Voltar ao início</a> · <a href="../v1/">Visualizador v1</a> · <a href="../v2/">Visualizador v2</a>
+    </footer>
+  </main>
+
+  <dialog id="ver" aria-label="Imagem ampliada">
+    <button class="fechar" type="button" aria-label="Fechar">✕</button>
+    <img id="verImg" alt="" />
+    <div class="cap" id="verCap"></div>
+  </dialog>
+  <script>
+    (() => {
+      const dlg = document.getElementById('ver'), img = document.getElementById('verImg'), cap = document.getElementById('verCap');
+      document.querySelectorAll('button.abrir').forEach((b) => b.addEventListener('click', () => {
+        const fig = b.closest('figure');
+        img.src = b.dataset.full; img.alt = b.querySelector('img').alt;
+        cap.innerHTML = fig.querySelector('figcaption').innerHTML;
+        dlg.showModal();
+      }));
+      dlg.querySelector('.fechar').addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('close', () => { img.removeAttribute('src'); });
+    })();
+  </script>
+</body>
+</html>

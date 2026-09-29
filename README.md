@@ -13,16 +13,17 @@ modelos de IA, fundidas por consenso e revisadas/corrigidas manualmente pelo cir
 |---|---|
 | `/` | Página inicial (pt-BR), aviso educacional e política de dados |
 | `/v1/` | Visualizador v1: **3D (GLB)** com distâncias do tumor e planos de corte, **comparação entre modelos** (malhas + métricas Dice/HD95) e **arquivos e status**. As abas de cortes 2D e de volume 3D (WebGPU) ficam desativadas nesta versão, porque dependem das imagens da TC |
-| `/v2/` | Visualizador v2 (cena cirúrgica 3D) — página provisória até a versão final ficar pronta |
+| `/v2/` | Visualizador v2: cena cirúrgica 3D (material fosco, vistas cirúrgicas, relações anatômicas, busca de estruturas). Somente malhas; o MPR/cortes da TC fica desativado nesta versão |
+| `/galeria/` | **Galeria cinematográfica:** renders do Blender (Cycles, material fosco) das malhas 3D e um giro de 360° em vídeo (MP4 H.264). Render ilustrativo das malhas segmentadas — educacional, não diagnóstico |
 
 ## Política de dados
 
 Este repositório e o site publicado contêm **somente dados derivados**:
 
 - ✅ Permitido: malhas 3D (`.glb`, algumas comprimidas com meshopt e publicadas como `.glb.gz`), manifestos e métricas em
-  JSON, relatórios de QA em texto/Markdown e imagens **renderizadas das malhas 3D**.
+  JSON, relatórios de QA em texto/Markdown e imagens/vídeo **renderizados das malhas 3D** (sem EXIF/XMP/metadados).
 - ❌ **Nenhum dado de imagem da TC**, de nenhum tipo: nada de DICOM, NIfTI, NRRD/MHA, volumes ou recortes brutos
-  (`.raw`/`.bin`), nem cortes ou renderizações de cortes da tomografia (PNG/JPG).
+  (`.raw`/`.bin`), nem cortes, renders do volume da tomografia ou imagens tipo DRR (PNG/JPG/vídeo).
 - ❌ **Nenhuma máscara NIfTI.** Mapas de rótulos só seriam aceitos como `.raw` sem cabeçalho, se indispensáveis e
   explicitamente liberados, com JSON de ids inteiros — hoje **não há nenhum**.
 - ❌ Nenhum dado de identificação (nome, data de nascimento, prontuário, número de acesso, instituição, data do exame,
@@ -32,7 +33,9 @@ Cada publicação é montada por uma **allowlist** (só entram os tipos permitid
 estrita** antes do envio, que interrompe a publicação se encontrar: extensões de imagem médica; conteúdo com aparência de
 volume de TC (assinaturas NIfTI/DICOM/NRRD, tamanho compatível com as dimensões do exame, histograma típico de TC, texturas
 em GLB, imagens com aparência de corte de TC); endereços locais ou caminhos absolutos; datas/IDs/nomes em nomes de arquivo;
-arquivos acima de 95 MB; e os valores de identificação do DICOM original (comparados localmente, nunca gravados nem exibidos).
+arquivos acima de 95 MB; datas e horários em textos, JSON e metadados; metadados embutidos em imagens e vídeos (EXIF/XMP,
+chunks de texto do PNG, `creation_time` do MP4); qualquer imagem ou vídeo que não tenha revisão visual registrada (pinada pelo
+sha1 do arquivo); e os valores de identificação do DICOM original (comparados localmente, nunca gravados nem exibidos).
 
 Os cortes da TC e o volume 3D ficam disponíveis apenas na versão local do visualizador.
 
@@ -55,7 +58,8 @@ Abrir `index.html` direto do disco não funciona (módulos ES e `fetch`). Requis
 site_publico/          site publicado (commitado como está; o workflow não faz build)
   index.html           página inicial
   v1/                  visualizador v1 (código + three.js em vendor/) e manifesto congelado
-  v2/                  visualizador v2 (página provisória por enquanto)
+  v2/                  visualizador v2 (cópia byte a byte de uma release congelada, com hash conferido)
+  galeria/             galeria cinematográfica: index.html, img/*.jpg (renders das malhas) e video/*.mp4
   dados/               somente dados derivados: GLB, JSON, QA em texto, renders das malhas
 .github/workflows/     pages.yml (actions/upload-pages-artifact + actions/deploy-pages)
 ```
@@ -82,6 +86,6 @@ cirúrgica. Segmentações automáticas podem errar; volumes e distâncias são 
   [meshoptimizer](https://github.com/zeux/meshoptimizer) — MIT.
 - Ferramentas do pipeline (não incluídas; consulte a licença de cada projeto — alguns pesos são de uso não comercial):
   [TotalSegmentator](https://github.com/wasserth/TotalSegmentator), [MONAI](https://monai.io/) e MONAI Model Zoo, VISTA3D,
-  UNesT, [nnInteractive](https://github.com/MIC-DKFZ/nnInteractive), SAM-Med3D, [trimesh](https://trimesh.org/), pymeshlab,
+  UNesT, [nnInteractive](https://github.com/MIC-DKFZ/nnInteractive), SAM-Med3D, [trimesh](https://trimesh.org/), pymeshlab, [Blender](https://www.blender.org/) (Cycles, renders da galeria), FFmpeg/x264,
   [gltfpack/meshoptimizer](https://github.com/zeux/meshoptimizer), SimpleITK, scikit-image, SciPy, PyTorch, matplotlib.
 - Autor: Leo ([@drleandroalm](https://github.com/drleandroalm)), cirurgião — revisão anatômica e “GT do Leo”.
